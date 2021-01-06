@@ -59,7 +59,7 @@ class player(object):
         self.standCount = 0
         self.runCount = 0
         self.y_momentum = 0
-
+        self.movement = [0,0]
     def draw(self, window):
         if self.walkCount + 1 >= 25:
             self.walkCount = 0
@@ -92,22 +92,22 @@ def collision_test(rect, tiles):
 
 def move(rect, movement, tiles):
     collision_types = {'top': False, 'bottom': False, 'right': False, 'left': False}
-    rect.x += movement[0]
+    rect.x += Steve.Pos_x
     hit_list = collision_test(rect, tiles)
     for tile in hit_list:
-        if movement[0] > 0:
+        if Steve.Pos_x > 0:
             rect.right = tile.left
             collision_types['right'] = True
-        elif movement[0] < 0:
+        elif Steve.Pos_x < 0:
             rect.left = tile.right
             collision_types['left'] = True
-    rect.y += movement[1]
+    rect.y += Steve.Pos_y
     hit_list = collision_test(rect, tiles)
     for tile in hit_list:
-        if movement[1] > 0:
+        if Steve.Pos_y > 0:
             rect.bottom = tile.top
             collision_types['bottom'] = True
-        elif movement[1] < 0:
+        elif Steve.Pos_y < 0:
             rect.top = tile.bottom
             collision_types['top'] = True
     return rect, collision_types
@@ -135,8 +135,6 @@ while run:
                 tile_rects.append(pygame.Rect(x * 40, y * 40, 40, 40))
             x += 1
         y += 1
-
-
 
     movement = [0, 0]
     if Steve.left_walk:
