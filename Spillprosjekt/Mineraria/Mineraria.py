@@ -1,6 +1,7 @@
 
 #Mineraria Programmering og Modelering Spill
 
+
 import pygame #Importerer pygame bibliotek
 
 pygame.init()
@@ -10,11 +11,11 @@ map = [["0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0",
        ["0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0"],
        ["0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0"],
        ["0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0"],
-       ["0","0","0","0","0","0","0","1","1","1","1","1","0","0","0","0","0","0","0"],
-       ["0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0"],
+       ["0","0","0","0","0","0","0","0","2","2","2","0","0","0","0","0","0","0","0"],
+       ["0","0","0","0","0","0","0","2","1","1","1","2","0","0","0","0","0","0","0"],
        ["2","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0"],
-       ["1","2","2","2","0","0","0","0","0","0","0","0","0","0","0","0","0","0","2"],
-       ["1","1","1","1","2","2","0","0","0","0","0","0","0","0","2","2","2","2","1"],
+       ["1","2","2","2","2","2","0","0","0","0","0","0","0","0","0","0","0","0","2"],
+       ["1","1","1","1","1","1","0","0","0","0","0","0","0","0","2","2","2","2","1"],
        ["1","1","1","1","1","1","2","2","2","2","2","2","2","2","1","1","1","1","1"],
        ["1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1"],
        ["1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1"]]
@@ -41,47 +42,14 @@ pygame.display.set_caption("Mineraria") #Barnavnet
 
 clock = pygame.time.Clock()
 
-class player(object):
-    def __init__(self, Pos_x, Pos_y, width_char, height_char):
-        self.Pos_x = Pos_x
-        self.Pos_y = Pos_y
-        self.width_char = width_char
-        self.height_char = height_char
-        self.velocity_run = 10
-        self.velocity_walk = 3
-        self.isJump = False
-        self.jumpCount = 7
-        self.left_walk = False
-        self.right_walk = False
-        self.right_run = False
-        self.left_run = False
-        self.walkCount = 0
-        self.standCount = 0
-        self.runCount = 0
-        self.y_momentum = 0
-        self.movement = [0,0]
-    def draw(self, window):
-        if self.walkCount + 1 >= 25:
-            self.walkCount = 0
-        if self.standCount + 1 >= 25:
-            self.standCount = 0
-        if self.runCount + 1 >= 25:
-            self.runCount = 0
-        if self.left_walk:
-            window.blit(walkLeft[self.walkCount//1], (self.Pos_x, self.Pos_y))
-            self.walkCount += 1
-        elif self.right_walk:
-            window.blit(walkRight[self.walkCount//1], (self.Pos_x, self.Pos_y))
-            self.walkCount += 1
-        elif self.left_run:
-            window.blit(runLeft[self.runCount//1], (self.Pos_x, self.Pos_y))
-            self.runCount += 1
-        elif self.right_run:
-            window.blit(runRight[self.runCount//1], (self.Pos_x, self.Pos_y))
-            self.runCount += 1
-        else:
-            window.blit(Idle[self.standCount//1], (self.Pos_x, self.Pos_y))
-            self.standCount += 1
+#Character:
+
+width_char = 100
+height_char = 95
+walkCount = 0
+standCount = 0
+runCount = 0
+
 
 def collision_test(rect, tiles):
     hit_list = []
@@ -91,79 +59,110 @@ def collision_test(rect, tiles):
     return hit_list
 
 def move(rect, movement, tiles):
-    collision_types = {'top': False, 'bottom': False, 'right': False, 'left': False}
-    rect.x += Steve.Pos_x
+    collision_types = {"top": False, "bottom": False, "right": False, "left": False}
+    rect.x += movement[0]
     hit_list = collision_test(rect, tiles)
     for tile in hit_list:
-        if Steve.Pos_x > 0:
+        if movement[0] > 0:
             rect.right = tile.left
-            collision_types['right'] = True
-        elif Steve.Pos_x < 0:
+            collision_types["right"] = True
+        elif movement[0] < 0:
             rect.left = tile.right
-            collision_types['left'] = True
-    rect.y += Steve.Pos_y
+            collision_types["left"] = True
+    rect.y += movement[1]
     hit_list = collision_test(rect, tiles)
     for tile in hit_list:
-        if Steve.Pos_y > 0:
+        if movement[1] > 0:
             rect.bottom = tile.top
-            collision_types['bottom'] = True
-        elif Steve.Pos_y < 0:
+            collision_types["bottom"] = True
+        elif movement[1] < 0:
             rect.top = tile.bottom
-            collision_types['top'] = True
+            collision_types["top"] = True
     return rect, collision_types
 
+left_walk = False
+right_walk = False
+right_run = False
+left_run = False
+Idle_stand = False
+Jump = False
 
-#mainloop
-Steve = player(50, 20, 100, 100)
-Char_rect = pygame.Rect(Steve.Pos_x, Steve.Pos_y, Steve.width_char, Steve.height_char)
+player_y_momentum = 0
+air_timer = 0
 
-run = True
-
-while run:
-    clock.tick(25)
-    window.blit(bg, (0,0))
-    tile_rects = []
+def drawGameMap():
     y = 0
     for row in map:
         x = 0
         for tile in row:
-            if tile == "1":
+            if tile == '1':
                 window.blit(dirt, (x * 40, y * 40))
-            if tile == "2":
+            if tile == '2':
                 window.blit(grass, (x * 40, y * 40))
-            if tile != "0":
+            if tile != '0':
                 tile_rects.append(pygame.Rect(x * 40, y * 40, 40, 40))
             x += 1
         y += 1
 
-    movement = [0, 0]
-    if Steve.left_walk:
-        movement[0] -= Steve.velocity_walk
-        Steve.Pos_x -= Steve.velocity_walk
-    if Steve.right_walk:
-        movement[0] += Steve.velocity_walk
-        Steve.Pos_x += Steve.velocity_walk
-    if Steve.left_run:
-        movement[0] -= Steve.velocity_run
-        Steve.Pos_x -= Steve.velocity_run
-    if Steve.right_run:
-        movement[0] += Steve.velocity_run
-        Steve.Pos_x += Steve.velocity_run
 
-    Steve.Pos_y += Steve.y_momentum
-    movement[1] += Steve.y_momentum
-    if Steve.y_momentum > 3:
-        Steve.y_momentum = 9
+player_rect = pygame.Rect(50, 50, width_char-40, height_char)
 
-    if Steve.Pos_y > window_size[1] - Steve.height_char:
-        Steve.y_momentum = -Steve.y_momentum
+run = True
+
+while run:
+
+    clock.tick(30) #Bilder per sekund
+    window.blit(bg, (0,0))
+    tile_rects = []
+    drawGameMap()
+
+    player_movement = [0, 0]
+    if right_walk:
+        player_movement[0] += 3
+    if left_walk:
+        player_movement[0] -= 3
+    if right_run:
+        player_movement[0] += 7
+    if left_run:
+        player_movement[0] -= 7
+    player_movement[1] += player_y_momentum
+    player_y_momentum += 0.9
+    if player_y_momentum > 3:
+        player_y_momentum = 9
+
+    player_rect, collisions = move(player_rect, player_movement, tile_rects)
+
+    if collisions["bottom"]:
+        player_y_momentum = 0
+        air_timer = 0
+    elif collisions["top"]:
+        player_y_momentum += 0.9
     else:
-        Steve.y_momentum += 0.9
-    Steve.Pos_y += Steve.y_momentum
+        air_timer += 1
 
-    Char_rect, collision = move(Char_rect, movement, tile_rects)
+    if walkCount + 1 >= 25:
+        walkCount = 0
+    if runCount + 1 >= 25:
+        runCount = 0
+    if standCount + 1 >= 25:
+        standCount = 0
 
-    Steve.draw(window)
+    if left_walk:
+        window.blit(walkLeft[walkCount//1], (player_rect.x, player_rect.y))
+        walkCount += 1
+    elif right_walk:
+        window.blit(walkRight[walkCount//1], (player_rect.x, player_rect.y))
+        walkCount += 1
+    elif left_run:
+        window.blit(runLeft[runCount//1], (player_rect.x, player_rect.y))
+        runCount += 1
+    elif right_run:
+        window.blit(runRight[runCount//1], (player_rect.x, player_rect.y))
+        runCount += 1
+    elif Idle_stand:
+        window.blit(Idle[standCount//1], (player_rect.x, player_rect.y))
+        standCount += 1
+
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -174,39 +173,38 @@ while run:
 
     keys = pygame.key.get_pressed()
 
-    if keys[pygame.K_a] and keys[pygame.K_LSHIFT] and Steve.Pos_x >= Steve.velocity_run:
-        Steve.left_run = True
-        Steve.right_run = False
-        Steve.left_walk = False
-        Steve.right_walk = False
+    if keys[pygame.K_SPACE]:
+        if air_timer < 8:
+            player_y_momentum = -8
 
-    elif keys[pygame.K_a] and Steve.Pos_x >= Steve.velocity_walk:
-        Steve.left_walk = True
-        Steve.right_walk = False
-        Steve.left_run = False
-        Steve.right_run = False
-
-    elif keys[pygame.K_LSHIFT] and keys[pygame.K_d] and  Steve.Pos_x < width_window - Steve.width_char:
-        Steve.left_run = False
-        Steve.right_run = True
-        Steve.left_walk = False
-        Steve.right_walk = False
-
-    elif keys[pygame.K_d] and Steve.Pos_x < width_window - Steve.width_char:
-        Steve.left_walk = False
-        Steve.right_walk = True
-        Steve.left_run = False
-        Steve.right_run = False
-
+    elif keys[pygame.K_a] and keys[pygame.K_LSHIFT]:
+        left_run = True
+        right_run = False
+        left_walk = False
+        right_walk = False
+    elif keys[pygame.K_a]:
+        left_walk = True
+        right_walk = False
+        left_run = False
+        right_run = False
+    elif keys[pygame.K_LSHIFT] and keys[pygame.K_d]:
+        left_run = False
+        right_run = True
+        left_walk = False
+        right_walk = False
+    elif keys[pygame.K_d]:
+        left_walk = False
+        right_walk = True
+        left_run = False
+        right_run = False
     else:
-        Steve.right_walk = False
-        Steve.left_walk = False
-        Steve.right_run = False
-        Steve.left_run = False
-        Steve.walkCount = 0
-        Steve.runCount = 0
-
+        right_walk = False
+        left_walk = False
+        right_run = False
+        left_run = False
+        Idle_stand = True
+        walkCount = 0
+        runCount = 0
     pygame.display.update()
-
 
 pygame.quit()
