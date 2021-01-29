@@ -41,38 +41,95 @@ CHUNK_SIZE = 8
 
 #Enemy
 class Zombie(object):
-    ZombieLeft = [pygame.image.load("Tex/Animations/Zombie/ZL000.png")]
-    #pygame.image.load("Tex/Animations/Main character/Attacks/LPL001.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL002.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL003.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL004.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL005.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL006.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL007.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL008.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL009.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL010.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL011.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL012.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL013.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL014.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL015.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL016.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL017.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL018.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL019.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL020.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL021.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL022.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL023.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL024.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL025.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL026.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL027.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL028.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL029.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL030.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL031.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL032.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL033.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL034.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL035.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL036.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL037.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL038.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL039.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL040.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL041.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL042.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL043.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL044.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL045.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL046.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL047.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL048.png")]
+    Zombie_Right = [pygame.image.load("Tex/Animations/Main character/R000.png"),
+                 pygame.image.load("Tex/Animations/Main character/R002.png"),
+                 pygame.image.load("Tex/Animations/Main character/R003.png"),
+                 pygame.image.load("Tex/Animations/Main character/R004.png"),
+                 pygame.image.load("Tex/Animations/Main character/R005.png"),
+                 pygame.image.load("Tex/Animations/Main character/R006.png"),
+                 pygame.image.load("Tex/Animations/Main character/R007.png"),
+                 pygame.image.load("Tex/Animations/Main character/R008.png"),
+                 pygame.image.load("Tex/Animations/Main character/R009.png"),
+                 pygame.image.load("Tex/Animations/Main character/R010.png"),
+                 pygame.image.load("Tex/Animations/Main character/R011.png"),
+                 pygame.image.load("Tex/Animations/Main character/R012.png"),
+                 pygame.image.load("Tex/Animations/Main character/R013.png"),
+                 pygame.image.load("Tex/Animations/Main character/R014.png"),
+                 pygame.image.load("Tex/Animations/Main character/R015.png"),
+                 pygame.image.load("Tex/Animations/Main character/R016.png"),
+                 pygame.image.load("Tex/Animations/Main character/R017.png"),
+                 pygame.image.load("Tex/Animations/Main character/R018.png"),
+                 pygame.image.load("Tex/Animations/Main character/R019.png"),
+                 pygame.image.load("Tex/Animations/Main character/R020.png"),
+                 pygame.image.load("Tex/Animations/Main character/R021.png"),
+                 pygame.image.load("Tex/Animations/Main character/R022.png"),
+                 pygame.image.load("Tex/Animations/Main character/R023.png"),
+                 pygame.image.load("Tex/Animations/Main character/R024.png"),
+                 pygame.image.load("Tex/Animations/Main character/R025.png")]
+    Zombie_Left = [pygame.image.load("Tex/Animations/Main character/L000.png"),
+                pygame.image.load("Tex/Animations/Main character/L002.png"),
+                pygame.image.load("Tex/Animations/Main character/L003.png"),
+                pygame.image.load("Tex/Animations/Main character/L004.png"),
+                pygame.image.load("Tex/Animations/Main character/L005.png"),
+                pygame.image.load("Tex/Animations/Main character/L006.png"),
+                pygame.image.load("Tex/Animations/Main character/L007.png"),
+                pygame.image.load("Tex/Animations/Main character/L008.png"),
+                pygame.image.load("Tex/Animations/Main character/L009.png"),
+                pygame.image.load("Tex/Animations/Main character/L010.png"),
+                pygame.image.load("Tex/Animations/Main character/L011.png"),
+                pygame.image.load("Tex/Animations/Main character/L012.png"),
+                pygame.image.load("Tex/Animations/Main character/L013.png"),
+                pygame.image.load("Tex/Animations/Main character/L014.png"),
+                pygame.image.load("Tex/Animations/Main character/L015.png"),
+                pygame.image.load("Tex/Animations/Main character/L016.png"),
+                pygame.image.load("Tex/Animations/Main character/L017.png"),
+                pygame.image.load("Tex/Animations/Main character/L018.png"),
+                pygame.image.load("Tex/Animations/Main character/L019.png"),
+                pygame.image.load("Tex/Animations/Main character/L020.png"),
+                pygame.image.load("Tex/Animations/Main character/L021.png"),
+                pygame.image.load("Tex/Animations/Main character/L022.png"),
+                pygame.image.load("Tex/Animations/Main character/L023.png"),
+                pygame.image.load("Tex/Animations/Main character/L024.png"),
+                pygame.image.load("Tex/Animations/Main character/L025.png")]
 
-    def __init__(self, x, y, width, height, end):
+    def __init__(self, x, y, width, height):
         self.x = x
         self.y = y
         self.width = width
         self.height = height
-        self.end = end
-        self.path = [self.x, self.end]
         self.walkCount = 0
-        self.vel = 3
-    def draw(self, win):
+        self.vel = 2
+        self.hitbox = pygame.Rect(self.x, self.y, 28, 60)
+        self.Movement = [self.x, self.y]
+
+    def draw(self, window):
         self.move()
-        if self.walkCount + 1
-        pass
+        if self.walkCount + 1 >= 25:
+            if self.vel > 0 or self.vel < 0:
+                self.walkCount = 0
+            else:
+                self.walkCount = 25
+        if self.vel > 0:
+            window.blit(self.Zombie_Right[self.walkCount//1], (self.Movement[0] - scroll[0], self.Movement[1] - scroll[1]))
+            self.walkCount += 1
+        elif self.vel < 0:
+            window.blit(self.Zombie_Left[self.walkCount//1], (self.Movement[0] - scroll[0], self.Movement[1] - scroll[1]))
+            self.walkCount += 1
+        self.hitbox = pygame.Rect(self.Movement[0], self.Movement[1], 40, 85)
+        pygame.draw.rect(window, (255,0,0), self.hitbox, 2)
     def move(self):
         if self.vel > 0:
-            if self.x + self.vel < self.path[1]:
-                self.x += self.vel
+            if self.Movement[0] + self.vel < player_rect.x:
+                self.Movement[0] += self.vel
             else:
                 self.vel = self.vel * -1
                 self.walkCount = 0
-        else:
-            if self.x - self.vel > self.path[0]:
-                self.x += self.vel
+        elif self.vel < 0:
+            if self.Movement[0] - self.vel > player_rect.x:
+                self.Movement[0] += self.vel
             else:
                 self.vel = self.vel * -1
                 self.walkCount = 0
-
-
-
 
 #Map
 def map_load(path): #Definerer en funksjon som leser av en txt. fil
@@ -105,23 +162,6 @@ def drawGameMap():
             x += 1
         y += 1
 
-def generate_chunk(x,y):
-    chunk_data = []
-    for y_pos in range(CHUNK_SIZE):
-        for x_pos in range(CHUNK_SIZE):
-            target_x = x * CHUNK_SIZE + x_pos
-            target_y = y * CHUNK_SIZE + y_pos
-            tile_type = 0
-            if target_y > 10:
-                tile_type = 1
-            elif target_y > 20:
-                tile_type = 3
-            elif target_y == 10:
-                tile_type = 2
-            if tile_type != 0:
-                chunk_data.append([[target_x, target_y], tile_type])
-    return chunk_data
-
 #Player:
 width_player = 40
 height_player = 80
@@ -140,7 +180,6 @@ button_press_time_r = 0
 button_press_time_l = 0
 current_time = 0
 
-player_rect = pygame.Rect(500, 20, width_player, height_player)
 
 velocity_walk = 2
 velocity_run = 5
@@ -203,6 +242,10 @@ Fullscreen = False
 
 run = True
 
+#Draw
+player_rect = pygame.Rect(500, 20, width_player, height_player)
+Zombie = Zombie(100, 265, 40, 40)
+
 while run:
 
     #Generelt
@@ -220,17 +263,6 @@ while run:
     #GameMap
     tile_rects = []
     drawGameMap()
-    '''for y in range(2):
-        for x in range(4):
-            target_x = x - 1 + int(round(scroll[0]/(CHUNK_SIZE*40)))
-            target_y = y + int(round(scroll[1]/(CHUNK_SIZE*40)))
-            target_chunk = str(target_x) + ";" + str(target_y)
-            if target_chunk not in map:
-                map[target_chunk] = generate_chunk(target_x, target_y)
-            for tile in map[target_chunk]:
-                window.blit(tile_index[tile[1]], (tile[0][0]*40-scroll[0], tile[0][1]*40-scroll[1]))
-                if tile[1] in [1,2]:
-                    tile_rects.append(pygame.Rect(tile[0][0]*40, tile[0][1]*40, 40, 40))'''
 
     #Mouse
     mouse = pygame.mouse.get_pos()
@@ -327,17 +359,21 @@ while run:
         player_y_momentum += 0.1
 
 
-    #Collisions
-    player_rect, collisions = move(player_rect, player_movement, tile_rects)
+    #Collisions Player
+    player_rect, player_collisions = move(player_rect, player_movement, tile_rects)
 
-    if collisions["bottom"] == True:
+    if player_collisions["bottom"] == True:
         player_y_momentum = 0
         air_timer = 0
-    elif collisions["top"] == True:
+    elif player_collisions["top"] == True:
         player_y_momentum += 2
         air_timer += 1
     else:
         air_timer += 1
+
+    #Collision Zombie
+    Zombie.hitbox, Zombie_collisions = move(Zombie.hitbox, Zombie.Movement, tile_rects)
+    print(Zombie.hitbox)
 
     #Sprite Animation Main Player
     if walkCount + 1 >= 25:
@@ -382,6 +418,8 @@ while run:
     elif Idle_stand:
         window.blit(Idle[standCount//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
         standCount += 1
+    # Draw
+    Zombie.draw(window)
 
     #General Pygame
     for event in pygame.event.get():
@@ -394,8 +432,6 @@ while run:
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 run = False
-
-
 
     #Pygame Keys/buttons
     keys = pygame.key.get_pressed()
@@ -429,8 +465,6 @@ while run:
     elif keys[pygame.K_d]:
         right_walk = moving_right = True
         left_run = right_run = left_walk = right_punch = moving_left = False
-
-
 
     else:
         Idle_stand = True
