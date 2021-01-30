@@ -21,6 +21,8 @@ LoadPunchRight = [pygame.image.load("Tex/Animations/Main character/Attacks/LPR00
 punchRight = [pygame.image.load("Tex/Animations/Main character/Attacks/PR000.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PR001.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PR002.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PR003.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PR004.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PR005.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PR006.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PR007.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PR008.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PR009.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PR010.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PR011.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PR012.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PR013.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PR014.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PR015.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PR016.png")]
 LoadPunchLeft = [pygame.image.load("Tex/Animations/Main character/Attacks/LPL000.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL001.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL002.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL003.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL004.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL005.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL006.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL007.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL008.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL009.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL010.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL011.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL012.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL013.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL014.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL015.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL016.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL017.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL018.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL019.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL020.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL021.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL022.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL023.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL024.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL025.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL026.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL027.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL028.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL029.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL030.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL031.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL032.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL033.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL034.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL035.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL036.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL037.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL038.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL039.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL040.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL041.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL042.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL043.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL044.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL045.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL046.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL047.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL048.png")]
 punchLeft = [pygame.image.load("Tex/Animations/Main character/Attacks/PL000.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PL001.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PL002.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PL003.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PL004.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PL005.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PL006.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PL007.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PL008.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PL009.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PL010.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PL011.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PL012.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PL013.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PL014.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PL015.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PL016.png")]
+arrowRight = [pygame.image.load("Tex/Animations/Main character/Attacks/BR000.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR001.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR002.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR003.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR004.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR005.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR006.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR007.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR008.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR009.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR010.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR011.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR012.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR013.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR014.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR015.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR016.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR017.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR018.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR019.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR020.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR021.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR022.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR023.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR024.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR025.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR026.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR027.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR028.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR029.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR030.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR031.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR032.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR033.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR034.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR035.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR036.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR037.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR038.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR039.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR040.png")]
+
 
 #screen size
 width_window = 800 #Bredden på vinduet (800 pikeseler)
@@ -37,62 +39,99 @@ pygame.display.set_icon(grass)
 
 clock = pygame.time.Clock()
 
-CHUNK_SIZE = 8
-
 #Enemy
 class Zombie(object):
-    Zombie_Right = [pygame.image.load("Tex/Animations/Main character/R000.png"),
-                 pygame.image.load("Tex/Animations/Main character/R002.png"),
-                 pygame.image.load("Tex/Animations/Main character/R003.png"),
-                 pygame.image.load("Tex/Animations/Main character/R004.png"),
-                 pygame.image.load("Tex/Animations/Main character/R005.png"),
-                 pygame.image.load("Tex/Animations/Main character/R006.png"),
-                 pygame.image.load("Tex/Animations/Main character/R007.png"),
-                 pygame.image.load("Tex/Animations/Main character/R008.png"),
-                 pygame.image.load("Tex/Animations/Main character/R009.png"),
-                 pygame.image.load("Tex/Animations/Main character/R010.png"),
-                 pygame.image.load("Tex/Animations/Main character/R011.png"),
-                 pygame.image.load("Tex/Animations/Main character/R012.png"),
-                 pygame.image.load("Tex/Animations/Main character/R013.png"),
-                 pygame.image.load("Tex/Animations/Main character/R014.png"),
-                 pygame.image.load("Tex/Animations/Main character/R015.png"),
-                 pygame.image.load("Tex/Animations/Main character/R016.png"),
-                 pygame.image.load("Tex/Animations/Main character/R017.png"),
-                 pygame.image.load("Tex/Animations/Main character/R018.png"),
-                 pygame.image.load("Tex/Animations/Main character/R019.png"),
-                 pygame.image.load("Tex/Animations/Main character/R020.png"),
-                 pygame.image.load("Tex/Animations/Main character/R021.png"),
-                 pygame.image.load("Tex/Animations/Main character/R022.png"),
-                 pygame.image.load("Tex/Animations/Main character/R023.png"),
-                 pygame.image.load("Tex/Animations/Main character/R024.png"),
-                 pygame.image.load("Tex/Animations/Main character/R025.png")]
-    Zombie_Left = [pygame.image.load("Tex/Animations/Main character/L000.png"),
-                pygame.image.load("Tex/Animations/Main character/L002.png"),
-                pygame.image.load("Tex/Animations/Main character/L003.png"),
-                pygame.image.load("Tex/Animations/Main character/L004.png"),
-                pygame.image.load("Tex/Animations/Main character/L005.png"),
-                pygame.image.load("Tex/Animations/Main character/L006.png"),
-                pygame.image.load("Tex/Animations/Main character/L007.png"),
-                pygame.image.load("Tex/Animations/Main character/L008.png"),
-                pygame.image.load("Tex/Animations/Main character/L009.png"),
-                pygame.image.load("Tex/Animations/Main character/L010.png"),
-                pygame.image.load("Tex/Animations/Main character/L011.png"),
-                pygame.image.load("Tex/Animations/Main character/L012.png"),
-                pygame.image.load("Tex/Animations/Main character/L013.png"),
-                pygame.image.load("Tex/Animations/Main character/L014.png"),
-                pygame.image.load("Tex/Animations/Main character/L015.png"),
-                pygame.image.load("Tex/Animations/Main character/L016.png"),
-                pygame.image.load("Tex/Animations/Main character/L017.png"),
-                pygame.image.load("Tex/Animations/Main character/L018.png"),
-                pygame.image.load("Tex/Animations/Main character/L019.png"),
-                pygame.image.load("Tex/Animations/Main character/L020.png"),
-                pygame.image.load("Tex/Animations/Main character/L021.png"),
-                pygame.image.load("Tex/Animations/Main character/L022.png"),
-                pygame.image.load("Tex/Animations/Main character/L023.png"),
-                pygame.image.load("Tex/Animations/Main character/L024.png"),
-                pygame.image.load("Tex/Animations/Main character/L025.png")]
-
-    def __init__(self, x, y, width, height, end):
+    Zombie_Right = [pygame.image.load("Tex/Animations/Zombie/ZR000.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR001.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR002.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR003.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR004.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR005.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR006.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR007.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR008.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR009.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR010.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR011.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR012.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR013.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR014.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR015.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR016.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR017.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR018.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR019.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR020.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR021.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR022.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR023.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR024.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR025.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR026.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR027.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR028.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR029.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR030.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR031.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR032.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR033.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR034.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR035.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR036.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR037.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR038.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR039.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR040.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR041.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR042.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR043.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZR044.png")]
+    Zombie_Left = [pygame.image.load("Tex/Animations/Zombie/ZL000.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL001.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL002.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL003.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL004.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL005.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL006.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL007.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL008.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL009.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL010.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL011.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL012.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL013.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL014.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL015.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL016.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL017.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL018.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL019.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL020.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL021.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL022.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL023.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL024.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL025.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL026.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL027.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL028.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL029.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL030.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL031.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL032.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL033.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL034.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL035.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL036.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL037.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL038.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL039.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL040.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL041.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL042.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL043.png"),
+                 pygame.image.load("Tex/Animations/Zombie/ZL044.png")]
+    def __init__(self, x, y, width, height, start, end):
         self.x = x
         self.y = y
         self.width = width
@@ -102,52 +141,58 @@ class Zombie(object):
         self.walkCount = 0
         self.vel = 2
         self.hitbox = pygame.Rect(self.x, self.y, 40, 85)
-        self.Right = False
-        self.Left = False
+        self.start = start
+        self.atEnd = False
+        self.atStart = False
 
     def draw(self, window):
         self.move()
-        if self.walkCount + 1 >= 25:
+        if self.walkCount + 1 >= 44:
             if self.vel > 0 or self.vel < 0:
-                self.walkCount = 0
+                self.walkCount = 21
             else:
-                self.walkCount = 25
+                self.walkCount = 44
         if self.vel > 0:
             window.blit(self.Zombie_Right[self.walkCount//1], (self.x - scroll[0], self.y - scroll[1]))
-            self.walkCount += 1
+            if self.vel == -1:
+                self.walkCount = 21
+            else:
+                self.walkCount += 1
         elif self.vel < 0:
             window.blit(self.Zombie_Left[self.walkCount//1], (self.x - scroll[0], self.y - scroll[1]))
-            self.walkCount += 1
-        elif self.Left == True and self.vel == 0:
-            window.blit(self.Zombie_Left[-1], (self.x - scroll[0], self.y - scroll[1]))
-        elif self.Right == True and self.vel == 0:
-            window.blit(self.Zombie_Right[-1], (self.x - scroll[0], self.y - scroll[1]))
-        self.hitbox = pygame.Rect(self.x - scroll[0], self.y - scroll[1], 40, 85)
+            if self.vel == -1:
+                self.walkCount = 21
+            else:
+                self.walkCount += 1
+        self.hitbox = pygame.Rect((self.x - scroll[0]) + 5, self.y - scroll[1], 55, 85)
         pygame.draw.rect(window, (255,0,0), self.hitbox, 2)
     def move(self):
-        if self.vel > 0:
-            self.Left = False
-            self.Right = True
+        if self.y < player_rect.y:
             if self.x + self.vel < player_rect.x:
-                if self.x + self.vel >= self.end and player_rect.x > self.end:
-                    self.vel = 0
-                    self.walkCount = 0
-                else:
-                    self.x += self.vel
-            else:
-                self.Right = False
-                self.vel = 2
-                self.vel = self.vel * -1
-                self.walkCount = 0
-        elif self.vel < 0:
-            self.Right = False
-            self.Left = True
-            if self.x - self.vel > player_rect.x:
+                self.vel = 3
+                self.x += self.vel
+            elif self.x + self.vel > player_rect.x:
+                self.vel = -3
                 self.x += self.vel
             else:
-                self.vel = self.vel * -1
-                self.walkCount = 0
-
+                self.walkCount = 21
+        else:
+            if self.x + self.vel < self.end and self.atEnd == False and self.atStart == True:
+                self.vel = 2
+                self.x += self.vel
+                if self.x > self.end - 5:
+                    self.atEnd = True
+                    self.atStart = False
+            elif self.x + self.vel > self.start and self.atEnd == True and self.atStart == False:
+                self.vel = -2
+                self.x += self.vel
+                if self.x + self.vel == self.start:
+                    self.atStart = True
+                    self.atEnd = False
+            else:
+                self.atEnd = False
+                self.atStart = True
+                self.walkCount = 21
 
 #Map
 def map_load(path): #Definerer en funksjon som leser av en txt. fil
@@ -190,6 +235,9 @@ punchCount_r = 0
 punchCount_2_r = 0
 punchCount_l = 0
 punchCount_2_l = 0
+arrowCount_r = 0
+
+
 
 player_x_momentum = 0
 player_y_momentum = 0
@@ -242,6 +290,7 @@ moving_right = False
 moving_left = False
 
 #Attacks
+#punch
 right_punch = False
 right_punch_2 = False
 left_punch = False
@@ -250,6 +299,12 @@ impact_full_r = False
 impact_mid_r = False
 impact_full_l = False
 impact_mid_l = False
+#arrow
+right_arrow = False
+left_arrow = False
+right_arrow_2 = False
+left_arrow_2 = False
+
 
 #Jump
 airtime = True
@@ -262,7 +317,7 @@ run = True
 
 #Draw
 player_rect = pygame.Rect(500, 20, width_player, height_player)
-Zombie = Zombie(100, 279, 40, 40, 600)
+Zombie = Zombie(40, 279, 40, 40, 100, 600)
 
 while run:
 
@@ -297,6 +352,7 @@ while run:
         player_movement[0] -= velocity_run
 
     #Player Attacks
+    #Punch
     if right_punch == True:
         button_press_time_r += 1
         print(button_press_time_r)
@@ -369,6 +425,12 @@ while run:
     if left_run == True or left_walk == True or right_walk == True or right_run == True:
         right_punch_2 = left_punch_2 = False
 
+    #Arrow
+
+    if left_run == True or left_walk == True or right_walk == True or right_run == True:
+        right_arrow = left_arrow = False
+
+
     player_movement[1] += player_y_momentum
     if airtime:
         player_y_momentum += 0.9
@@ -404,6 +466,8 @@ while run:
         punchCount_l = 48
     if punchCount_2_l + 1 >= 16:
         punchCount_2_l = 16
+    if arrowCount_r + 1 > 40:
+        arrowCount_r = 0
 
     if left_walk:
         window.blit(walkLeft[walkCount//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
@@ -429,12 +493,15 @@ while run:
     elif left_punch_2:
         window.blit(punchLeft[punchCount_2_l//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
         punchCount_2_l += 1
+    elif right_arrow:
+        window.blit(arrowRight[arrowCount_r//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
+        arrowCount_r += 1
     elif Idle_stand:
         window.blit(Idle[standCount//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
         standCount += 1
     # Draw
     Zombie.draw(window)
-    print(Zombie.Right)
+    #print("Start", {Zombie.atStart}, "Slutt" ,{Zombie.atEnd})
 
     #General Pygame
     for event in pygame.event.get():
@@ -464,6 +531,14 @@ while run:
     elif mouse_buttons[0] and moving_left == True:
         left_punch = True
         left_run = left_walk = right_walk = right_run = right_punch = False
+
+    elif mouse_buttons[2] and moving_right == True:
+        right_arrow = True
+        left_run = left_walk = right_walk = right_run = left_arrow = False
+
+    elif mouse_buttons[2] and moving_left == True:
+        left_arrow = True
+        left_run = left_walk = right_walk = right_run = right_arrow = False
 
     elif keys[pygame.K_a] and keys[pygame.K_LSHIFT]:
         left_run = moving_left = True
