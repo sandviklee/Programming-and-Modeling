@@ -92,15 +92,18 @@ class Zombie(object):
                 pygame.image.load("Tex/Animations/Main character/L024.png"),
                 pygame.image.load("Tex/Animations/Main character/L025.png")]
 
-    def __init__(self, x, y, width, height):
+    def __init__(self, x, y, width, height, end):
         self.x = x
         self.y = y
         self.width = width
         self.height = height
+        self.end = end
+        self.path = [self.x, self.end]
         self.walkCount = 0
         self.vel = 2
-        self.hitbox = pygame.Rect(self.x, self.y, 28, 60)
-        self.Movement = [self.x, self.y]
+        self.hitbox = pygame.Rect(self.x, self.y, 40, 85)
+        self.Right = False
+        self.Left = False
 
     def draw(self, window):
         self.move()
@@ -110,26 +113,41 @@ class Zombie(object):
             else:
                 self.walkCount = 25
         if self.vel > 0:
-            window.blit(self.Zombie_Right[self.walkCount//1], (self.Movement[0] - scroll[0], self.Movement[1] - scroll[1]))
+            window.blit(self.Zombie_Right[self.walkCount//1], (self.x - scroll[0], self.y - scroll[1]))
             self.walkCount += 1
         elif self.vel < 0:
-            window.blit(self.Zombie_Left[self.walkCount//1], (self.Movement[0] - scroll[0], self.Movement[1] - scroll[1]))
+            window.blit(self.Zombie_Left[self.walkCount//1], (self.x - scroll[0], self.y - scroll[1]))
             self.walkCount += 1
-        self.hitbox = pygame.Rect(self.Movement[0], self.Movement[1], 40, 85)
+        elif self.Left == True and self.vel == 0:
+            window.blit(self.Zombie_Left[-1], (self.x - scroll[0], self.y - scroll[1]))
+        elif self.Right == True and self.vel == 0:
+            window.blit(self.Zombie_Right[-1], (self.x - scroll[0], self.y - scroll[1]))
+        self.hitbox = pygame.Rect(self.x - scroll[0], self.y - scroll[1], 40, 85)
         pygame.draw.rect(window, (255,0,0), self.hitbox, 2)
     def move(self):
         if self.vel > 0:
-            if self.Movement[0] + self.vel < player_rect.x:
-                self.Movement[0] += self.vel
+            self.Left = False
+            self.Right = True
+            if self.x + self.vel < player_rect.x:
+                if self.x + self.vel >= self.end and player_rect.x > self.end:
+                    self.vel = 0
+                    self.walkCount = 0
+                else:
+                    self.x += self.vel
             else:
+                self.Right = False
+                self.vel = 2
                 self.vel = self.vel * -1
                 self.walkCount = 0
         elif self.vel < 0:
-            if self.Movement[0] - self.vel > player_rect.x:
-                self.Movement[0] += self.vel
+            self.Right = False
+            self.Left = True
+            if self.x - self.vel > player_rect.x:
+                self.x += self.vel
             else:
                 self.vel = self.vel * -1
                 self.walkCount = 0
+
 
 #Map
 def map_load(path): #Definerer en funksjon som leser av en txt. fil
@@ -244,7 +262,7 @@ run = True
 
 #Draw
 player_rect = pygame.Rect(500, 20, width_player, height_player)
-Zombie = Zombie(100, 265, 40, 40)
+Zombie = Zombie(100, 279, 40, 40, 600)
 
 while run:
 
@@ -371,10 +389,6 @@ while run:
     else:
         air_timer += 1
 
-    #Collision Zombie
-    Zombie.hitbox, Zombie_collisions = move(Zombie.hitbox, Zombie.Movement, tile_rects)
-    print(Zombie.hitbox)
-
     #Sprite Animation Main Player
     if walkCount + 1 >= 25:
         walkCount = 0
@@ -420,6 +434,7 @@ while run:
         standCount += 1
     # Draw
     Zombie.draw(window)
+    print(Zombie.Right)
 
     #General Pygame
     for event in pygame.event.get():
