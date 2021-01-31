@@ -1,4 +1,3 @@
-
 #Mineraria Programmering og Modelering Spill
 
 import pygame #Importerer pygame bibliotek
