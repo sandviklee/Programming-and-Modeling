@@ -1,6 +1,6 @@
 #Mineraria Programmering og Modelering Spill
 
-import pygame #Importerer pygame bibliotek
+import pygame, random #Importerer pygame bibliotek
 
 pygame.init()
 
@@ -36,6 +36,10 @@ window_size = (width_window, height_window)
 window = pygame.display.set_mode((window_size), pygame.RESIZABLE)
 
 #window = pygame.display.set_mode((0,0), pygame.FULLSCREEN)
+
+
+screenshake = 0
+
 
 pygame.display.set_caption("Mineraria") #Barnavnet
 pygame.display.set_icon(grass)
@@ -106,10 +110,10 @@ class Zombie(object):
     def move(self):
         if self.y < player_rect.y:
             if self.x + self.vel < player_rect.x and self.Damage_left == False and self.Damage_right == False:
-                self.vel = self.velocity + 1
+                self.vel = self.velocity + 1.5
                 self.x += self.vel
             elif self.x + self.vel > player_rect.x and self.Damage_left == False and self.Damage_right == False:
-                self.vel = -(self.velocity + 1)
+                self.vel = -(self.velocity + 1.5)
                 self.x += self.vel
             elif self.Damage_left == True:
                 self.Damage_right = False
@@ -307,6 +311,11 @@ while run:
     scroll[0] = int(scroll[0])
     scroll[1] = int(scroll[1])
 
+    if screenshake > 0:
+        screenshake -= 1
+    if screenshake:
+        true_scroll[0] += random.randint(0, 2) - 1
+        true_scroll[1] += random.randint(0, 2) - 1
 
     #GameMap
     tile_rects = []
@@ -331,6 +340,7 @@ while run:
     #Punch
     if right_punch == True:
         button_press_time_r += 1
+        screenshake = 5
         if button_press_time_r > 35:
             left_run = left_walk = right_walk = right_run = False
             impact_full_r = True
@@ -367,6 +377,7 @@ while run:
 
     if left_punch == True:
         button_press_time_l += 1
+        screenshake = 5
         if button_press_time_l > 35:
             left_run = left_walk = right_walk = right_run = False
             impact_full_l = True
@@ -403,6 +414,7 @@ while run:
 
     if left_run == True or left_walk == True or right_walk == True or right_run == True:
         right_punch_2 = left_punch_2 = False
+
 
     #Arrow
 
