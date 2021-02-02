@@ -1,4 +1,4 @@
-#Mineraria Programmering og Modelering Spill
+#Mineraria Programmering og Modellering Spill
 
 import pygame, random #Importerer pygame bibliotek
 
@@ -9,11 +9,19 @@ bg = pygame.transform.smoothscale(pygame.image.load("Tex/Backgrounds/bg2.png"), 
 grass = pygame.image.load("Tex/Blocks/grass.png")
 dirt = pygame.image.load("Tex/Blocks/dirt.png")
 stone = pygame.image.load("Tex/Blocks/stone.png")
+oak_wood = pygame.transform.scale(pygame.image.load("Tex/Blocks/oak_planks.png"), (40, 40))
+oak_log = pygame.transform.scale(pygame.image.load("Tex/Blocks/oak_log.png"), (40, 40))
+glass = pygame.transform.scale(pygame.image.load("Tex/Blocks/glass.png"), (40, 40))
+furnace = pygame.transform.scale(pygame.image.load("Tex/Blocks/furnace_front.png"), (40, 40))
+craftingtable = pygame.transform.scale(pygame.image.load("Tex/Blocks/crafting_table_front.png"), (40, 40))
+diamond = pygame.transform.scale(pygame.image.load("Tex/Blocks/diamond.png"), (24, 24))
+sign = pygame.transform.scale(pygame.image.load("Tex/Blocks/oak_sign.png"), (40, 40))
 
 #GUI
 HeartB = pygame.transform.scale(pygame.image.load("Tex/GUI/HeartB.png"), (27, 27))
 HeartR = pygame.transform.scale(pygame.image.load("Tex/GUI/HeartR.png"), (27, 27))
 Itembar = [pygame.transform.scale(pygame.image.load("Tex/GUI/Itembar1.png"), (180, 60)), pygame.transform.scale(pygame.image.load("Tex/GUI/Itembar2.png"), (180, 60))]
+txt_background = pygame.transform.scale(pygame.image.load("Tex/GUI/Txt_background.png"), (124, 32))
 
 #Sprites Player
 walkRight = [pygame.image.load("Tex/Animations/Main character/R000.png"), pygame.image.load("Tex/Animations/Main character/R002.png"), pygame.image.load("Tex/Animations/Main character/R003.png"), pygame.image.load("Tex/Animations/Main character/R004.png"), pygame.image.load("Tex/Animations/Main character/R005.png"), pygame.image.load("Tex/Animations/Main character/R006.png"), pygame.image.load("Tex/Animations/Main character/R007.png"), pygame.image.load("Tex/Animations/Main character/R008.png"), pygame.image.load("Tex/Animations/Main character/R009.png"), pygame.image.load("Tex/Animations/Main character/R010.png"), pygame.image.load("Tex/Animations/Main character/R011.png"), pygame.image.load("Tex/Animations/Main character/R012.png"), pygame.image.load("Tex/Animations/Main character/R013.png"), pygame.image.load("Tex/Animations/Main character/R014.png"), pygame.image.load("Tex/Animations/Main character/R015.png"), pygame.image.load("Tex/Animations/Main character/R016.png"), pygame.image.load("Tex/Animations/Main character/R017.png"), pygame.image.load("Tex/Animations/Main character/R018.png"), pygame.image.load("Tex/Animations/Main character/R019.png"), pygame.image.load("Tex/Animations/Main character/R020.png"), pygame.image.load("Tex/Animations/Main character/R021.png"), pygame.image.load("Tex/Animations/Main character/R022.png"), pygame.image.load("Tex/Animations/Main character/R023.png"), pygame.image.load("Tex/Animations/Main character/R024.png"), pygame.image.load("Tex/Animations/Main character/R025.png")]
@@ -36,10 +44,6 @@ window_size = (width_window, height_window)
 window = pygame.display.set_mode((window_size), pygame.RESIZABLE)
 
 #window = pygame.display.set_mode((0,0), pygame.FULLSCREEN)
-
-
-screenshake = 0
-
 
 pygame.display.set_caption("Mineraria") #Barnavnet
 pygame.display.set_icon(grass)
@@ -180,7 +184,7 @@ def map_load(path): #Definerer en funksjon som leser av en txt. fil
 
 map = map_load("Tex/Maps/map")
 
-tile_index = {1:dirt, 2:grass, 3:stone}
+tile_index = {1:dirt, 2:grass, 3:stone, 4:oak_log, 5:oak_wood, 6:glass, 7:craftingtable, 8:diamond, 9:sign}
 
 def drawGameMap():
     y = 0
@@ -189,12 +193,30 @@ def drawGameMap():
         for tile in row:
             if tile == "1":
                 window.blit(dirt, (x * 40 - scroll[0], y * 40 - scroll[1]))
+                tile_rects.append(pygame.Rect(x * 40, y * 40, 40, 40))
             if tile == "2":
                 window.blit(grass, (x * 40 - scroll[0], y * 40 - scroll[1]))
+                tile_rects.append(pygame.Rect(x * 40, y * 40, 40, 40))
             if tile == "3":
                 window.blit(stone, (x * 40 - scroll[0], y * 40 - scroll[1]))
-            if tile != "0":
                 tile_rects.append(pygame.Rect(x * 40, y * 40, 40, 40))
+            if tile == "4":
+                window.blit(oak_log, (x * 40 - scroll[0], y * 40 - scroll[1]))
+                tile_rects.append(pygame.Rect(x * 40, y * 40, 40, 40))
+            if tile == "5":
+                window.blit(oak_wood, (x * 40 - scroll[0], y * 40 - scroll[1]))
+            if tile == "6":
+                window.blit(glass, (x * 40 - scroll[0], y * 40 - scroll[1]))
+            if tile == "7":
+                window.blit(craftingtable, (x * 40 - scroll[0], y * 40 - scroll[1]))
+                tile_rects.append(pygame.Rect(x * 40, y * 40, 40, 40))
+            if tile == "8":
+                window.blit(diamond, ((x * 40 - scroll[0]) + 10, (y * 40 - scroll[1]) + 10))
+                tile_rects_diamond.append(pygame.Rect(x * 40, y * 40, 40, 40))
+            if tile == "9":
+                window.blit(sign, (x * 40 - scroll[0], y * 40 - scroll[1]))
+            if tile == "0":
+                pass
             x += 1
         y += 1
 
@@ -220,17 +242,22 @@ current_time = 0
 velocity_walk = 2
 velocity_run = 5
 
-def collision_test(rect, tiles):
+def collision_test(rect, tiles, diamondtile):
     hit_list = []
+    hit_list_diamond = []
     for tile in tiles:
         if rect.colliderect(tile):
             hit_list.append(tile)
-    return hit_list
+    for tile in diamondtile:
+        if rect.colliderect(tile):
+            hit_list_diamond.append(tile)
+    return hit_list, hit_list_diamond
 
-def move(rect, movement, tiles):
+def move(rect, movement, tiles, diamondtile):
+    global diamond_visible
     collision_types = {"top": False, "bottom": False, "right": False, "left": False}
     rect.x += movement[0]
-    hit_list = collision_test(rect, tiles)
+    hit_list, hit_list_diamond = collision_test(rect, tiles, diamondtile)
     for tile in hit_list:
         if movement[0] > 0:
             rect.right = tile.left
@@ -238,8 +265,13 @@ def move(rect, movement, tiles):
         elif movement[0] < 0:
             rect.left = tile.right
             collision_types["left"] = True
+    for tile in hit_list_diamond:
+        if movement[0] > 0:
+            diamond_visible = False
+        elif movement[0] < 0:
+            diamond_visible = False
     rect.y += movement[1]
-    hit_list = collision_test(rect, tiles)
+    hit_list, hit_list_diamond = collision_test(rect, tiles, diamondtile)
     for tile in hit_list:
         if movement[1] > 0:
             rect.bottom = tile.top
@@ -247,6 +279,11 @@ def move(rect, movement, tiles):
         elif movement[1] < 0:
             rect.top = tile.bottom
             collision_types["top"] = True
+    for tile in hit_list_diamond:
+        if movement[1] > 0:
+            diamond_visible = False
+        elif movement[1] < 0:
+            diamond_visible = False
     return rect, collision_types
 
 def HitZombie(Zombie, Damage):
@@ -258,6 +295,7 @@ def HitZombie(Zombie, Damage):
         Zombie.hit()
     return Zombie.health
 
+
 #Moving
 left_walk = False
 right_walk = False
@@ -266,6 +304,7 @@ left_run = False
 Idle_stand = False
 moving_right = False
 moving_left = False
+sneak = False
 
 #Attacks
 #punch
@@ -288,21 +327,25 @@ Arrows = 0
 airtime = True
 air_timer = 0
 
+#Score
+Score_list = []
+diamond_rects = []
+diamond_visible = True
+
 #Screen
 Fullscreen = False
 run = True
+screenshake = 0
 
 #Draw
-player_rect = pygame.Rect(500, 20, width_player, height_player)
-Zombie_1 = Zombie(40, 279, 45, 85, 2, 40, 600)
+player_rect = pygame.Rect(740, 340, width_player, height_player)
+Zombie_1 = Zombie(360, 638, 45, 85, 2, 360, 880)
 
 while run:
-
     #Generelt
     clock.tick(50) #Bilder per sekund
     window.blit(bg, (0,0))
     current_time = int(pygame.time.get_ticks()*1E-3)
-
 
     #Camera
     true_scroll[0] += (player_rect.x - true_scroll[0]-(width_window)/2)/20
@@ -310,6 +353,12 @@ while run:
     scroll = true_scroll.copy()
     scroll[0] = int(scroll[0])
     scroll[1] = int(scroll[1])
+
+    if sneak:
+        true_scroll[1] = player_rect.y + 50
+
+    if player_rect.x < 565:
+        true_scroll[0] = 10
 
     if screenshake > 0:
         screenshake -= 1
@@ -319,6 +368,7 @@ while run:
 
     #GameMap
     tile_rects = []
+    tile_rects_diamond = []
     drawGameMap()
 
     #Mouse
@@ -432,7 +482,8 @@ while run:
 
 
     #Collisions Player
-    player_rect, player_collisions = move(player_rect, player_movement, tile_rects)
+    player_rect, player_collisions = move(player_rect, player_movement, tile_rects, tile_rects_diamond)
+
 
     if player_collisions["bottom"] == True:
         player_y_momentum = 0
@@ -495,13 +546,15 @@ while run:
     # Draw
     Zombie_1.draw(window)
     if Zombie_1.visible == False:
-        while Score < 10:
+        while Score < 5:
             Score += 1
-
     #print("Start", {Zombie.atStart}, "Slutt" ,{Zombie.atEnd})
     player_hitbox = pygame.Rect((player_rect.x - scroll[0]) - 4 , player_rect.y - scroll[1], 45, 85)
     #pygame.draw.rect(window, (255, 0, 0), player_hitbox, 2)
     #print(Zombie_1.health)
+
+
+
 
     #General Pygame
     for event in pygame.event.get():
@@ -517,6 +570,7 @@ while run:
     keys = pygame.key.get_pressed()
     mouse_buttons = pygame.mouse.get_pressed()
 
+
     if keys[pygame.K_SPACE]:
         airtime = True
         if air_timer < 6:
@@ -524,48 +578,53 @@ while run:
 
     if mouse_buttons[0] and moving_right == True:
         right_punch = True
-        left_run = left_walk = right_walk = right_run = left_punch = False
+        left_run = left_walk = right_walk = right_run = left_punch = sneak = False
 
     elif mouse_buttons[0] and moving_left == True:
         left_punch = True
-        left_run = left_walk = right_walk = right_run = right_punch = False
+        left_run = left_walk = right_walk = right_run = right_punch = sneak = False
 
     elif mouse_buttons[2] and moving_right == True:
         right_arrow = True
-        left_run = left_walk = right_walk = right_run = left_arrow = False
+        left_run = left_walk = right_walk = right_run = left_arrow = sneak = False
 
     elif mouse_buttons[2] and moving_left == True:
         left_arrow = True
-        left_run = left_walk = right_walk = right_run = right_arrow = False
+        left_run = left_walk = right_walk = right_run = right_arrow = sneak = False
 
     elif keys[pygame.K_a] and keys[pygame.K_LSHIFT]:
         left_run = moving_left = True
-        right_run = left_walk = right_walk = right_punch = moving_right = False
+        right_run = left_walk = right_walk = right_punch = moving_right = sneak = False
 
     elif keys[pygame.K_a]:
         left_walk = moving_left = True
-        right_walk = left_run = right_run = right_punch = moving_right = False
+        right_walk = left_run = right_run = right_punch = moving_right = sneak = False
 
     elif keys[pygame.K_LSHIFT] and keys[pygame.K_d]:
         right_run = moving_right = True
-        left_run = left_walk = right_walk = right_punch = moving_left = False
+        left_run = left_walk = right_walk = right_punch = moving_left = sneak = False
 
     elif keys[pygame.K_d]:
         right_walk = moving_right = True
-        left_run = right_run = left_walk = right_punch = moving_left = False
-
+        left_run = right_run = left_walk = right_punch = moving_left = sneak = False
+    elif keys[pygame.K_s]:
+        sneak = True
+        left_run = right_run = left_walk = right_punch = moving_left = moving_right = False
     else:
         Idle_stand = True
-        right_walk = left_walk = right_run = left_run = right_punch = left_punch = False
+        right_walk = left_walk = right_run = left_run = right_punch = left_punch = sneak = False
         walkCount = runCount = 0
 
-    #Misc
+    #Misc/GUI
+    window.blit(txt_background, (4, 4))
+    window.blit(txt_background, (670, 4))
     window.blit(HeartB, (180, 440))
     window.blit(HeartB, (220, 440))
     window.blit(HeartB, (260, 440))
     window.blit(HeartR, (180, 440))
     window.blit(HeartR, (220, 440))
     window.blit(HeartR, (260, 440))
+
     if right_arrow or left_arrow:
         x = 1
         window.blit(Itembar[x], (320, 420))
@@ -588,9 +647,9 @@ while run:
     elif button_press_time_l > 35:
         Load_txt_2 = font.render("LoadPunch: " + str(button_press_time_l or button_press_time_r), 1, (255, 0, 0))
 
-    Score_txt = font.render("Score: " + str(Score), 1, (0, 0, 0))
+    Score_txt = font.render("Score: " + str(Score), 1, (255, 255, 255))
     Arrow_txt = font_arrow.render(str(Arrows), 1, (255, 255, 255))
-    Time_txt = font.render("Time: " + str(current_time), 1, (0,0,0))
+    Time_txt = font.render("Time: " + str(current_time), 1, (255,255,255))
     window.blit(Arrow_txt, (481, 456))
     window.blit(Score_txt, (680, 10))
     window.blit(Load_txt2, (519, 440))
