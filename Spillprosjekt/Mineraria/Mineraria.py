@@ -14,6 +14,7 @@ oak_log = pygame.transform.scale(pygame.image.load("Tex/Blocks/oak_log.png"), (4
 glass = pygame.transform.scale(pygame.image.load("Tex/Blocks/glass.png"), (40, 40))
 furnace = pygame.transform.scale(pygame.image.load("Tex/Blocks/furnace_front.png"), (40, 40))
 craftingtable = pygame.transform.scale(pygame.image.load("Tex/Blocks/crafting_table_front.png"), (40, 40))
+#diamond = [pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds00.png"), (32, 32)), pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds01.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds02.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds03.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds04.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds05.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds06.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds07.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds08.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds09.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds10.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds11.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds12.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds13.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds14.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds15.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds16.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds17.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds18.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds19.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds20.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds21.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds22.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds23.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds24.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds25.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds24.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds23.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds22.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds21.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds20.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds19.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds18.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds17.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds16.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds15.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds14.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds13.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds12.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds11.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds10.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds09.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds08.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds07.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds06.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds05.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds04.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds03.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds02.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds01.png"), (24, 24))]
 diamond = pygame.transform.scale(pygame.image.load("Tex/Blocks/diamond.png"), (24, 24))
 sign = pygame.transform.scale(pygame.image.load("Tex/Blocks/oak_sign.png"), (40, 40))
 
@@ -83,6 +84,7 @@ class Zombie(object):
         self.Damage_right = False
         self.atEnd = False
         self.atStart = False
+        self.dead = []
 
     def draw(self, window):
         if self.visible == True:
@@ -210,9 +212,6 @@ def drawGameMap():
             if tile == "7":
                 window.blit(craftingtable, (x * 40 - scroll[0], y * 40 - scroll[1]))
                 tile_rects.append(pygame.Rect(x * 40, y * 40, 40, 40))
-            if tile == "8":
-                window.blit(diamond, ((x * 40 - scroll[0]) + 10, (y * 40 - scroll[1]) + 10))
-                tile_rects_diamond.append(pygame.Rect(x * 40, y * 40, 40, 40))
             if tile == "9":
                 window.blit(sign, (x * 40 - scroll[0], y * 40 - scroll[1]))
             if tile == "0":
@@ -242,22 +241,17 @@ current_time = 0
 velocity_walk = 2
 velocity_run = 5
 
-def collision_test(rect, tiles, diamondtile):
+def collision_test(rect, tiles):
     hit_list = []
-    hit_list_diamond = []
     for tile in tiles:
         if rect.colliderect(tile):
             hit_list.append(tile)
-    for tile in diamondtile:
-        if rect.colliderect(tile):
-            hit_list_diamond.append(tile)
-    return hit_list, hit_list_diamond
+    return hit_list
 
-def move(rect, movement, tiles, diamondtile):
-    global diamond_visible
+def move(rect, movement, tiles):
     collision_types = {"top": False, "bottom": False, "right": False, "left": False}
     rect.x += movement[0]
-    hit_list, hit_list_diamond = collision_test(rect, tiles, diamondtile)
+    hit_list = collision_test(rect, tiles)
     for tile in hit_list:
         if movement[0] > 0:
             rect.right = tile.left
@@ -265,13 +259,8 @@ def move(rect, movement, tiles, diamondtile):
         elif movement[0] < 0:
             rect.left = tile.right
             collision_types["left"] = True
-    for tile in hit_list_diamond:
-        if movement[0] > 0:
-            diamond_visible = False
-        elif movement[0] < 0:
-            diamond_visible = False
     rect.y += movement[1]
-    hit_list, hit_list_diamond = collision_test(rect, tiles, diamondtile)
+    hit_list = collision_test(rect, tiles)
     for tile in hit_list:
         if movement[1] > 0:
             rect.bottom = tile.top
@@ -279,11 +268,6 @@ def move(rect, movement, tiles, diamondtile):
         elif movement[1] < 0:
             rect.top = tile.bottom
             collision_types["top"] = True
-    for tile in hit_list_diamond:
-        if movement[1] > 0:
-            diamond_visible = False
-        elif movement[1] < 0:
-            diamond_visible = False
     return rect, collision_types
 
 def HitZombie(Zombie, Damage):
@@ -325,12 +309,24 @@ Arrows = 0
 
 #Jump
 airtime = True
+follow_player = False
 air_timer = 0
 
 #Score
-Score_list = []
-diamond_rects = []
-diamond_visible = True
+diamonds = [
+    pygame.Rect(246, 410, 16, 16),
+    pygame.Rect(295, 650, 16, 16),
+    pygame.Rect(335, 650, 40, 40),
+    pygame.Rect(128, 252, 16, 16),
+    pygame.Rect(88, 252, 16, 16),
+    pygame.Rect(48, 252, 16, 16),
+    pygame.Rect(8, 252, 16, 16),
+]
+
+diamondCount = 0
+remove_diamond = False
+diamondFloat = True
+z = 0
 
 #Screen
 Fullscreen = False
@@ -347,12 +343,17 @@ while run:
     window.blit(bg, (0,0))
     current_time = int(pygame.time.get_ticks()*1E-3)
 
+
     #Camera
-    true_scroll[0] += (player_rect.x - true_scroll[0]-(width_window)/2)/20
-    true_scroll[1] += (player_rect.y - true_scroll[1]-(height_window/2))/20
-    scroll = true_scroll.copy()
-    scroll[0] = int(scroll[0])
-    scroll[1] = int(scroll[1])
+    if follow_player:
+        true_scroll[0] += (player_rect.x - true_scroll[0] - (width_window))
+        true_scroll[1] += (player_rect.y - true_scroll[1] - (height_window))
+    else:
+        true_scroll[0] += (player_rect.x - true_scroll[0] - (width_window) / 2) / 20
+        true_scroll[1] += (player_rect.y - true_scroll[1] - (height_window / 2)) / 20
+        scroll = true_scroll.copy()
+        scroll[0] = int(scroll[0])
+        scroll[1] = int(scroll[1])
 
     if sneak:
         true_scroll[1] = player_rect.y + 50
@@ -370,6 +371,33 @@ while run:
     tile_rects = []
     tile_rects_diamond = []
     drawGameMap()
+
+    # Draw
+    Zombie_1.draw(window)
+    if Zombie_1.visible == False:
+        for i in range(1):
+            z += 1
+            if z == 1:
+                diamonds.append(pygame.Rect(Zombie_1.x + 35, Zombie_1.y + 50, 16, 16))
+                diamonds.append(pygame.Rect(Zombie_1.x - 35, Zombie_1.y + 50, 16, 16))
+                diamonds.append(pygame.Rect(Zombie_1.x, Zombie_1.y + 50, 16, 16))
+            else:
+                pass
+    # print("Start", {Zombie.atStart}, "Slutt" ,{Zombie.atEnd})
+
+    # pygame.draw.rect(window, (255, 0, 0), player_hitbox, 2)
+    # print(Zombie_1.health)
+
+    player_hitbox = pygame.Rect((player_rect.x - scroll[0]) - 4, player_rect.y - scroll[1], 45, 85)
+    print(player_rect.x, player_rect.y)
+
+    #Diamonds - Score
+    for d in diamonds:
+        window.blit(diamond, (d[0] - scroll[0], d[1] - scroll[1]))
+        diamondCount += 1
+
+
+
 
     #Mouse
     mouse = pygame.mouse.get_pos()
@@ -482,7 +510,7 @@ while run:
 
 
     #Collisions Player
-    player_rect, player_collisions = move(player_rect, player_movement, tile_rects, tile_rects_diamond)
+    player_rect, player_collisions = move(player_rect, player_movement, tile_rects)
 
 
     if player_collisions["bottom"] == True:
@@ -493,6 +521,12 @@ while run:
         air_timer += 1
     else:
         air_timer += 1
+
+    for d in diamonds:
+        if d.colliderect(player_rect):
+            diamonds.remove(d)
+            Score += 1
+
 
     #Sprite Animation Main Player
     if walkCount + 1 >= 25:
@@ -543,16 +577,9 @@ while run:
         window.blit(Idle[standCount//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
         standCount += 1
 
-    # Draw
-    Zombie_1.draw(window)
-    if Zombie_1.visible == False:
-        while Score < 5:
-            Score += 1
-    #print("Start", {Zombie.atStart}, "Slutt" ,{Zombie.atEnd})
-    player_hitbox = pygame.Rect((player_rect.x - scroll[0]) - 4 , player_rect.y - scroll[1], 45, 85)
-    #pygame.draw.rect(window, (255, 0, 0), player_hitbox, 2)
-    #print(Zombie_1.health)
-
+    #Sprite animation other
+    if diamondCount + 1 >= 49:
+        diamondCount = 0
 
 
 
@@ -574,6 +601,12 @@ while run:
     if keys[pygame.K_SPACE]:
         airtime = True
         if air_timer < 6:
+            player_y_momentum = -7
+
+    if keys[pygame.K_w]:
+        airtime = True
+        follow_player = True
+        if air_timer < 1000:
             player_y_momentum = -7
 
     if mouse_buttons[0] and moving_right == True:
@@ -612,7 +645,7 @@ while run:
         left_run = right_run = left_walk = right_punch = moving_left = moving_right = False
     else:
         Idle_stand = True
-        right_walk = left_walk = right_run = left_run = right_punch = left_punch = sneak = False
+        right_walk = left_walk = right_run = left_run = right_punch = left_punch = sneak = follow_player = False
         walkCount = runCount = 0
 
     #Misc/GUI
@@ -624,6 +657,7 @@ while run:
     window.blit(HeartR, (180, 440))
     window.blit(HeartR, (220, 440))
     window.blit(HeartR, (260, 440))
+
 
     if right_arrow or left_arrow:
         x = 1
