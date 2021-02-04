@@ -5,7 +5,7 @@ import pygame, random #Importerer pygame bibliotek
 pygame.init()
 
 #Sprites world
-bg = pygame.transform.smoothscale(pygame.image.load("Tex/Backgrounds/bg2.png"), (1920, 1080))
+bg = pygame.image.load("Tex/Backgrounds/bg2.png")
 grass = pygame.image.load("Tex/Blocks/grass.png")
 dirt = pygame.image.load("Tex/Blocks/dirt.png")
 stone = pygame.image.load("Tex/Blocks/stone.png")
@@ -23,7 +23,7 @@ HeartB = pygame.transform.scale(pygame.image.load("Tex/GUI/HeartB.png"), (27, 27
 HeartR = pygame.transform.scale(pygame.image.load("Tex/GUI/HeartR.png"), (27, 27))
 Itembar = [pygame.transform.scale(pygame.image.load("Tex/GUI/Itembar1.png"), (180, 60)), pygame.transform.scale(pygame.image.load("Tex/GUI/Itembar2.png"), (180, 60))]
 txt_background = pygame.transform.scale(pygame.image.load("Tex/GUI/Txt_background.png"), (124, 32))
-
+tutImage1 = pygame.image.load("Tex/GUI/tutImage1.png")
 #Sprites Player
 walkRight = [pygame.image.load("Tex/Animations/Main character/R000.png"), pygame.image.load("Tex/Animations/Main character/R002.png"), pygame.image.load("Tex/Animations/Main character/R003.png"), pygame.image.load("Tex/Animations/Main character/R004.png"), pygame.image.load("Tex/Animations/Main character/R005.png"), pygame.image.load("Tex/Animations/Main character/R006.png"), pygame.image.load("Tex/Animations/Main character/R007.png"), pygame.image.load("Tex/Animations/Main character/R008.png"), pygame.image.load("Tex/Animations/Main character/R009.png"), pygame.image.load("Tex/Animations/Main character/R010.png"), pygame.image.load("Tex/Animations/Main character/R011.png"), pygame.image.load("Tex/Animations/Main character/R012.png"), pygame.image.load("Tex/Animations/Main character/R013.png"), pygame.image.load("Tex/Animations/Main character/R014.png"), pygame.image.load("Tex/Animations/Main character/R015.png"), pygame.image.load("Tex/Animations/Main character/R016.png"), pygame.image.load("Tex/Animations/Main character/R017.png"), pygame.image.load("Tex/Animations/Main character/R018.png"), pygame.image.load("Tex/Animations/Main character/R019.png"), pygame.image.load("Tex/Animations/Main character/R020.png"), pygame.image.load("Tex/Animations/Main character/R021.png"), pygame.image.load("Tex/Animations/Main character/R022.png"), pygame.image.load("Tex/Animations/Main character/R023.png"), pygame.image.load("Tex/Animations/Main character/R024.png"), pygame.image.load("Tex/Animations/Main character/R025.png")]
 walkLeft = [pygame.image.load("Tex/Animations/Main character/L000.png"), pygame.image.load("Tex/Animations/Main character/L002.png"), pygame.image.load("Tex/Animations/Main character/L003.png"), pygame.image.load("Tex/Animations/Main character/L004.png"), pygame.image.load("Tex/Animations/Main character/L005.png"), pygame.image.load("Tex/Animations/Main character/L006.png"), pygame.image.load("Tex/Animations/Main character/L007.png"), pygame.image.load("Tex/Animations/Main character/L008.png"), pygame.image.load("Tex/Animations/Main character/L009.png"), pygame.image.load("Tex/Animations/Main character/L010.png"), pygame.image.load("Tex/Animations/Main character/L011.png"), pygame.image.load("Tex/Animations/Main character/L012.png"), pygame.image.load("Tex/Animations/Main character/L013.png"), pygame.image.load("Tex/Animations/Main character/L014.png"), pygame.image.load("Tex/Animations/Main character/L015.png"), pygame.image.load("Tex/Animations/Main character/L016.png"), pygame.image.load("Tex/Animations/Main character/L017.png"), pygame.image.load("Tex/Animations/Main character/L018.png"), pygame.image.load("Tex/Animations/Main character/L019.png"), pygame.image.load("Tex/Animations/Main character/L020.png"), pygame.image.load("Tex/Animations/Main character/L021.png"), pygame.image.load("Tex/Animations/Main character/L022.png"), pygame.image.load("Tex/Animations/Main character/L023.png"), pygame.image.load("Tex/Animations/Main character/L024.png"), pygame.image.load("Tex/Animations/Main character/L025.png")]
@@ -173,6 +173,17 @@ class Zombie(object):
             self.Damage_right = False
             self.Damage_left = True
 
+
+def HitZombie(Zombie, Damage):
+    if player_hitbox.colliderect(Zombie.hitbox) == 1:
+        if Zombie.health > 0:
+            Zombie.health -= Damage
+        else:
+            Zombie.visible = False
+        Zombie.hit()
+    return Zombie.health
+
+
 #Map
 def map_load(path): #Definerer en funksjon som leser av en txt. fil
     m = open(path + ".txt", "r")
@@ -212,6 +223,8 @@ def drawGameMap():
             if tile == "7":
                 window.blit(craftingtable, (x * 40 - scroll[0], y * 40 - scroll[1]))
                 tile_rects.append(pygame.Rect(x * 40, y * 40, 40, 40))
+            if tile == "8":
+                window.blit(dirt, (x * 40 - scroll[0], y * 40 - scroll[1]))
             if tile == "9":
                 window.blit(sign, (x * 40 - scroll[0], y * 40 - scroll[1]))
             if tile == "0":
@@ -270,15 +283,7 @@ def move(rect, movement, tiles):
             collision_types["top"] = True
     return rect, collision_types
 
-def HitZombie(Zombie, Damage):
-    if player_hitbox.colliderect(Zombie.hitbox) == 1:
-        if Zombie.health > 0:
-            Zombie.health -= Damage
-        else:
-            Zombie.visible = False
-        Zombie.hit()
-    return Zombie.health
-
+player_health = 3
 
 #Moving
 left_walk = False
@@ -320,7 +325,18 @@ diamonds = [
     pygame.Rect(128, 252, 16, 16),
     pygame.Rect(88, 252, 16, 16),
     pygame.Rect(48, 252, 16, 16),
-    pygame.Rect(8, 252, 16, 16),
+    #Hard to get
+    pygame.Rect(847, -35, 16, 16),
+    pygame.Rect(887, -35, 16, 16),
+    pygame.Rect(927, -35, 16, 16),
+    pygame.Rect(967, -35, 16, 16),
+    pygame.Rect(1007, -35, 16, 16),
+    pygame.Rect(1047, -35, 16, 16),
+    pygame.Rect(1087, -35, 16, 16),
+    pygame.Rect(1127, -35, 16, 16),
+    pygame.Rect(1287, -35, 16, 16),
+    pygame.Rect(1327, -35, 16, 16),
+
 ]
 
 diamondCount = 0
@@ -328,6 +344,15 @@ remove_diamond = False
 diamondFloat = True
 z = 0
 
+#Signs - Tutorials
+signs = [
+    pygame.Rect(520, 400, 40, 40),
+
+
+]
+
+showTut1 = False
+showTut1Image = False
 #Screen
 Fullscreen = False
 run = True
@@ -385,16 +410,21 @@ while run:
                 pass
     # print("Start", {Zombie.atStart}, "Slutt" ,{Zombie.atEnd})
 
-    # pygame.draw.rect(window, (255, 0, 0), player_hitbox, 2)
+
     # print(Zombie_1.health)
 
     player_hitbox = pygame.Rect((player_rect.x - scroll[0]) - 4, player_rect.y - scroll[1], 45, 85)
     print(player_rect.x, player_rect.y)
+    #pygame.draw.rect(window, (255, 0, 0), player_hitbox, 2)
 
     #Diamonds - Score
     for d in diamonds:
         window.blit(diamond, (d[0] - scroll[0], d[1] - scroll[1]))
-        diamondCount += 1
+
+    #Sign - Tutorial
+    for s in signs:
+        window.blit(sign, (s[0] - scroll[0], s[1] - scroll[1]))
+
 
 
 
@@ -412,7 +442,6 @@ while run:
         player_movement[0] += velocity_run
     if left_run:
         player_movement[0] -= velocity_run
-
 
     #Player Attacks
     #Punch
@@ -493,9 +522,7 @@ while run:
     if left_run == True or left_walk == True or right_walk == True or right_run == True:
         right_punch_2 = left_punch_2 = False
 
-
     #Arrow
-
     if left_run == True or left_walk == True or right_walk == True or right_run == True:
         right_arrow = left_arrow = False
         arrowCount_r = 0
@@ -522,10 +549,26 @@ while run:
     else:
         air_timer += 1
 
+    #Diamonds Collision
+
     for d in diamonds:
         if d.colliderect(player_rect):
             diamonds.remove(d)
             Score += 1
+            if player_health < 3:
+                player_health += 1
+            elif player_health >= 3:
+                pass
+    if player_hitbox.colliderect(Zombie_1.hitbox) and player_x_momentum < 10 and Zombie_1.visible and not Zombie_1.tookDamage:
+        player_health -= 0.02
+
+    #Signs Collision
+
+    for s in signs:
+        if s.colliderect(player_rect):
+            showTut1 = True
+        else:
+            showTut1 = False
 
 
     #Sprite Animation Main Player
@@ -577,12 +620,6 @@ while run:
         window.blit(Idle[standCount//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
         standCount += 1
 
-    #Sprite animation other
-    if diamondCount + 1 >= 49:
-        diamondCount = 0
-
-
-
     #General Pygame
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -603,11 +640,9 @@ while run:
         if air_timer < 6:
             player_y_momentum = -7
 
-    if keys[pygame.K_w]:
-        airtime = True
-        follow_player = True
-        if air_timer < 1000:
-            player_y_momentum = -7
+    if keys[pygame.K_e] and showTut1:
+        showTut1Image = True
+
 
     if mouse_buttons[0] and moving_right == True:
         right_punch = True
@@ -651,13 +686,23 @@ while run:
     #Misc/GUI
     window.blit(txt_background, (4, 4))
     window.blit(txt_background, (670, 4))
+
     window.blit(HeartB, (180, 440))
     window.blit(HeartB, (220, 440))
     window.blit(HeartB, (260, 440))
-    window.blit(HeartR, (180, 440))
-    window.blit(HeartR, (220, 440))
-    window.blit(HeartR, (260, 440))
 
+    if player_health >= 3:
+        window.blit(HeartR, (260, 440))
+    if player_health >= 2:
+        window.blit(HeartR, (220, 440))
+    if player_health >= 1:
+        window.blit(HeartR, (180, 440))
+
+
+    if showTut1 and showTut1Image:
+        window.blit(tutImage1, (220 - scroll[0], 230 - scroll[1]))
+    else:
+        showTut1Image = False
 
     if right_arrow or left_arrow:
         x = 1
