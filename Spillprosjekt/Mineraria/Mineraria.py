@@ -18,6 +18,7 @@ craftingtable = pygame.transform.scale(pygame.image.load("Tex/Blocks/crafting_ta
 diamond = pygame.transform.scale(pygame.image.load("Tex/Blocks/diamond.png"), (24, 24))
 sign = pygame.transform.scale(pygame.image.load("Tex/Blocks/oak_sign.png"), (40, 40))
 
+
 #GUI
 HeartB = pygame.transform.scale(pygame.image.load("Tex/GUI/HeartB.png"), (27, 27))
 HeartR = pygame.transform.scale(pygame.image.load("Tex/GUI/HeartR.png"), (27, 27))
@@ -39,7 +40,8 @@ LoadPunchRight = [pygame.image.load("Tex/Animations/Main character/Attacks/LPR00
 punchRight = [pygame.image.load("Tex/Animations/Main character/Attacks/PR000.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PR001.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PR002.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PR003.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PR004.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PR005.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PR006.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PR007.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PR008.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PR009.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PR010.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PR011.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PR012.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PR013.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PR014.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PR015.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PR016.png")]
 LoadPunchLeft = [pygame.image.load("Tex/Animations/Main character/Attacks/LPL000.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL001.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL002.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL003.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL004.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL005.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL006.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL007.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL008.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL009.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL010.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL011.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL012.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL013.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL014.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL015.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL016.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL017.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL018.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL019.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL020.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL021.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL022.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL023.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL024.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL025.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL026.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL027.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL028.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL029.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL030.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL031.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL032.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL033.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL034.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL035.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL036.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL037.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL038.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL039.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL040.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL041.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL042.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL043.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL044.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL045.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL046.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL047.png"), pygame.image.load("Tex/Animations/Main character/Attacks/LPL048.png")]
 punchLeft = [pygame.image.load("Tex/Animations/Main character/Attacks/PL000.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PL001.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PL002.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PL003.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PL004.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PL005.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PL006.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PL007.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PL008.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PL009.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PL010.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PL011.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PL012.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PL013.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PL014.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PL015.png"), pygame.image.load("Tex/Animations/Main character/Attacks/PL016.png")]
-arrowRight = [pygame.image.load("Tex/Animations/Main character/Attacks/BR000.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR001.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR002.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR003.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR004.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR005.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR006.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR007.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR008.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR009.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR010.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR011.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR012.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR013.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR014.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR015.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR016.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR017.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR018.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR019.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR020.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR021.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR022.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR023.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR024.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR025.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR026.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR027.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR028.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR029.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR030.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR031.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR032.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR033.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR034.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR035.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR036.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR037.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR038.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR039.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR040.png")]
+arrowRight = [pygame.image.load("Tex/Animations/Main character/Attacks/BR000.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR002.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR002.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR003.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR004.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR005.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR006.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR007.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR008.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR009.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR010.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR011.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR012.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR013.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR014.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR015.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR016.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR017.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR018.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR019.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR020.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR021.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR022.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR023.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR024.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR025.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR026.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR027.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR028.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR029.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR030.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR031.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR032.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR033.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR034.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR035.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR036.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR037.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR038.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR039.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR040.png")]
+arrowLeft = [pygame.image.load("Tex/Animations/Main character/Attacks/BL000.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL001.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL002.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL003.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL004.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL005.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL006.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL007.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL008.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL009.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL010.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL011.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL012.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL013.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL014.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL015.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL016.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL017.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL018.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL019.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL020.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL021.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL022.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL023.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL024.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL025.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL026.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL027.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL028.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL029.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL030.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL031.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL032.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL033.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL034.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL035.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL036.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL037.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL038.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL039.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL040.png")]
 
 #screen size
 width_window = 800 #Bredden på vinduet (800 pikeseler)
@@ -119,7 +121,7 @@ class Zombie(object):
             pygame.draw.rect(window, (0,175,0), ((self.x - scroll[0]) + 4, (self.y - scroll[1]) - 10, 50 - (5 * (10 - self.health)), 5))
             #pygame.draw.rect(window, (255,0,0), self.hitbox, 2)
     def move(self):
-        if self.y < player_rect.y:
+        if self.y < player_rect.y and player_rect.x > self.start and player_rect.x < self.end:
             if self.x + self.vel < player_rect.x and self.Damage_left == False and self.Damage_right == False:
                 self.vel = self.velocity + 1.5
                 self.x += self.vel
@@ -188,6 +190,19 @@ def HitZombie(Zombie, Damage):
         Zombie.hit()
     return Zombie.health
 
+#Arrows
+class Arrow(object):
+    arrow = pygame.image.load("Tex/Blocks/arrow.png")
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+        self.vel = 15
+
+    def draw(self, window):
+        window.blit(self.arrow, (self.x - scroll[0], self.y - scroll[1]))
+
+arrows = []
+
 
 #Map
 def map_load(path): #Definerer en funksjon som leser av en txt. fil
@@ -248,12 +263,17 @@ punchCount_2_r = 0
 punchCount_l = 0
 punchCount_2_l = 0
 arrowCount_r = 0
+arrowCount_l = 0
+
+
 
 player_x_momentum = 0
 player_y_momentum = 0
 true_scroll = [0, 0]
 button_press_time_r = 0
 button_press_time_l = 0
+arrow_hold_r = 0
+arrow_hold_l = 0
 current_time = 0
 
 velocity_walk = 2
@@ -315,6 +335,7 @@ right_arrow = False
 left_arrow = False
 right_arrow_2 = False
 left_arrow_2 = False
+fire = False
 Arrows = 0
 
 #Jump
@@ -433,6 +454,9 @@ while run:
     print(player_rect.x, player_rect.y)
     #pygame.draw.rect(window, (255, 0, 0), player_hitbox, 2)
 
+    for arrow in arrows:
+        Arrow.draw(window)
+
     #Diamonds - Score
     for d in diamonds:
         window.blit(diamond, (d[0] - scroll[0], d[1] - scroll[1]))
@@ -535,9 +559,20 @@ while run:
         right_punch_2 = left_punch_2 = False
 
     #Arrow
+    for arrow in arrows:
+        if Arrow.x < 500 and Arrow.x > 0:
+            Arrow.x += Arrow.vel
+    if fire and right_arrow == False:
+        if len(arrows) < 1:
+            arrows.append(Arrow(round(player_movement[0] + 45), round(player_movement[1] + 38)))
+        screenshake = 0
+
+
+
     if left_run == True or left_walk == True or right_walk == True or right_run == True:
         right_arrow = left_arrow = False
         arrowCount_r = 0
+        arrowCount_l = 0
 
 
     player_movement[1] += player_y_momentum
@@ -608,8 +643,10 @@ while run:
         punchCount_l = 48
     if punchCount_2_l + 1 >= 16:
         punchCount_2_l = 16
-    if arrowCount_r + 1 > 40:
-        arrowCount_r = 0
+    if arrowCount_r + 1 >= 40:
+        arrowCount_r = 34
+    if arrowCount_l + 1>= 40:
+        arrowCount_l = 34
 
     if left_walk:
         window.blit(walkLeft[walkCount//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
@@ -638,6 +675,9 @@ while run:
     elif right_arrow:
         window.blit(arrowRight[arrowCount_r//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
         arrowCount_r += 1
+    elif left_arrow:
+        window.blit(arrowLeft[arrowCount_l//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
+        arrowCount_l += 1
     elif Idle_stand:
         window.blit(Idle[standCount//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
         standCount += 1
@@ -670,13 +710,14 @@ while run:
     if keys[pygame.K_e] and showTut4:
         showTut4Image = True
 
+
     if mouse_buttons[0] and moving_right == True:
         right_punch = True
-        left_run = left_walk = right_walk = right_run = left_punch = sneak = False
+        left_run = left_walk = right_walk = right_run = left_punch = right_arrow = left_arrow = sneak = False
 
     elif mouse_buttons[0] and moving_left == True:
         left_punch = True
-        left_run = left_walk = right_walk = right_run = right_punch = sneak = False
+        left_run = left_walk = right_walk = right_run = right_punch = right_arrow = left_arrow = sneak = False
 
     elif mouse_buttons[2] and moving_right == True:
         right_arrow = True
@@ -685,6 +726,10 @@ while run:
     elif mouse_buttons[2] and moving_left == True:
         left_arrow = True
         left_run = left_walk = right_walk = right_run = right_arrow = sneak = False
+
+    elif keys[pygame.K_s]:
+        sneak = True
+        left_run = right_run = left_walk = right_punch = moving_left = moving_right = showTut1Image = showTut2Image = showTut3Image = showTut4Image = False
 
     elif keys[pygame.K_a] and keys[pygame.K_LSHIFT]:
         left_run = moving_left = True
@@ -701,9 +746,7 @@ while run:
     elif keys[pygame.K_d]:
         right_walk = moving_right = True
         left_run = right_run = left_walk = right_punch = moving_left = sneak = False
-    elif keys[pygame.K_s]:
-        sneak = True
-        left_run = right_run = left_walk = right_punch = moving_left = moving_right = showTut1Image = showTut2Image = showTut3Image = False
+
     else:
         Idle_stand = True
         right_walk = left_walk = right_run = left_run = right_punch = left_punch = sneak = follow_player = False
