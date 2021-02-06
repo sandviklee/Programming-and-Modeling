@@ -5,7 +5,7 @@ import pygame, random #Importerer pygame bibliotek
 pygame.init()
 
 #Sprites world
-bg = pygame.image.load("Tex/Backgrounds/bg2.png")
+bg = pygame.image.load("Tex/Backgrounds/bg3.png")
 grass = pygame.image.load("Tex/Blocks/grass.png")
 dirt = pygame.image.load("Tex/Blocks/dirt.png")
 stone = pygame.image.load("Tex/Blocks/stone.png")
@@ -14,7 +14,7 @@ oak_log = pygame.transform.scale(pygame.image.load("Tex/Blocks/oak_log.png"), (4
 glass = pygame.transform.scale(pygame.image.load("Tex/Blocks/glass.png"), (40, 40))
 furnace = pygame.transform.scale(pygame.image.load("Tex/Blocks/furnace_front.png"), (40, 40))
 craftingtable = pygame.transform.scale(pygame.image.load("Tex/Blocks/crafting_table_front.png"), (40, 40))
-#diamond = [pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds00.png"), (32, 32)), pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds01.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds02.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds03.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds04.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds05.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds06.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds07.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds08.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds09.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds10.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds11.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds12.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds13.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds14.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds15.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds16.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds17.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds18.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds19.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds20.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds21.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds22.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds23.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds24.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds25.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds24.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds23.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds22.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds21.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds20.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds19.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds18.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds17.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds16.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds15.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds14.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds13.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds12.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds11.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds10.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds09.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds08.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds07.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds06.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds05.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds04.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds03.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds02.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds01.png"), (24, 24))]
+#diamondanimation = [pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds00.png"), (32, 32)), pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds01.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds02.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds03.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds04.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds05.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds06.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds07.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds08.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds09.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds10.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds11.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds12.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds13.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds14.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds15.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds16.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds17.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds18.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds19.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds20.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds21.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds22.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds23.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds24.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds25.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds24.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds23.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds22.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds21.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds20.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds19.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds18.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds17.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds16.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds15.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds14.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds13.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds12.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds11.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds10.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds09.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds08.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds07.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds06.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds05.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds04.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds03.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds02.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds01.png"), (24, 24))]
 diamond = pygame.transform.scale(pygame.image.load("Tex/Blocks/diamond.png"), (24, 24))
 sign = pygame.transform.scale(pygame.image.load("Tex/Blocks/oak_sign.png"), (40, 40))
 
@@ -24,6 +24,11 @@ HeartR = pygame.transform.scale(pygame.image.load("Tex/GUI/HeartR.png"), (27, 27
 Itembar = [pygame.transform.scale(pygame.image.load("Tex/GUI/Itembar1.png"), (180, 60)), pygame.transform.scale(pygame.image.load("Tex/GUI/Itembar2.png"), (180, 60))]
 txt_background = pygame.transform.scale(pygame.image.load("Tex/GUI/Txt_background.png"), (124, 32))
 tutImage1 = pygame.image.load("Tex/GUI/tutImage1.png")
+tutImage2 = pygame.image.load("Tex/GUI/tutImage2.png")
+tutImage3 = pygame.image.load("Tex/GUI/tutImage3.png")
+tutImage4 = pygame.image.load("Tex/GUI/tutImage4.png")
+E_button = pygame.transform.scale(pygame.image.load("Tex/GUI/E_Button.png"), (20, 22))
+
 #Sprites Player
 walkRight = [pygame.image.load("Tex/Animations/Main character/R000.png"), pygame.image.load("Tex/Animations/Main character/R002.png"), pygame.image.load("Tex/Animations/Main character/R003.png"), pygame.image.load("Tex/Animations/Main character/R004.png"), pygame.image.load("Tex/Animations/Main character/R005.png"), pygame.image.load("Tex/Animations/Main character/R006.png"), pygame.image.load("Tex/Animations/Main character/R007.png"), pygame.image.load("Tex/Animations/Main character/R008.png"), pygame.image.load("Tex/Animations/Main character/R009.png"), pygame.image.load("Tex/Animations/Main character/R010.png"), pygame.image.load("Tex/Animations/Main character/R011.png"), pygame.image.load("Tex/Animations/Main character/R012.png"), pygame.image.load("Tex/Animations/Main character/R013.png"), pygame.image.load("Tex/Animations/Main character/R014.png"), pygame.image.load("Tex/Animations/Main character/R015.png"), pygame.image.load("Tex/Animations/Main character/R016.png"), pygame.image.load("Tex/Animations/Main character/R017.png"), pygame.image.load("Tex/Animations/Main character/R018.png"), pygame.image.load("Tex/Animations/Main character/R019.png"), pygame.image.load("Tex/Animations/Main character/R020.png"), pygame.image.load("Tex/Animations/Main character/R021.png"), pygame.image.load("Tex/Animations/Main character/R022.png"), pygame.image.load("Tex/Animations/Main character/R023.png"), pygame.image.load("Tex/Animations/Main character/R024.png"), pygame.image.load("Tex/Animations/Main character/R025.png")]
 walkLeft = [pygame.image.load("Tex/Animations/Main character/L000.png"), pygame.image.load("Tex/Animations/Main character/L002.png"), pygame.image.load("Tex/Animations/Main character/L003.png"), pygame.image.load("Tex/Animations/Main character/L004.png"), pygame.image.load("Tex/Animations/Main character/L005.png"), pygame.image.load("Tex/Animations/Main character/L006.png"), pygame.image.load("Tex/Animations/Main character/L007.png"), pygame.image.load("Tex/Animations/Main character/L008.png"), pygame.image.load("Tex/Animations/Main character/L009.png"), pygame.image.load("Tex/Animations/Main character/L010.png"), pygame.image.load("Tex/Animations/Main character/L011.png"), pygame.image.load("Tex/Animations/Main character/L012.png"), pygame.image.load("Tex/Animations/Main character/L013.png"), pygame.image.load("Tex/Animations/Main character/L014.png"), pygame.image.load("Tex/Animations/Main character/L015.png"), pygame.image.load("Tex/Animations/Main character/L016.png"), pygame.image.load("Tex/Animations/Main character/L017.png"), pygame.image.load("Tex/Animations/Main character/L018.png"), pygame.image.load("Tex/Animations/Main character/L019.png"), pygame.image.load("Tex/Animations/Main character/L020.png"), pygame.image.load("Tex/Animations/Main character/L021.png"), pygame.image.load("Tex/Animations/Main character/L022.png"), pygame.image.load("Tex/Animations/Main character/L023.png"), pygame.image.load("Tex/Animations/Main character/L024.png"), pygame.image.load("Tex/Animations/Main character/L025.png")]
@@ -347,12 +352,22 @@ z = 0
 #Signs - Tutorials
 signs = [
     pygame.Rect(520, 400, 40, 40),
-
+    pygame.Rect(202, 400, 40, 40),
+    pygame.Rect(242, 640, 40, 40),
+    pygame.Rect(1190, 560, 40, 40),
 
 ]
-
 showTut1 = False
 showTut1Image = False
+showTut2 = False
+showTut2Image = False
+showTut3 = False
+showTut3Image = False
+showTut4 = False
+showTut4Image = False
+
+
+
 #Screen
 Fullscreen = False
 run = True
@@ -361,13 +376,13 @@ screenshake = 0
 #Draw
 player_rect = pygame.Rect(740, 340, width_player, height_player)
 Zombie_1 = Zombie(360, 638, 45, 85, 2, 360, 880)
+Zombie_2 = Zombie(1557, 600, 45, 85, 4, 1557, 1650)
 
 while run:
     #Generelt
     clock.tick(50) #Bilder per sekund
     window.blit(bg, (0,0))
     current_time = int(pygame.time.get_ticks()*1E-3)
-
 
     #Camera
     if follow_player:
@@ -397,7 +412,7 @@ while run:
     tile_rects_diamond = []
     drawGameMap()
 
-    # Draw
+    #Draw
     Zombie_1.draw(window)
     if Zombie_1.visible == False:
         for i in range(1):
@@ -408,8 +423,9 @@ while run:
                 diamonds.append(pygame.Rect(Zombie_1.x, Zombie_1.y + 50, 16, 16))
             else:
                 pass
-    # print("Start", {Zombie.atStart}, "Slutt" ,{Zombie.atEnd})
 
+    Zombie_2.draw(window)
+    # print("Start", {Zombie.atStart}, "Slutt" ,{Zombie.atEnd})
 
     # print(Zombie_1.health)
 
@@ -424,10 +440,6 @@ while run:
     #Sign - Tutorial
     for s in signs:
         window.blit(sign, (s[0] - scroll[0], s[1] - scroll[1]))
-
-
-
-
 
     #Mouse
     mouse = pygame.mouse.get_pos()
@@ -559,16 +571,26 @@ while run:
                 player_health += 1
             elif player_health >= 3:
                 pass
+
+    #Zombie Collision
     if player_hitbox.colliderect(Zombie_1.hitbox) and player_x_momentum < 10 and Zombie_1.visible and not Zombie_1.tookDamage:
         player_health -= 0.02
 
     #Signs Collision
-
     for s in signs:
-        if s.colliderect(player_rect):
+        if signs[0].colliderect(player_rect):
             showTut1 = True
+        elif signs[1].colliderect(player_rect):
+            showTut2 = True
+        elif signs[2].colliderect(player_rect):
+            showTut3 = True
+        elif signs[3].colliderect(player_rect):
+            showTut4 = True
         else:
             showTut1 = False
+            showTut2 = False
+            showTut3 = False
+            showTut4 = False
 
 
     #Sprite Animation Main Player
@@ -626,14 +648,10 @@ while run:
             run = False
         if event.type == pygame.VIDEORESIZE:
             window = pygame.display.set_mode((width_window, height_window))
-        elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_ESCAPE:
-                run = False
 
     #Pygame Keys/buttons
     keys = pygame.key.get_pressed()
     mouse_buttons = pygame.mouse.get_pressed()
-
 
     if keys[pygame.K_SPACE]:
         airtime = True
@@ -643,6 +661,14 @@ while run:
     if keys[pygame.K_e] and showTut1:
         showTut1Image = True
 
+    if keys[pygame.K_e] and showTut2:
+        showTut2Image = True
+
+    if keys[pygame.K_e] and showTut3:
+        showTut3Image = True
+
+    if keys[pygame.K_e] and showTut4:
+        showTut4Image = True
 
     if mouse_buttons[0] and moving_right == True:
         right_punch = True
@@ -677,7 +703,7 @@ while run:
         left_run = right_run = left_walk = right_punch = moving_left = sneak = False
     elif keys[pygame.K_s]:
         sneak = True
-        left_run = right_run = left_walk = right_punch = moving_left = moving_right = False
+        left_run = right_run = left_walk = right_punch = moving_left = moving_right = showTut1Image = showTut2Image = showTut3Image = False
     else:
         Idle_stand = True
         right_walk = left_walk = right_run = left_run = right_punch = left_punch = sneak = follow_player = False
@@ -687,6 +713,8 @@ while run:
     window.blit(txt_background, (4, 4))
     window.blit(txt_background, (670, 4))
 
+
+    #Player Health
     window.blit(HeartB, (180, 440))
     window.blit(HeartB, (220, 440))
     window.blit(HeartB, (260, 440))
@@ -699,10 +727,31 @@ while run:
         window.blit(HeartR, (180, 440))
 
 
+    #Signs
+    if showTut1:
+        window.blit(E_button, (500 - scroll[0], 405 - scroll[1]))
+    if showTut2:
+        window.blit(E_button, (180 - scroll[0], 405 - scroll[1]))
+    if showTut3:
+        window.blit(E_button, (220 - scroll[0], 645 - scroll[1]))
+    if showTut4:
+        window.blit(E_button, (1165 - scroll[0], 565 - scroll[1]))
+
+
     if showTut1 and showTut1Image:
         window.blit(tutImage1, (220 - scroll[0], 230 - scroll[1]))
+    elif showTut2 and showTut2Image:
+        window.blit(tutImage2, (220 - scroll[0], 230 - scroll[1]))
+    elif showTut3 and showTut3Image:
+        window.blit(tutImage3, (220 - scroll[0], 430 - scroll[1]))
+    elif showTut4 and showTut4Image:
+        window.blit(tutImage4, (1000 - scroll[0], 290 - scroll[1]))
     else:
+        showTut3Image = False
+        showTut2Image = False
         showTut1Image = False
+        showTut4Image = False
+
 
     if right_arrow or left_arrow:
         x = 1
