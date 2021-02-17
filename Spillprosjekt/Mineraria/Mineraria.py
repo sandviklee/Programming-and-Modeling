@@ -63,7 +63,23 @@ font = pygame.font.Font("Tex/Fonts/Minecraft.ttf", 24)
 font2 = pygame.font.Font("Tex/Fonts/Minecraft.ttf", 25)
 font_arrow = pygame.font.Font("Tex/Fonts/Minecraft.ttf", 18)
 
-
+#Projectile
+class projectile():
+    def __init__(self,x,y, facing):
+        self.x = x
+        self.y = y
+        self.facing = facing
+        self.vel = 15 * facing
+    def draw(self, window):
+        arrow_image1 = pygame.image.load("Tex/Blocks/arrow_resized.png")
+        arrow_image2 = pygame.image.load("Tex/Blocks/arrow_resized2.png")
+        if facing == -1:
+            window.blit(arrow_image2, (self.x, self.y))
+        else:
+            window.blit(arrow_image1, (self.x, self.y))
+bullet_from = 0
+arrow_count = 100
+arrows = []
 #Enemy
 class Zombie(object):
     Zombie_Right = [pygame.image.load("Tex/Animations/Zombie/ZR000.png"),pygame.image.load("Tex/Animations/Zombie/ZR001.png"),pygame.image.load("Tex/Animations/Zombie/ZR002.png"),pygame.image.load("Tex/Animations/Zombie/ZR003.png"),pygame.image.load("Tex/Animations/Zombie/ZR004.png"),pygame.image.load("Tex/Animations/Zombie/ZR005.png"),pygame.image.load("Tex/Animations/Zombie/ZR006.png"),pygame.image.load("Tex/Animations/Zombie/ZR007.png"),pygame.image.load("Tex/Animations/Zombie/ZR008.png"),pygame.image.load("Tex/Animations/Zombie/ZR009.png"),pygame.image.load("Tex/Animations/Zombie/ZR010.png"),pygame.image.load("Tex/Animations/Zombie/ZR011.png"),pygame.image.load("Tex/Animations/Zombie/ZR012.png"),pygame.image.load("Tex/Animations/Zombie/ZR013.png"),pygame.image.load("Tex/Animations/Zombie/ZR014.png"),pygame.image.load("Tex/Animations/Zombie/ZR015.png"),pygame.image.load("Tex/Animations/Zombie/ZR016.png"),pygame.image.load("Tex/Animations/Zombie/ZR017.png"),pygame.image.load("Tex/Animations/Zombie/ZR018.png"),pygame.image.load("Tex/Animations/Zombie/ZR019.png"),pygame.image.load("Tex/Animations/Zombie/ZR020.png"),pygame.image.load("Tex/Animations/Zombie/ZR021.png"),pygame.image.load("Tex/Animations/Zombie/ZR022.png"),pygame.image.load("Tex/Animations/Zombie/ZR023.png"),pygame.image.load("Tex/Animations/Zombie/ZR024.png"),pygame.image.load("Tex/Animations/Zombie/ZR025.png"),pygame.image.load("Tex/Animations/Zombie/ZR026.png"),pygame.image.load("Tex/Animations/Zombie/ZR027.png"),pygame.image.load("Tex/Animations/Zombie/ZR028.png"),pygame.image.load("Tex/Animations/Zombie/ZR029.png"),pygame.image.load("Tex/Animations/Zombie/ZR030.png"),pygame.image.load("Tex/Animations/Zombie/ZR031.png"),pygame.image.load("Tex/Animations/Zombie/ZR032.png"),pygame.image.load("Tex/Animations/Zombie/ZR033.png"),pygame.image.load("Tex/Animations/Zombie/ZR034.png"),pygame.image.load("Tex/Animations/Zombie/ZR035.png"),pygame.image.load("Tex/Animations/Zombie/ZR036.png"),pygame.image.load("Tex/Animations/Zombie/ZR037.png"),pygame.image.load("Tex/Animations/Zombie/ZR038.png"),pygame.image.load("Tex/Animations/Zombie/ZR039.png"),pygame.image.load("Tex/Animations/Zombie/ZR040.png"),pygame.image.load("Tex/Animations/Zombie/ZR041.png"),pygame.image.load("Tex/Animations/Zombie/ZR042.png"),pygame.image.load("Tex/Animations/Zombie/ZR043.png"),pygame.image.load("Tex/Animations/Zombie/ZR044.png")]
@@ -159,12 +175,16 @@ class Zombie(object):
             if self.x + self.vel < self.end and self.atEnd == False and self.atStart == True:
                 self.vel = self.velocity
                 self.x += self.vel
+                self.Damage_left = False
+                self.Damage_right = False
                 if self.x > self.end - 5:
                     self.atEnd = True
                     self.atStart = False
             elif self.x + self.vel > self.start and self.atEnd == True and self.atStart == False:
                 self.vel = -self.velocity
                 self.x += self.vel
+                self.Damage_left = False
+                self.Damage_right = False
                 if self.x + self.vel == self.start:
                     self.atStart = True
                     self.atEnd = False
@@ -172,11 +192,18 @@ class Zombie(object):
                 self.atEnd = False
                 self.atStart = True
                 self.walkCount = 21
+
     def hit(self):
         if self.x + self.vel < player_rect.x:
             self.Damage_left = False
             self.Damage_right = True
         elif self.x + self.vel > player_rect.x:
+            self.Damage_right = False
+            self.Damage_left = True
+        if self.x + self.vel < arrow.x:
+            self.Damage_left = False
+            self.Damage_right = True
+        elif self.x + self.vel > arrow.x:
             self.Damage_right = False
             self.Damage_left = True
 
@@ -188,20 +215,14 @@ def HitZombie(Zombie, Damage):
         else:
             Zombie.visible = False
         Zombie.hit()
+    if arrow.x < Zombie.hitbox[0] + 40 and arrow.x > Zombie.hitbox[0]:
+        if arrow.y > Zombie.hitbox[1] and arrow.y < Zombie.hitbox[1] + 80:
+            if Zombie.health > 0:
+                Zombie.health -= Damage
+            else:
+                Zombie.visible = False
+            Zombie.hit()
     return Zombie.health
-
-#Arrows
-class Arrow(object):
-    arrow = pygame.image.load("Tex/Blocks/arrow.png")
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-        self.vel = 15
-
-    def draw(self, window):
-        window.blit(self.arrow, (self.x - scroll[0], self.y - scroll[1]))
-
-arrows = []
 
 
 #Map
@@ -397,7 +418,7 @@ screenshake = 0
 #Draw
 player_rect = pygame.Rect(740, 340, width_player, height_player)
 Zombie_1 = Zombie(360, 638, 45, 85, 2, 360, 880)
-Zombie_2 = Zombie(1557, 600, 45, 85, 4, 1557, 1650)
+Zombie_2 = Zombie(1557, 600, 45, 85, 7, 1557, 1650)
 
 while run:
     #Generelt
@@ -447,7 +468,6 @@ while run:
 
     Zombie_2.draw(window)
     # print("Start", {Zombie.atStart}, "Slutt" ,{Zombie.atEnd})
-
     # print(Zombie_1.health)
 
     player_hitbox = pygame.Rect((player_rect.x - scroll[0]) - 4, player_rect.y - scroll[1], 45, 85)
@@ -455,7 +475,7 @@ while run:
     #pygame.draw.rect(window, (255, 0, 0), player_hitbox, 2)
 
     for arrow in arrows:
-        Arrow.draw(window)
+        arrow.draw(window)
 
     #Diamonds - Score
     for d in diamonds:
@@ -558,16 +578,24 @@ while run:
     if left_run == True or left_walk == True or right_walk == True or right_run == True:
         right_punch_2 = left_punch_2 = False
 
-    #Arrow
     for arrow in arrows:
-        if Arrow.x < 500 and Arrow.x > 0:
-            Arrow.x += Arrow.vel
-    if fire and right_arrow == False:
-        if len(arrows) < 1:
-            arrows.append(Arrow(round(player_movement[0] + 45), round(player_movement[1] + 38)))
-        screenshake = 0
+        if arrow.x < Zombie_2.hitbox[0] + 40 and arrow.x > Zombie_2.hitbox[0] and Zombie_2.visible:
+            if arrow.y > Zombie_2.hitbox[1] and arrow.y < Zombie_2.hitbox[1] + 80:
+                HitZombie(Zombie_2, 11)
+                arrows.pop(arrows.index(arrow))
+        if arrow.x < player_hitbox.x + width_window / 2 and arrow.x > player_hitbox.x - width_window / 2:
+            arrow.x += arrow.vel
+        else:
+            arrows.pop(arrows.index(arrow))
+    for arrow in arrows:
+        arrow.draw(window)
 
-
+    if moving_left:
+        facing = -1
+        bullet_from = 5
+    else:
+        facing = 1
+        bullet_from = 60
 
     if left_run == True or left_walk == True or right_walk == True or right_run == True:
         right_arrow = left_arrow = False
@@ -597,11 +625,11 @@ while run:
         air_timer += 1
 
     #Diamonds Collision
-
     for d in diamonds:
         if d.colliderect(player_rect):
             diamonds.remove(d)
             Score += 1
+            arrow_count += 1
             if player_health < 3:
                 player_health += 1
             elif player_health >= 3:
@@ -710,6 +738,10 @@ while run:
     if keys[pygame.K_e] and showTut4:
         showTut4Image = True
 
+    if keys[pygame.K_f] and arrow_count > 0 and (left_arrow == True or right_arrow == True):
+        if len(arrows) < 1:
+            arrows.append(projectile((player_rect.x - scroll[0]) + bullet_from, (player_rect.y - scroll[1]) + 35, facing))
+            arrow_count -= 1
 
     if mouse_buttons[0] and moving_right == True:
         right_punch = True
@@ -819,7 +851,7 @@ while run:
         Load_txt_2 = font.render("LoadPunch: " + str(button_press_time_l or button_press_time_r), 1, (255, 0, 0))
 
     Score_txt = font.render("Score: " + str(Score), 1, (255, 255, 255))
-    Arrow_txt = font_arrow.render(str(Arrows), 1, (255, 255, 255))
+    Arrow_txt = font_arrow.render(str(arrow_count), 1, (255, 255, 255))
     Time_txt = font.render("Time: " + str(current_time), 1, (255,255,255))
     window.blit(Arrow_txt, (481, 456))
     window.blit(Score_txt, (680, 10))
