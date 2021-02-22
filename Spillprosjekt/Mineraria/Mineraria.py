@@ -4,9 +4,11 @@ import pygame, random #Importerer pygame bibliotek
 
 pygame.init()
 
+
 #Sound
-music = pygame.mixer.music.load("Tex/SFX/Pigstep.wav")
-#pygame.mixer.music.play(-1)
+Overground = pygame.mixer.music.load("Tex/SFX/BellHill.mp3")
+Underground = pygame.mixer.music.load("Tex/SFX/Underground.mp3")
+
 
 hitsound = pygame.mixer.Sound("Tex/SFX/hit3.wav")
 hurt = pygame.mixer.Sound("Tex/SFX/classic_hurt.wav")
@@ -17,6 +19,7 @@ bow = pygame.mixer.Sound("Tex/SFX/bow.wav")
 bowload = pygame.mixer.Sound("Tex/SFX/bowload.wav")
 diamondpickup = pygame.mixer.Sound("Tex/SFX/orb.wav")
 click = pygame.mixer.Sound("Tex/SFX/click.wav")
+slimeSound = pygame.mixer.Sound("Tex/SFX/slime.wav")
 
 #Sprites world
 bg = pygame.image.load("Tex/Backgrounds/bg3.png")
@@ -28,12 +31,14 @@ oak_log = pygame.transform.scale(pygame.image.load("Tex/Blocks/oak_log.png"), (4
 glass = pygame.transform.scale(pygame.image.load("Tex/Blocks/glass.png"), (40, 40))
 furnace = pygame.transform.scale(pygame.image.load("Tex/Blocks/furnace_front.png"), (40, 40))
 craftingtable = pygame.transform.scale(pygame.image.load("Tex/Blocks/crafting_table_front.png"), (40, 40))
-#diamondanimation = [pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds00.png"), (32, 32)), pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds01.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds02.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds03.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds04.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds05.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds06.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds07.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds08.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds09.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds10.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds11.png"), (32, 32)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds12.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds13.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds14.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds15.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds16.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds17.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds18.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds19.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds20.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds21.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds22.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds23.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds24.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds25.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds24.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds23.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds22.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds21.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds20.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds19.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds18.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds17.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds16.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds15.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds14.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds13.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds12.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds11.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds10.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds09.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds08.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds07.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds06.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds05.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds04.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds03.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds02.png"), (24, 24)),pygame.transform.scale(pygame.image.load("Tex/Blocks/diamonds/Diamonds01.png"), (24, 24))]
 diamond = pygame.transform.scale(pygame.image.load("Tex/Blocks/diamond.png"), (24, 24))
 arrow_pickup_image = pygame.transform.scale(pygame.image.load("Tex/Blocks/arrow.png"), (24, 24))
 sign = pygame.transform.scale(pygame.image.load("Tex/Blocks/oak_sign.png"), (40, 40))
 bell = pygame.transform.scale(pygame.image.load("Tex/Blocks/bell.png"), (40, 40))
-
+door_top = pygame.transform.scale(pygame.image.load("Tex/Blocks/door_top.png"), (40, 40))
+door_bottom = pygame.transform.scale(pygame.image.load("Tex/Blocks/door_bottom.png"), (40, 40))
+slime = pygame.transform.scale(pygame.image.load("Tex/Blocks/slime.png"), (40, 40))
+dispenser = pygame.transform.scale(pygame.image.load("Tex/Blocks/dispenser.png"), (40, 40))
 
 #GUI
 HeartB = pygame.transform.scale(pygame.image.load("Tex/GUI/HeartB.png"), (27, 27))
@@ -82,24 +87,37 @@ font_arrow = pygame.font.Font("Tex/Fonts/Minecraft.ttf", 18)
 
 #Projectile
 class projectile():
-    def __init__(self,x,y, facing):
+    def __init__(self,x,y, facing_direction):
         self.x = x
         self.y = y
-        self.facing = facing
-        self.vel = 15 * facing
+        self.facing_direction = facing_direction
+        self.vel = 15 * facing_direction
     def draw(self, window):
         arrow_image1 = pygame.image.load("Tex/Blocks/arrow_resized.png")
         arrow_image2 = pygame.image.load("Tex/Blocks/arrow_resized2.png")
-        if facing == -1:
+        if self.facing_direction == -1:
             window.blit(arrow_image2, (self.x, self.y))
         else:
             window.blit(arrow_image1, (self.x, self.y))
 bullet_from = 0
-arrow_count = 0
+arrow_count = 10
 fireable = False
 fireCount = 0
 arrows = []
 
+class dispenser_projectile():
+    def __init__(self,x,y, facing_direction):
+        self.x = x
+        self.y = y
+        self.facing_direction = facing_direction
+        self.vel = 10 * facing_direction
+    def draw(self, window):
+        arrow_image1 = pygame.image.load("Tex/Blocks/arrow_resized.png")
+        arrow_image2 = pygame.image.load("Tex/Blocks/arrow_resized2.png")
+        if self.facing_direction == -1:
+            window.blit(arrow_image2, (self.x - scroll[0], self.y - scroll[1]))
+        else:
+            window.blit(arrow_image1, (self.x - scroll[0], self.y - scroll[1]))
 #Enemy
 class Zombie(object):
     Zombie_Right = [pygame.image.load("Tex/Animations/Zombie/ZR000.png"),pygame.image.load("Tex/Animations/Zombie/ZR001.png"),pygame.image.load("Tex/Animations/Zombie/ZR002.png"),pygame.image.load("Tex/Animations/Zombie/ZR003.png"),pygame.image.load("Tex/Animations/Zombie/ZR004.png"),pygame.image.load("Tex/Animations/Zombie/ZR005.png"),pygame.image.load("Tex/Animations/Zombie/ZR006.png"),pygame.image.load("Tex/Animations/Zombie/ZR007.png"),pygame.image.load("Tex/Animations/Zombie/ZR008.png"),pygame.image.load("Tex/Animations/Zombie/ZR009.png"),pygame.image.load("Tex/Animations/Zombie/ZR010.png"),pygame.image.load("Tex/Animations/Zombie/ZR011.png"),pygame.image.load("Tex/Animations/Zombie/ZR012.png"),pygame.image.load("Tex/Animations/Zombie/ZR013.png"),pygame.image.load("Tex/Animations/Zombie/ZR014.png"),pygame.image.load("Tex/Animations/Zombie/ZR015.png"),pygame.image.load("Tex/Animations/Zombie/ZR016.png"),pygame.image.load("Tex/Animations/Zombie/ZR017.png"),pygame.image.load("Tex/Animations/Zombie/ZR018.png"),pygame.image.load("Tex/Animations/Zombie/ZR019.png"),pygame.image.load("Tex/Animations/Zombie/ZR020.png"),pygame.image.load("Tex/Animations/Zombie/ZR021.png"),pygame.image.load("Tex/Animations/Zombie/ZR022.png"),pygame.image.load("Tex/Animations/Zombie/ZR023.png"),pygame.image.load("Tex/Animations/Zombie/ZR024.png"),pygame.image.load("Tex/Animations/Zombie/ZR025.png"),pygame.image.load("Tex/Animations/Zombie/ZR026.png"),pygame.image.load("Tex/Animations/Zombie/ZR027.png"),pygame.image.load("Tex/Animations/Zombie/ZR028.png"),pygame.image.load("Tex/Animations/Zombie/ZR029.png"),pygame.image.load("Tex/Animations/Zombie/ZR030.png"),pygame.image.load("Tex/Animations/Zombie/ZR031.png"),pygame.image.load("Tex/Animations/Zombie/ZR032.png"),pygame.image.load("Tex/Animations/Zombie/ZR033.png"),pygame.image.load("Tex/Animations/Zombie/ZR034.png"),pygame.image.load("Tex/Animations/Zombie/ZR035.png"),pygame.image.load("Tex/Animations/Zombie/ZR036.png"),pygame.image.load("Tex/Animations/Zombie/ZR037.png"),pygame.image.load("Tex/Animations/Zombie/ZR038.png"),pygame.image.load("Tex/Animations/Zombie/ZR039.png"),pygame.image.load("Tex/Animations/Zombie/ZR040.png"),pygame.image.load("Tex/Animations/Zombie/ZR041.png"),pygame.image.load("Tex/Animations/Zombie/ZR042.png"),pygame.image.load("Tex/Animations/Zombie/ZR043.png"),pygame.image.load("Tex/Animations/Zombie/ZR044.png")]
@@ -307,7 +325,7 @@ def drawGameMap():
         y += 1
 
 #Player:
-width_player = 40
+width_player = 38
 height_player = 80
 walkCount = 0
 standCount = 0
@@ -431,7 +449,6 @@ diamonds = [
     pygame.Rect(2763, 930, 16, 16),
     pygame.Rect(2803, 930, 16, 16),
 
-
 ]
 
 diamondCount = 0
@@ -439,6 +456,7 @@ remove_diamond = False
 diamondFloat = True
 z_1 = 0
 z_2 = 0
+
 #Signs - Tutorials
 signs = [
     pygame.Rect(520, 400, 40, 40),
@@ -457,9 +475,44 @@ showTut4 = False
 showTut4Image = False
 
 #Arrows - pick up
-ARROWS = [
+ARROWS = []
+
+#Doors
+doors = [
+    pygame.Rect(2650, 920, 40, 40),
+    pygame.Rect(1800, 120, 40, 40),
+    pygame.Rect(760, 840, 40, 40),
+
 
 ]
+showDoor1 = False
+Door1_teleport = False
+showDoor2 = False
+Door2_teleport = False
+showDoor3 = False
+Door3_teleport = False
+
+#Slime
+slimes = [
+    pygame.Rect(1400, 920, 40, 40),
+    pygame.Rect(3080, 800, 40, 40),
+    pygame.Rect(3200, 480, 40, 40),
+    pygame.Rect(2760, 400, 40, 40),
+    pygame.Rect(2760, 280, 40, 40),
+    pygame.Rect(2760, 160, 40, 40),
+    pygame.Rect(2120, 280, 40, 40),
+
+
+]
+#Dispenser
+dispensers = [
+    pygame.Rect(2480, 360, 40, 40)
+
+
+]
+
+dispenser_arrows = []
+dispenserCount = 0
 
 #Screen
 Fullscreen = False
@@ -474,6 +527,7 @@ Zombie_3 = Zombie(2480, 598, 45, 85, 3, 2480, 2805)
 
 while run:
     #Generelt
+
     clock.tick(50) #Bilder per sekund
     window.blit(bg, (0,0))
     current_time = int(pygame.time.get_ticks()*1E-3)
@@ -536,6 +590,11 @@ while run:
     print(player_rect.x, player_rect.y)
     #pygame.draw.rect(window, (255, 0, 0), player_hitbox, 2)
 
+    #Doors
+    for D in doors:
+        window.blit(door_top, (D[0] - scroll[0], (D[1] - 40) - scroll[1]))
+        window.blit(door_bottom, (D[0] - scroll[0], D[1] - scroll[1]))
+
     #Diamonds - Score
     for d in diamonds:
         window.blit(diamond, (d[0] - scroll[0], d[1] - scroll[1]))
@@ -547,6 +606,14 @@ while run:
     #Arrows - Pickupable
     for a in ARROWS:
         window.blit(arrow_pickup_image, (a[0] - scroll[0], a[1] - scroll[1]))
+
+    #Slimes
+    for S in slimes:
+        window.blit(slime, (S[0] - scroll[0], S[1] - scroll[1]))
+
+    #Dispensers
+    for I in dispensers:
+        window.blit(dispenser, (I[0] - scroll[0], I[1] - scroll[1]))
 
     #Mouse
     mouse = pygame.mouse.get_pos()
@@ -563,7 +630,6 @@ while run:
         player_movement[0] -= velocity_run
 
     #Player Attacks
-
     #Punching
     if right_punch == True:
         if button_press_time_r < 99:
@@ -645,7 +711,6 @@ while run:
         right_punch_2 = left_punch_2 = False
 
     #Projectiles - Arrows, Bow attack
-
     for arrow in arrows:
         if arrow.x < Zombie_2.hitbox[0] + 40 and arrow.x > Zombie_2.hitbox[0] and Zombie_2.visible:
             if arrow.y > Zombie_2.hitbox[1] and arrow.y < Zombie_2.hitbox[1] + 80:
@@ -655,6 +720,7 @@ while run:
             arrow.x += arrow.vel
         else:
             arrows.pop(arrows.index(arrow))
+
     for arrow in arrows:
         arrow.draw(window)
 
@@ -682,6 +748,29 @@ while run:
         arrowCount_2_l = 40
         fireCount = 0
 
+    #Dispenser - shooting
+    for dispenser_arrow in dispenser_arrows:
+        if dispenser_arrow.x < player_rect.x + 40 and dispenser_arrow.x > player_rect.x:
+            if dispenser_arrow.y > player_rect.y and dispenser_arrow.y < player_rect.y + 80:
+                dispenser_arrows.pop(dispenser_arrows.index(dispenser_arrow))
+                player_health -= 1
+                hitsound.play()
+        if dispenser_arrow.x < 3000:
+            dispenser_arrow.x += dispenser_arrow.vel
+        else:
+            dispenser_arrows.pop(dispenser_arrows.index(dispenser_arrow))
+    for dispenser_arrow in dispenser_arrows:
+        dispenser_arrow.draw(window)
+
+    for dispenserCount in range(0, 10000):
+        if dispenserCount > 5000:
+            if len(dispenser_arrows) < 1 and player_rect.x > 2480 and player_rect.x < 3010 and player_rect.y < 340 and player_rect.y > 200:
+                dispenser_arrows.append(dispenser_projectile(2505, 375, 1))
+                bow.play()
+                dispenserCount = 0
+
+
+
 
     #Gravity - Jumping
     player_movement[1] += player_y_momentum
@@ -691,10 +780,8 @@ while run:
     if player_y_momentum > 3:
         player_y_momentum += 0.1
 
-
     #Collisions Player - World
     player_rect, player_collisions = move(player_rect, player_movement, tile_rects)
-
 
     if player_collisions["bottom"] == True:
         player_y_momentum = 0
@@ -745,6 +832,26 @@ while run:
             showTut2 = False
             showTut3 = False
             showTut4 = False
+
+    #Doors Collision
+    for D in doors:
+        if doors[0].colliderect(player_rect):
+            showDoor1 = True
+        elif doors[1].colliderect(player_rect):
+            showDoor2 = True
+        elif doors[2].colliderect(player_rect):
+            showDoor3 = True
+        else:
+            showDoor1 = False
+            showDoor2 = False
+            showDoor3 = False
+
+    #Slime Collision
+    for S in slimes:
+        if S.colliderect(player_rect):
+            slimeSound.play()
+            airtime = True
+            player_y_momentum = -23
 
 
     #Sprite Animation Player
@@ -851,6 +958,21 @@ while run:
                 click.play()
                 showTut4Image = True
 
+    if keys[pygame.K_e] and showDoor1:
+        Door1_teleport = True
+    else:
+        Door1_teleport = False
+
+    if keys[pygame.K_e] and showDoor2:
+        Door2_teleport = True
+    else:
+        Door2_teleport = False
+
+    if keys[pygame.K_e] and showDoor3:
+        Door3_teleport = True
+    else:
+        Door3_teleport = False
+
     if keys[pygame.K_f] and arrow_count > 0 and (left_arrow == True or right_arrow == True) and fireable:
         if left_arrow == True:
             left_arrow_2 = True
@@ -912,7 +1034,6 @@ while run:
     window.blit(txt_background, (670, 4))
     window.blit(txt_background2, (511, 430))
 
-
     #Player Health
     window.blit(HeartB, (180, 440))
     window.blit(HeartB, (220, 440))
@@ -925,7 +1046,6 @@ while run:
     if player_health >= 1:
         window.blit(HeartR, (180, 440))
 
-
     #Signs
     if showTut1:
         window.blit(E_button, (500 - scroll[0], 405 - scroll[1]))
@@ -935,7 +1055,6 @@ while run:
         window.blit(E_button, (220 - scroll[0], 645 - scroll[1]))
     if showTut4:
         window.blit(E_button, (1165 - scroll[0], 565 - scroll[1]))
-
 
     if showTut1 and showTut1Image:
         window.blit(tutImage1, (220 - scroll[0], 230 - scroll[1]))
@@ -951,6 +1070,27 @@ while run:
         showTut1Image = False
         showTut4Image = False
 
+    #Doors
+    if showDoor1:
+        window.blit(E_button, (2700 - scroll[0], 910 - scroll[1]))
+
+    if showDoor2:
+        window.blit(E_button, (1850 - scroll[0], 110 - scroll[1]))
+
+    if showDoor3:
+        window.blit(E_button, (720 - scroll[0], 830 - scroll[1]))
+
+    if Door1_teleport == True:
+        player_rect.x = 2280
+        player_rect.y = 640
+
+    if Door2_teleport == True:
+        player_rect.x = 240
+        player_rect.y = 800
+
+    if Door3_teleport == True:
+        player_rect.x = 1840
+        player_rect.y = 110
 
     if right_arrow or left_arrow:
         x = 1
@@ -985,6 +1125,5 @@ while run:
         window.blit(Load_txt_2, (520, 440))
         moving_right = False
     pygame.display.update()
-
 
 pygame.quit()
