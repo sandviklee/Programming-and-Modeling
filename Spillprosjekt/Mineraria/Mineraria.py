@@ -1,14 +1,12 @@
 #Mineraria Programmering og Modellering Spill
 
-import pygame, random #Importerer pygame bibliotek
+import pygame, time, random #Importerer pygame bibliotek
 
 pygame.init()
 
-
 #Sound
-Overground = pygame.mixer.music.load("Tex/SFX/BellHill.mp3")
-Underground = pygame.mixer.music.load("Tex/SFX/Underground.mp3")
-
+pygame.mixer.music.load("Tex/SFX/Pigstep.wav")
+pygame.mixer.music.play(-1)
 
 hitsound = pygame.mixer.Sound("Tex/SFX/hit3.wav")
 hurt = pygame.mixer.Sound("Tex/SFX/classic_hurt.wav")
@@ -20,6 +18,17 @@ bowload = pygame.mixer.Sound("Tex/SFX/bowload.wav")
 diamondpickup = pygame.mixer.Sound("Tex/SFX/orb.wav")
 click = pygame.mixer.Sound("Tex/SFX/click.wav")
 slimeSound = pygame.mixer.Sound("Tex/SFX/slime.wav")
+
+#Mainmenu
+background = [pygame.image.load("Tex/MainMenu/gameMenu/gameMenu0.png"), pygame.image.load("Tex/MainMenu/gameMenu/gameMenu1.png"),pygame.image.load("Tex/MainMenu/gameMenu/gameMenu2.png"), pygame.image.load("Tex/MainMenu/gameMenu/gameMenu3.png")]
+button_not_pressed_play = pygame.image.load("Tex/MainMenu/button_not_pressed_play.png")
+button_pressed_play = pygame.image.load("Tex/MainMenu/button_pressed_play.png")
+button_not_pressed_settings = pygame.image.load("Tex/MainMenu/button_not_pressed_settings.png")
+button_pressed_settings = pygame.image.load("Tex/MainMenu/button_pressed_settings.png")
+volume_on = pygame.transform.scale(pygame.image.load("Tex/MainMenu/volumecontrol.png"), (40, 40))
+volume_off = pygame.transform.scale(pygame.image.load("Tex/MainMenu/volumecontrol_off.png"), (40, 40))
+pause = pygame.image.load("Tex/MainMenu/pause.png")
+
 
 #Sprites world
 bg = pygame.image.load("Tex/Backgrounds/bg3.png")
@@ -65,15 +74,13 @@ punchLeft = [pygame.image.load("Tex/Animations/Main character/Attacks/PL000.png"
 arrowRight = [pygame.image.load("Tex/Animations/Main character/Attacks/BR000.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR002.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR002.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR003.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR004.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR005.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR006.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR007.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR008.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR009.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR010.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR011.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR012.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR013.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR014.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR015.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR016.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR017.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR018.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR019.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR020.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR021.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR022.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR023.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR024.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR025.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR026.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR027.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR028.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR029.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR030.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR031.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR032.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR033.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR034.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR035.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR036.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR037.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR038.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BR039.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BRS040.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BRS041.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BRS042.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BRS043.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BRS044.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BRS045.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BRS046.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BRS047.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BRS048.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BRS049.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BRS050.png")]
 arrowLeft = [pygame.image.load("Tex/Animations/Main character/Attacks/BL000.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL001.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL002.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL003.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL004.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL005.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL006.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL007.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL008.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL009.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL010.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL011.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL012.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL013.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL014.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL015.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL016.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL017.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL018.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL019.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL020.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL021.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL022.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL023.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL024.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL025.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL026.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL027.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL028.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL029.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL030.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL031.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL032.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL033.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL034.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL035.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL036.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL037.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL038.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL039.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL040.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL041.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL042.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL043.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL044.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL045.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL046.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL047.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL048.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL049.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL050.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL051.png"), pygame.image.load("Tex/Animations/Main character/Attacks/BL052.png")]
 
-#screen size
+#Screen size
 width_window = 800 #Bredden på vinduet (800 pikeseler)
 height_window = 500 #Høyden på vinduet (500 pikseler)
 
 window_size = (width_window, height_window)
 
 window = pygame.display.set_mode((window_size), pygame.RESIZABLE)
-
-#window = pygame.display.set_mode((0,0), pygame.FULLSCREEN)
 
 pygame.display.set_caption("Mineraria") #Barnavnet
 pygame.display.set_icon(grass)
@@ -100,7 +107,7 @@ class projectile():
         else:
             window.blit(arrow_image1, (self.x, self.y))
 bullet_from = 0
-arrow_count = 10
+arrow_count = 0
 fireable = False
 fireCount = 0
 arrows = []
@@ -339,8 +346,6 @@ arrowCount_l = 0
 arrowCount_2_r = 40
 arrowCount_2_l = 40
 
-
-
 player_x_momentum = 0
 player_y_momentum = 0
 true_scroll = [0, 0]
@@ -456,6 +461,10 @@ remove_diamond = False
 diamondFloat = True
 z_1 = 0
 z_2 = 0
+z_3 = 0
+z_4 = 0
+z_5 = 0
+z_6 = 0
 
 #Signs - Tutorials
 signs = [
@@ -501,14 +510,18 @@ slimes = [
     pygame.Rect(2760, 280, 40, 40),
     pygame.Rect(2760, 160, 40, 40),
     pygame.Rect(2120, 280, 40, 40),
-
-
+    #Inni "Endgame"
+    pygame.Rect(4840, 760, 40, 40),
+    pygame.Rect(5480, 960, 40, 40),
+    pygame.Rect(5680, 640, 40, 40),
+    pygame.Rect(5680, 340, 40, 40),
+    pygame.Rect(6280, 1000, 40, 40),
+    pygame.Rect(6600, 680, 40, 40),
 ]
 #Dispenser
 dispensers = [
-    pygame.Rect(2480, 360, 40, 40)
-
-
+    pygame.Rect(2480, 360, 40, 40),
+    pygame.Rect(3640, 0, 40, 40)
 ]
 
 dispenser_arrows = []
@@ -516,21 +529,134 @@ dispenserCount = 0
 
 #Screen
 Fullscreen = False
-run = True
+run = False
+Mainmenu = True
+Death_screen = False
+pausemenu = False
+
+
 screenshake = 0
+
+mainmenuCount = 0
+
+def draw_text(text, font, color, surface, x, y):
+    textobj = font.render(text, 1, color)
+    textrect = textobj.get_rect()
+    textrect.topleft = (x,y)
+    surface.blit(textobj, textrect)
+
+music_on = True
+click_button = False
+
+def settings():
+    global pausemenu
+    global pause_timer
+    while pausemenu:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    pausemenu = False
+        window.blit(pause, (0,0))
+        pygame.display.update()
+        clock.tick(50)
+
+while Mainmenu:
+    if mainmenuCount + 1 >= 32:
+        mainmenuCount = 0
+
+    window.blit(background[mainmenuCount//8],(0, 0))
+    mainmenuCount += 1
+
+    mx, my = pygame.mouse.get_pos()
+    Play_button = pygame.Rect(205, 240, 398, 38)
+    Settings_button = pygame.Rect(205, 290, 398, 38)
+    Volume_button = pygame.Rect(10, 10, 40, 40)
+
+    window.blit(button_not_pressed_play, (205, 240))
+    window.blit(button_not_pressed_settings, (205, 290))
+    if music_on:
+        window.blit(volume_on, (10, 10))
+    if music_on == False:
+        window.blit(volume_off, (10, 10))
+    if Play_button.collidepoint((mx, my)):
+        window.blit(button_pressed_play, (205, 240))
+        if click_button:
+            run = True
+            Mainmenu = False
+            click.play()
+            pygame.mixer.music.load("Tex/SFX/BellHill.mp3")
+            pygame.mixer.music.play(-1)
+
+    if Settings_button.collidepoint((mx, my)):
+        window.blit(button_pressed_settings, (205, 290))
+        if click_button:
+            click.play()
+            settings()
+            pausemenu = True
+    if Volume_button.collidepoint((mx, my)):
+        if click_button:
+            click.play()
+            if music_on == True:
+                music_on = False
+                pygame.mixer.music.fadeout(1000)
+
+            elif music_on == False:
+                music_on = True
+                pygame.mixer.music.play(-1)
+    click_button = False
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            Mainmenu = False
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                Mainmenu = False
+        if event.type == pygame.VIDEORESIZE:
+            window = pygame.display.set_mode((width_window, height_window))
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                click_button = True
+    pygame.display.update()
+    clock.tick(60)
+
+def player_death():
+    global Death_screen
+    global Mainmenu
+    while Death_screen:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_r:
+                    Mainmenu = True
+
+        window.blit(pause, (0,0))
+        pygame.display.update()
+        clock.tick(50)
+
+
+t_0 = time.time()
+
 
 #Draw
 player_rect = pygame.Rect(740, 340, width_player, height_player)
 Zombie_1 = Zombie(360, 638, 45, 85, 2, 360, 880)
 Zombie_2 = Zombie(1557, 600, 45, 85, 7, 1557, 1650)
-Zombie_3 = Zombie(2480, 598, 45, 85, 3, 2480, 2805)
+Zombie_3 = Zombie(2480, 598, 45, 85, 2, 2480, 2805)
+Zombie_4 = Zombie(3480, 278, 45, 85, 2, 3480, 3805)
+Zombie_5 = Zombie(4145, 478, 45, 85, 1, 4145, 4150)
+Zombie_6 = Zombie(4440, 478, 45, 85, 3, 4440, 4765)
 
 while run:
     #Generelt
-
+    print(Death_screen)
     clock.tick(50) #Bilder per sekund
     window.blit(bg, (0,0))
-    current_time = int(pygame.time.get_ticks()*1E-3)
+    print(time.time())
+    current_time = int(time.time() - t_0)
 
     #Camera
     if follow_player:
@@ -548,6 +674,8 @@ while run:
 
     if player_rect.x < 565:
         true_scroll[0] = 10
+    elif player_rect.x > 7390:
+        true_scroll[0] = 7000
 
     if screenshake > 0:
         screenshake -= 1
@@ -582,12 +710,48 @@ while run:
             else:
                 pass
     Zombie_3.draw(window)
-
-    # print("Start", {Zombie.atStart}, "Slutt" ,{Zombie.atEnd})
-    # print(Zombie_1.health)
+    if Zombie_3.visible == False:
+        for i in range(1):
+            z_3 += 1
+            if z_3 == 1:
+                diamonds.append(pygame.Rect(Zombie_3.x + 35, Zombie_3.y + 50, 16, 16))
+                ARROWS.append(pygame.Rect(Zombie_3.x - 35, Zombie_3.y + 50, 16, 16))
+                ARROWS.append(pygame.Rect(Zombie_3.x, Zombie_3.y + 50, 16, 16))
+            else:
+                pass
+    Zombie_4.draw(window)
+    if Zombie_4.visible == False:
+        for i in range(1):
+            z_4 += 1
+            if z_4 == 1:
+                diamonds.append(pygame.Rect(Zombie_4.x + 35, Zombie_4.y + 50, 16, 16))
+                ARROWS.append(pygame.Rect(Zombie_4.x - 35, Zombie_4.y + 50, 16, 16))
+                ARROWS.append(pygame.Rect(Zombie_4.x, Zombie_4.y + 50, 16, 16))
+            else:
+                pass
+    Zombie_5.draw(window)
+    if Zombie_5.visible == False:
+        for i in range(1):
+            z_5 += 1
+            if z_5 == 1:
+                diamonds.append(pygame.Rect(Zombie_5.x + 35, Zombie_5.y + 50, 16, 16))
+                ARROWS.append(pygame.Rect(Zombie_5.x - 35, Zombie_5.y + 50, 16, 16))
+                ARROWS.append(pygame.Rect(Zombie_5.x, Zombie_5.y + 50, 16, 16))
+            else:
+                pass
+    Zombie_6.draw(window)
+    if Zombie_6.visible == False:
+        for i in range(1):
+            z_6 += 1
+            if z_6 == 1:
+                diamonds.append(pygame.Rect(Zombie_6.x + 35, Zombie_6.y + 50, 16, 16))
+                ARROWS.append(pygame.Rect(Zombie_6.x - 35, Zombie_6.y + 50, 16, 16))
+                ARROWS.append(pygame.Rect(Zombie_6.x, Zombie_6.y + 50, 16, 16))
+            else:
+                pass
 
     player_hitbox = pygame.Rect((player_rect.x - scroll[0]) - 4, player_rect.y - scroll[1], 45, 85)
-    print(player_rect.x, player_rect.y)
+    #print(player_rect.x, player_rect.y)
     #pygame.draw.rect(window, (255, 0, 0), player_hitbox, 2)
 
     #Doors
@@ -614,9 +778,6 @@ while run:
     #Dispensers
     for I in dispensers:
         window.blit(dispenser, (I[0] - scroll[0], I[1] - scroll[1]))
-
-    #Mouse
-    mouse = pygame.mouse.get_pos()
 
     #Player Movement
     player_movement = [0, 0]
@@ -651,6 +812,10 @@ while run:
 
     if impact_mid_r and right_punch == False:
         HitZombie(Zombie_1, 0.5)
+        HitZombie(Zombie_3, 0.5)
+        HitZombie(Zombie_4, 0.5)
+        HitZombie(Zombie_5, 0.5)
+        HitZombie(Zombie_6, 0.5)
         right_punch_2 = True
         player_movement[0] += player_x_momentum
         player_x_momentum += 2
@@ -661,6 +826,10 @@ while run:
 
     if impact_full_r and right_punch == False:
         HitZombie(Zombie_1, 1)
+        HitZombie(Zombie_3, 1)
+        HitZombie(Zombie_4, 1)
+        HitZombie(Zombie_5, 1)
+        HitZombie(Zombie_6, 1)
         right_punch_2 = True
         player_movement[0] += player_x_momentum
         player_x_momentum += 10
@@ -689,6 +858,10 @@ while run:
 
     if impact_mid_l and left_punch == False:
         HitZombie(Zombie_1, 0.5)
+        HitZombie(Zombie_3, 0.5)
+        HitZombie(Zombie_4, 0.5)
+        HitZombie(Zombie_5, 0.5)
+        HitZombie(Zombie_6, 0.5)
         left_punch_2 = True
         player_movement[0] -= player_x_momentum
         player_x_momentum += 2
@@ -699,6 +872,10 @@ while run:
 
     if impact_full_l and left_punch == False:
         HitZombie(Zombie_1, 1)
+        HitZombie(Zombie_3, 1)
+        HitZombie(Zombie_4, 1)
+        HitZombie(Zombie_5, 1)
+        HitZombie(Zombie_6, 1)
         left_punch_2 = True
         player_movement[0] -= player_x_momentum
         player_x_momentum += 10
@@ -715,6 +892,18 @@ while run:
         if arrow.x < Zombie_2.hitbox[0] + 40 and arrow.x > Zombie_2.hitbox[0] and Zombie_2.visible:
             if arrow.y > Zombie_2.hitbox[1] and arrow.y < Zombie_2.hitbox[1] + 80:
                 HitZombieArrow(Zombie_2, 100)
+                arrows.pop(arrows.index(arrow))
+        elif arrow.x < Zombie_3.hitbox[0] + 40 and arrow.x > Zombie_3.hitbox[0] and Zombie_3.visible:
+            if arrow.y > Zombie_3.hitbox[1] and arrow.y < Zombie_3.hitbox[1] + 80:
+                HitZombieArrow(Zombie_3, 2)
+                arrows.pop(arrows.index(arrow))
+        elif arrow.x < Zombie_5.hitbox[0] + 40 and arrow.x > Zombie_5.hitbox[0] and Zombie_5.visible:
+            if arrow.y > Zombie_5.hitbox[1] and arrow.y < Zombie_5.hitbox[1] + 80:
+                HitZombieArrow(Zombie_5, 4)
+                arrows.pop(arrows.index(arrow))
+        elif arrow.x < Zombie_6.hitbox[0] + 40 and arrow.x > Zombie_6.hitbox[0] and Zombie_6.visible:
+            if arrow.y > Zombie_6.hitbox[1] and arrow.y < Zombie_6.hitbox[1] + 80:
+                HitZombieArrow(Zombie_6, 4)
                 arrows.pop(arrows.index(arrow))
         if arrow.x < player_hitbox.x + width_window / 2 and arrow.x > player_hitbox.x - width_window / 2:
             arrow.x += arrow.vel
@@ -755,7 +944,9 @@ while run:
                 dispenser_arrows.pop(dispenser_arrows.index(dispenser_arrow))
                 player_health -= 1
                 hitsound.play()
-        if dispenser_arrow.x < 3000:
+        if dispenser_arrow.x < 3010 and player_rect.x > 2400 and player_rect.x < 3010 and player_rect.y < 340 and player_rect.y > 200:
+            dispenser_arrow.x += dispenser_arrow.vel
+        elif dispenser_arrow.x > 3120 and player_rect.x > 3100 and player_rect.x < 3640 and player_rect.y > -200 and player_rect.y < 100:
             dispenser_arrow.x += dispenser_arrow.vel
         else:
             dispenser_arrows.pop(dispenser_arrows.index(dispenser_arrow))
@@ -764,12 +955,15 @@ while run:
 
     for dispenserCount in range(0, 10000):
         if dispenserCount > 5000:
-            if len(dispenser_arrows) < 1 and player_rect.x > 2480 and player_rect.x < 3010 and player_rect.y < 340 and player_rect.y > 200:
-                dispenser_arrows.append(dispenser_projectile(2505, 375, 1))
-                bow.play()
-                dispenserCount = 0
-
-
+            if len(dispenser_arrows) < 1:
+                if player_rect.x > 2400 and player_rect.x < 3010 and player_rect.y < 340 and player_rect.y > 200:
+                    dispenser_arrows.append(dispenser_projectile(2505, 375, 1))
+                    bow.play()
+                    dispenserCount = 0
+                elif player_rect.x > 3100 and player_rect.x < 3640 and player_rect.y > -200 and player_rect.y < 100:
+                    dispenser_arrows.append(dispenser_projectile(3600, 19, -1))
+                    bow.play()
+                    dispenserCount = 0
 
 
     #Gravity - Jumping
@@ -814,8 +1008,28 @@ while run:
         player_health -= 0.02
         hurt.play(0)
     if player_hitbox.colliderect(Zombie_2.hitbox) and player_x_momentum < 10 and Zombie_2.visible and not Zombie_2.tookDamage:
-        player_health -= 0.06
+        player_health -= 0.1
         hurt.play(0)
+    if player_hitbox.colliderect(Zombie_3.hitbox) and player_x_momentum < 10 and Zombie_3.visible and not Zombie_3.tookDamage:
+        player_health -= 0.02
+        hurt.play(0)
+    if player_hitbox.colliderect(Zombie_4.hitbox) and player_x_momentum < 10 and Zombie_4.visible and not Zombie_4.tookDamage:
+        player_health -= 0.02
+        hurt.play(0)
+    if player_hitbox.colliderect(Zombie_5.hitbox) and player_x_momentum < 10 and Zombie_5.visible and not Zombie_5.tookDamage:
+        player_health -= 0.02
+        hurt.play(0)
+    if player_hitbox.colliderect(Zombie_6.hitbox) and player_x_momentum < 10 and Zombie_6.visible and not Zombie_6.tookDamage:
+        player_health -= 0.02
+        hurt.play(0)
+
+    if player_health <= 1 or player_rect.y > 3000:
+        hurt.play()
+        Death_screen = True
+        pygame.mixer.music.fadeout(1000)
+        pygame.mixer.music.queue("Tex/SFX/Underground.mp3")
+        player_death()
+
 
     #Signs Collision - Player
     for s in signs:
@@ -925,6 +1139,11 @@ while run:
             run = False
         if event.type == pygame.VIDEORESIZE:
             window = pygame.display.set_mode((width_window, height_window))
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                pausemenu = True
+                settings()
+
 
     #Pygame Keys/buttons
     keys = pygame.key.get_pressed()
@@ -1028,6 +1247,7 @@ while run:
         Idle_stand = True
         right_walk = left_walk = right_run = left_run = right_punch = left_punch = sneak = follow_player = False
         walkCount = runCount = 0
+
 
     #Misc/GUI
     window.blit(txt_background, (4, 4))
