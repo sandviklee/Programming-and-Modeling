@@ -25,10 +25,14 @@ button_not_pressed_play = pygame.image.load("Tex/MainMenu/button_not_pressed_pla
 button_pressed_play = pygame.image.load("Tex/MainMenu/button_pressed_play.png")
 button_not_pressed_settings = pygame.image.load("Tex/MainMenu/button_not_pressed_settings.png")
 button_pressed_settings = pygame.image.load("Tex/MainMenu/button_pressed_settings.png")
+button_not_pressed_respawn = pygame.image.load("Tex/MainMenu/button_not_pressed_respawn.png")
+button_pressed_respawn = pygame.image.load("Tex/MainMenu/button_pressed_respawn.png")
+button_not_pressed_quit = pygame.image.load("Tex/MainMenu/button_not_pressed_quit.png")
+button_pressed_quit = pygame.image.load("Tex/MainMenu/button_pressed_quit.png")
 volume_on = pygame.transform.scale(pygame.image.load("Tex/MainMenu/volumecontrol.png"), (40, 40))
 volume_off = pygame.transform.scale(pygame.image.load("Tex/MainMenu/volumecontrol_off.png"), (40, 40))
 pause = pygame.image.load("Tex/MainMenu/pause.png")
-
+Death_screen_image = pygame.image.load("Tex/MainMenu/Deathscreen.png")
 
 #Sprites world
 bg = pygame.image.load("Tex/Backgrounds/bg3.png")
@@ -429,10 +433,71 @@ diamonds = [
     pygame.Rect(128, 252, 16, 16),
     pygame.Rect(88, 252, 16, 16),
     pygame.Rect(48, 252, 16, 16),
-    pygame.Rect(1072, 575, 16, 16),
-    pygame.Rect(1112, 575, 16, 16),
-    pygame.Rect(1152, 575, 16, 16),
-
+    pygame.Rect(1072, 565, 16, 16),
+    pygame.Rect(1112, 565, 16, 16),
+    pygame.Rect(1152, 565, 16, 16),
+    pygame.Rect(1170, 805, 16, 16),
+    pygame.Rect(1210, 808, 16, 16),
+    pygame.Rect(1250, 808, 16, 16),
+    pygame.Rect(1290, 808, 16, 16),
+    pygame.Rect(1890, 730, 16, 16),
+    pygame.Rect(1930, 730, 16, 16),
+    pygame.Rect(1970, 730, 16, 16),
+    pygame.Rect(2525, 370, 40, 40),
+    pygame.Rect(2565, 370, 40, 40),
+    pygame.Rect(2605, 370, 40, 40),
+    pygame.Rect(2645, 370, 40, 40),
+    pygame.Rect(2725, 250, 40, 40),
+    pygame.Rect(2805, 250, 40, 40),
+    pygame.Rect(2485, -35, 40, 40),
+    pygame.Rect(2525, -35, 40, 40),
+    pygame.Rect(2565, -35, 40, 40),
+    pygame.Rect(2243, 250, 40, 40),
+    pygame.Rect(246, 850, 16, 16),
+    pygame.Rect(286, 850, 16, 16),
+    pygame.Rect(326, 850, 16, 16),
+    pygame.Rect(366, 850, 16, 16),
+    pygame.Rect(406, 850, 16, 16),
+    pygame.Rect(446, 850, 16, 16),
+    pygame.Rect(486, 850, 16, 16),
+    pygame.Rect(526, 850, 16, 16),
+    pygame.Rect(566, 850, 16, 16),
+    pygame.Rect(606, 850, 16, 16),
+    pygame.Rect(646, 850, 16, 16),
+    pygame.Rect(880, 1210, 16, 16),
+    pygame.Rect(920, 1210, 16, 16),
+    pygame.Rect(960, 1210, 16, 16),
+    pygame.Rect(1000, 1210, 16, 16),
+    pygame.Rect(3120, -45, 16, 16),
+    pygame.Rect(3200, -45, 16, 16),
+    pygame.Rect(3240, -45, 16, 16),
+    pygame.Rect(3280, -45, 16, 16),
+    pygame.Rect(3320, -45, 16, 16),
+    pygame.Rect(3360, -45, 16, 16),
+    pygame.Rect(3400, -45, 16, 16),
+    pygame.Rect(3440, -45, 16, 16),
+    pygame.Rect(3480, -45, 16, 16),
+    pygame.Rect(3520, -45, 16, 16),
+    pygame.Rect(3560, -45, 16, 16),
+    pygame.Rect(3485, 130, 16, 16),
+    pygame.Rect(3525, 130, 16, 16),
+    pygame.Rect(3565, 130, 16, 16),
+    pygame.Rect(3605, 130, 16, 16),
+    pygame.Rect(3645, 130, 16, 16),
+    pygame.Rect(5084, 730, 16, 16),
+    pygame.Rect(5124, 730, 16, 16),
+    pygame.Rect(5164, 730, 16, 16),
+    pygame.Rect(5883, 490, 16, 16),
+    pygame.Rect(5923, 490, 16, 16),
+    pygame.Rect(5963, 490, 16, 16),
+    pygame.Rect(5445, 250, 16, 16),
+    pygame.Rect(5485, 250, 16, 16),
+    pygame.Rect(5525, 250, 16, 16),
+    pygame.Rect(6043, 930, 16, 16),
+    pygame.Rect(6083, 930, 16, 16),
+    pygame.Rect(6123, 930, 16, 16),
+    pygame.Rect(6844, 570, 16, 16),
+    pygame.Rect(6962, 570, 16, 16),
     #Hard to get
     pygame.Rect(847, -35, 16, 16),
     pygame.Rect(887, -35, 16, 16),
@@ -455,7 +520,6 @@ diamonds = [
     pygame.Rect(2803, 930, 16, 16),
 
 ]
-
 diamondCount = 0
 remove_diamond = False
 diamondFloat = True
@@ -491,8 +555,6 @@ doors = [
     pygame.Rect(2650, 920, 40, 40),
     pygame.Rect(1800, 120, 40, 40),
     pygame.Rect(760, 840, 40, 40),
-
-
 ]
 showDoor1 = False
 Door1_teleport = False
@@ -528,22 +590,16 @@ dispenser_arrows = []
 dispenserCount = 0
 
 #Screen
-Fullscreen = False
 run = False
 Mainmenu = True
 Death_screen = False
 pausemenu = False
-
-
 screenshake = 0
-
 mainmenuCount = 0
 
-def draw_text(text, font, color, surface, x, y):
-    textobj = font.render(text, 1, color)
-    textrect = textobj.get_rect()
-    textrect.topleft = (x,y)
-    surface.blit(textobj, textrect)
+t_dead = 0
+t_mainmenu = 0
+deathcounter = -1
 
 music_on = True
 click_button = False
@@ -563,10 +619,913 @@ def settings():
         pygame.display.update()
         clock.tick(50)
 
+
+#Draw
+player_rect = pygame.Rect(740, 340, width_player, height_player)
+Zombie_1 = Zombie(360, 638, 45, 85, 2, 360, 880)
+Zombie_2 = Zombie(1557, 600, 45, 85, 7, 1557, 1650)
+Zombie_3 = Zombie(2480, 598, 45, 85, 2, 2480, 2805)
+Zombie_4 = Zombie(3480, 278, 45, 85, 2, 3480, 3805)
+Zombie_5 = Zombie(4145, 478, 45, 85, 1, 4145, 4150)
+Zombie_6 = Zombie(4440, 478, 45, 85, 3, 4440, 4765)
+
+def gameLoop():
+    global window
+    global width_window
+    global height_window
+    global screenshake
+    global scroll
+    global tile_rects
+    global Score
+    global player_hitbox
+    global Death_screen
+    global pausemenu
+    global t_dead
+
+    # Player:
+    global player_rect
+    global width_player
+    global height_player
+    global walkCount
+    global standCount
+    global runCount
+    global punchCount_r
+    global punchCount_2_r
+    global punchCount_l
+    global punchCount_2_l
+    global arrowCount_r
+    global arrowCount_l
+    global arrowCount_2_r
+    global arrowCount_2_l
+
+    global player_x_momentum
+    global player_y_momentum
+    global true_scroll
+    global button_press_time_r
+    global button_press_time_l
+    global arrow_hold_r
+    global arrow_hold_l
+    global current_time
+
+    global arrow
+
+    global velocity_walk
+    global velocity_run
+
+    global player_health
+
+    global bullet_from
+    global arrow_count
+    global fireable
+    global fireCount
+    global arrows
+
+    global t_0
+    global current_time
+    global clock
+
+    global run
+
+    # Moving
+    global left_walk
+    global right_walk
+    global right_run
+    global left_run
+    global Idle_stand
+    global moving_right
+    global moving_left
+    global sneak
+
+    # Attacks
+    # punch
+    global right_punch
+    global right_punch_2
+    global left_punch
+    global left_punch_2
+    global impact_full_r
+    global impact_mid_r
+    global impact_full_l
+    global impact_mid_l
+    # arrow
+    global right_arrow
+    global left_arrow
+    global right_arrow_2
+    global left_arrow_2
+    global Arrows
+
+    # Jump
+    global airtime
+    global follow_player
+    global air_timer
+
+    global diamonds
+
+    global diamondCount
+    global remove_diamond
+    global diamondFloat
+    global z_1
+    global z_2
+    global z_3
+    global z_4
+    global z_5
+    global z_6
+
+    global signs
+
+    global showTut1
+    global showTut1Image
+    global showTut2
+    global showTut2Image
+    global showTut3
+    global showTut3Image
+    global showTut4
+    global showTut4Image
+
+    global ARROWS
+
+    global doors
+    global showDoor1
+    global Door1_teleport
+    global showDoor2
+    global Door2_teleport
+    global showDoor3
+    global Door3_teleport
+
+    global slimes
+
+    global dispensers
+
+    global dispenser_arrows
+    global dispenserCount
+
+    while run:
+        #Generelt
+        print(player_rect.x, player_rect.y)
+        clock.tick(50) #Bilder per sekund
+        window.blit(bg, (0,0))
+        current_time = int(time.time() - t_mainmenu)
+
+        #Camera
+        if follow_player:
+            true_scroll[0] += (player_rect.x - true_scroll[0] - (width_window))
+            true_scroll[1] += (player_rect.y - true_scroll[1] - (height_window))
+        else:
+            true_scroll[0] += (player_rect.x - true_scroll[0] - (width_window) / 2) / 20
+            true_scroll[1] += (player_rect.y - true_scroll[1] - (height_window / 2)) / 20
+            scroll = true_scroll.copy()
+            scroll[0] = int(scroll[0])
+            scroll[1] = int(scroll[1])
+
+        if sneak:
+            true_scroll[1] = player_rect.y + 50
+
+        if player_rect.x < 565:
+            true_scroll[0] = 10
+        elif player_rect.x > 7390:
+            true_scroll[0] = 7000
+
+        if screenshake > 0:
+            screenshake -= 1
+        if screenshake:
+            true_scroll[0] += random.randint(0, 2) - 1
+            true_scroll[1] += random.randint(0, 2) - 1
+
+        #GameMap
+        tile_rects = []
+        drawGameMap()
+
+        #Draw
+        Zombie_1.draw(window)
+        if Zombie_1.visible == False:
+            for i in range(1):
+                z_1 += 1
+                if z_1 == 1:
+                    diamonds.append(pygame.Rect(Zombie_1.x + 35, Zombie_1.y + 50, 16, 16))
+                    ARROWS.append(pygame.Rect(Zombie_1.x - 35, Zombie_1.y + 50, 16, 16))
+                    ARROWS.append(pygame.Rect(Zombie_1.x, Zombie_1.y + 50, 16, 16))
+                else:
+                    pass
+        Zombie_2.draw(window)
+        if Zombie_2.visible == False:
+            for i in range(1):
+                z_2 += 1
+                if z_2 == 1:
+                    diamonds.append(pygame.Rect(Zombie_2.x + 35, Zombie_2.y + 50, 16, 16))
+                    ARROWS.append(pygame.Rect(Zombie_2.x - 35, Zombie_2.y + 50, 16, 16))
+                    ARROWS.append(pygame.Rect(Zombie_2.x, Zombie_2.y + 50, 16, 16))
+                else:
+                    pass
+        Zombie_3.draw(window)
+        if Zombie_3.visible == False:
+            for i in range(1):
+                z_3 += 1
+                if z_3 == 1:
+                    diamonds.append(pygame.Rect(Zombie_3.x + 35, Zombie_3.y + 50, 16, 16))
+                    ARROWS.append(pygame.Rect(Zombie_3.x - 35, Zombie_3.y + 50, 16, 16))
+                    ARROWS.append(pygame.Rect(Zombie_3.x, Zombie_3.y + 50, 16, 16))
+                else:
+                    pass
+        Zombie_4.draw(window)
+        if Zombie_4.visible == False:
+            for i in range(1):
+                z_4 += 1
+                if z_4 == 1:
+                    diamonds.append(pygame.Rect(Zombie_4.x + 35, Zombie_4.y + 50, 16, 16))
+                    ARROWS.append(pygame.Rect(Zombie_4.x - 35, Zombie_4.y + 50, 16, 16))
+                    ARROWS.append(pygame.Rect(Zombie_4.x, Zombie_4.y + 50, 16, 16))
+                else:
+                    pass
+        Zombie_5.draw(window)
+        if Zombie_5.visible == False:
+            for i in range(1):
+                z_5 += 1
+                if z_5 == 1:
+                    diamonds.append(pygame.Rect(Zombie_5.x + 35, Zombie_5.y + 50, 16, 16))
+                    ARROWS.append(pygame.Rect(Zombie_5.x - 35, Zombie_5.y + 50, 16, 16))
+                    ARROWS.append(pygame.Rect(Zombie_5.x, Zombie_5.y + 50, 16, 16))
+                else:
+                    pass
+        Zombie_6.draw(window)
+        if Zombie_6.visible == False:
+            for i in range(1):
+                z_6 += 1
+                if z_6 == 1:
+                    diamonds.append(pygame.Rect(Zombie_6.x + 35, Zombie_6.y + 50, 16, 16))
+                    ARROWS.append(pygame.Rect(Zombie_6.x - 35, Zombie_6.y + 50, 16, 16))
+                    ARROWS.append(pygame.Rect(Zombie_6.x, Zombie_6.y + 50, 16, 16))
+                else:
+                    pass
+
+        player_hitbox = pygame.Rect((player_rect.x - scroll[0]) - 4, player_rect.y - scroll[1], 45, 85)
+        #print(player_rect.x, player_rect.y)
+        #pygame.draw.rect(window, (255, 0, 0), player_hitbox, 2)
+
+        #Doors
+        for D in doors:
+            window.blit(door_top, (D[0] - scroll[0], (D[1] - 40) - scroll[1]))
+            window.blit(door_bottom, (D[0] - scroll[0], D[1] - scroll[1]))
+
+        #Diamonds - Score
+        for d in diamonds:
+            window.blit(diamond, (d[0] - scroll[0], d[1] - scroll[1]))
+
+        #Sign - Tutorial
+        for s in signs:
+            window.blit(sign, (s[0] - scroll[0], s[1] - scroll[1]))
+
+        #Arrows - Pickupable
+        for a in ARROWS:
+            window.blit(arrow_pickup_image, (a[0] - scroll[0], a[1] - scroll[1]))
+
+        #Slimes
+        for S in slimes:
+            window.blit(slime, (S[0] - scroll[0], S[1] - scroll[1]))
+
+        #Dispensers
+        for I in dispensers:
+            window.blit(dispenser, (I[0] - scroll[0], I[1] - scroll[1]))
+
+        #Player Movement
+        player_movement = [0, 0]
+        if right_walk:
+            player_movement[0] += velocity_walk
+        if left_walk:
+            player_movement[0] -= velocity_walk
+        if right_run:
+            player_movement[0] += velocity_run
+        if left_run:
+            player_movement[0] -= velocity_run
+
+        #Player Attacks
+        #Punching
+        if right_punch == True:
+            if button_press_time_r < 99:
+                button_press_time_r += 1
+            screenshake = 5
+            if button_press_time_r > 35:
+                left_run = left_walk = right_walk = right_run = False
+                impact_full_r = True
+                punchCount_2_r = 0
+
+            elif button_press_time_r > 20:
+                left_run = left_walk = right_walk = right_run = False
+                impact_mid_r = True
+                punchCount_2_r = 0
+
+        elif right_punch == False:
+            button_press_time_r = 0
+            punchCount_r = 0
+
+        if impact_mid_r and right_punch == False:
+            HitZombie(Zombie_1, 0.5)
+            HitZombie(Zombie_3, 0.5)
+            HitZombie(Zombie_4, 0.5)
+            HitZombie(Zombie_5, 0.5)
+            HitZombie(Zombie_6, 0.5)
+            right_punch_2 = True
+            player_movement[0] += player_x_momentum
+            player_x_momentum += 2
+            left_run = left_walk = right_walk = right_run = False
+            if player_x_momentum > 20:
+                player_x_momentum = 0
+                impact_mid_r = False
+
+        if impact_full_r and right_punch == False:
+            HitZombie(Zombie_1, 1)
+            HitZombie(Zombie_3, 1)
+            HitZombie(Zombie_4, 1)
+            HitZombie(Zombie_5, 1)
+            HitZombie(Zombie_6, 1)
+            right_punch_2 = True
+            player_movement[0] += player_x_momentum
+            player_x_momentum += 10
+            left_run = left_walk = right_walk = right_run = False
+            if player_x_momentum > 40:
+                player_x_momentum = 0
+                impact_full_r = False
+
+        if left_punch == True:
+            if button_press_time_l < 99:
+                button_press_time_l += 1
+            screenshake = 5
+            if button_press_time_l > 35:
+                left_run = left_walk = right_walk = right_run = False
+                impact_full_l = True
+                punchCount_2_l = 0
+
+            elif button_press_time_l > 20:
+                left_run = left_walk = right_walk = right_run = False
+                impact_mid_l = True
+                punchCount_2_l = 0
+
+        elif left_punch == False:
+            button_press_time_l = 0
+            punchCount_l = 0
+
+        if impact_mid_l and left_punch == False:
+            HitZombie(Zombie_1, 0.5)
+            HitZombie(Zombie_3, 0.5)
+            HitZombie(Zombie_4, 0.5)
+            HitZombie(Zombie_5, 0.5)
+            HitZombie(Zombie_6, 0.5)
+            left_punch_2 = True
+            player_movement[0] -= player_x_momentum
+            player_x_momentum += 2
+            left_run = left_walk = right_walk = right_run = False
+            if player_x_momentum > 20:
+                player_x_momentum = 0
+                impact_mid_l = False
+
+        if impact_full_l and left_punch == False:
+            HitZombie(Zombie_1, 1)
+            HitZombie(Zombie_3, 1)
+            HitZombie(Zombie_4, 1)
+            HitZombie(Zombie_5, 1)
+            HitZombie(Zombie_6, 1)
+            left_punch_2 = True
+            player_movement[0] -= player_x_momentum
+            player_x_momentum += 10
+            left_run = left_walk = right_walk = right_run = False
+            if player_x_momentum > 40:
+                player_x_momentum = 0
+                impact_full_l = False
+
+        if left_run == True or left_walk == True or right_walk == True or right_run == True:
+            right_punch_2 = left_punch_2 = False
+
+        #Projectiles - Arrows, Bow attack
+        for arrow in arrows:
+            if arrow.x < Zombie_2.hitbox[0] + 40 and arrow.x > Zombie_2.hitbox[0] and Zombie_2.visible:
+                if arrow.y > Zombie_2.hitbox[1] and arrow.y < Zombie_2.hitbox[1] + 80:
+                    HitZombieArrow(Zombie_2, 100)
+                    arrows.pop(arrows.index(arrow))
+            elif arrow.x < Zombie_3.hitbox[0] + 40 and arrow.x > Zombie_3.hitbox[0] and Zombie_3.visible:
+                if arrow.y > Zombie_3.hitbox[1] and arrow.y < Zombie_3.hitbox[1] + 80:
+                    HitZombieArrow(Zombie_3, 2)
+                    arrows.pop(arrows.index(arrow))
+            elif arrow.x < Zombie_5.hitbox[0] + 40 and arrow.x > Zombie_5.hitbox[0] and Zombie_5.visible:
+                if arrow.y > Zombie_5.hitbox[1] and arrow.y < Zombie_5.hitbox[1] + 80:
+                    HitZombieArrow(Zombie_5, 4)
+                    arrows.pop(arrows.index(arrow))
+            elif arrow.x < Zombie_6.hitbox[0] + 40 and arrow.x > Zombie_6.hitbox[0] and Zombie_6.visible:
+                if arrow.y > Zombie_6.hitbox[1] and arrow.y < Zombie_6.hitbox[1] + 80:
+                    HitZombieArrow(Zombie_6, 4)
+                    arrows.pop(arrows.index(arrow))
+            if arrow.x < player_hitbox.x + width_window / 2 and arrow.x > player_hitbox.x - width_window / 2:
+                arrow.x += arrow.vel
+            else:
+                arrows.pop(arrows.index(arrow))
+
+        for arrow in arrows:
+            arrow.draw(window)
+
+        if left_arrow or right_arrow:
+            fireCount += 1
+            if fireCount >= 30:
+                fireable = True
+            else:
+                fireable = False
+        else:
+            fireCount = 0
+
+        if moving_left:
+            facing = -1
+            bullet_from = 50
+        else:
+            facing = 1
+            bullet_from = 20
+
+        if left_run == True or left_walk == True or right_walk == True or right_run == True:
+            right_arrow = left_arrow = right_arrow_2 = left_arrow_2 = False
+            arrowCount_r = 0
+            arrowCount_l = 0
+            arrowCount_2_r = 40
+            arrowCount_2_l = 40
+            fireCount = 0
+
+        #Dispenser - shooting
+        for dispenser_arrow in dispenser_arrows:
+            if dispenser_arrow.x < player_rect.x + 40 and dispenser_arrow.x > player_rect.x:
+                if dispenser_arrow.y > player_rect.y and dispenser_arrow.y < player_rect.y + 80:
+                    dispenser_arrows.pop(dispenser_arrows.index(dispenser_arrow))
+                    player_health -= 1
+                    hitsound.play()
+            if dispenser_arrow.x < 3010 and player_rect.x > 2400 and player_rect.x < 3010 and player_rect.y < 340 and player_rect.y > 200:
+                dispenser_arrow.x += dispenser_arrow.vel
+            elif dispenser_arrow.x > 3120 and player_rect.x > 3100 and player_rect.x < 3640 and player_rect.y > -200 and player_rect.y < 100:
+                dispenser_arrow.x += dispenser_arrow.vel
+            else:
+                dispenser_arrows.pop(dispenser_arrows.index(dispenser_arrow))
+        for dispenser_arrow in dispenser_arrows:
+            dispenser_arrow.draw(window)
+
+        for dispenserCount in range(0, 10000):
+            if dispenserCount > 5000:
+                if len(dispenser_arrows) < 1:
+                    if player_rect.x > 2400 and player_rect.x < 3010 and player_rect.y < 340 and player_rect.y > 200:
+                        dispenser_arrows.append(dispenser_projectile(2505, 375, 1))
+                        bow.play()
+                        dispenserCount = 0
+                    elif player_rect.x > 3100 and player_rect.x < 3640 and player_rect.y > -200 and player_rect.y < 100:
+                        dispenser_arrows.append(dispenser_projectile(3600, 19, -1))
+                        bow.play()
+                        dispenserCount = 0
+
+        #Gravity - Jumping
+        player_movement[1] += player_y_momentum
+        if airtime:
+            player_y_momentum += 0.9
+
+        if player_y_momentum > 3:
+            player_y_momentum += 0.1
+
+        #Collisions Player - World
+        player_rect, player_collisions = move(player_rect, player_movement, tile_rects)
+
+        if player_collisions["bottom"] == True:
+            player_y_momentum = 0
+            air_timer = 0
+        elif player_collisions["top"] == True:
+            player_y_momentum += 2
+            air_timer += 1
+        else:
+            air_timer += 1
+
+        #Diamonds Collision - Player
+        for d in diamonds:
+            if d.colliderect(player_rect):
+                diamonds.remove(d)
+                Score += 1
+                diamondpickup.play()
+                if player_health < 3:
+                    player_health += 1
+                elif player_health >= 3:
+                    pass
+
+        #ARROW - Player
+        for a in ARROWS:
+            if a.colliderect(player_rect):
+                ARROWS.remove(a)
+                arrow_count += 1
+
+        #Zombie Collision - Player
+        if player_hitbox.colliderect(Zombie_1.hitbox) and player_x_momentum < 10 and Zombie_1.visible and not Zombie_1.tookDamage:
+            player_health -= 0.02
+            hurt.play(0)
+        if player_hitbox.colliderect(Zombie_2.hitbox) and player_x_momentum < 10 and Zombie_2.visible and not Zombie_2.tookDamage:
+            player_health -= 0.1
+            hurt.play(0)
+        if player_hitbox.colliderect(Zombie_3.hitbox) and player_x_momentum < 10 and Zombie_3.visible and not Zombie_3.tookDamage:
+            player_health -= 0.02
+            hurt.play(0)
+        if player_hitbox.colliderect(Zombie_4.hitbox) and player_x_momentum < 10 and Zombie_4.visible and not Zombie_4.tookDamage:
+            player_health -= 0.02
+            hurt.play(0)
+        if player_hitbox.colliderect(Zombie_5.hitbox) and player_x_momentum < 10 and Zombie_5.visible and not Zombie_5.tookDamage:
+            player_health -= 0.02
+            hurt.play(0)
+        if player_hitbox.colliderect(Zombie_6.hitbox) and player_x_momentum < 10 and Zombie_6.visible and not Zombie_6.tookDamage:
+            player_health -= 0.02
+            hurt.play(0)
+
+        if player_health <= 1 or player_rect.y > 3000:
+            hurt.play()
+            pygame.mixer.music.fadeout(1000)
+            pygame.mixer.music.queue("Tex/SFX/Underground.mp3")
+            Death_screen = True
+            run = False
+            player_death()
+
+
+
+
+        #Signs Collision - Player
+        for s in signs:
+            if signs[0].colliderect(player_rect):
+                showTut1 = True
+            elif signs[1].colliderect(player_rect):
+                showTut2 = True
+            elif signs[2].colliderect(player_rect):
+                showTut3 = True
+            elif signs[3].colliderect(player_rect):
+                showTut4 = True
+            else:
+                showTut1 = False
+                showTut2 = False
+                showTut3 = False
+                showTut4 = False
+
+        #Doors Collision
+        for D in doors:
+            if doors[0].colliderect(player_rect):
+                showDoor1 = True
+            elif doors[1].colliderect(player_rect):
+                showDoor2 = True
+            elif doors[2].colliderect(player_rect):
+                showDoor3 = True
+            else:
+                showDoor1 = False
+                showDoor2 = False
+                showDoor3 = False
+
+        #Slime Collision
+        for S in slimes:
+            if S.colliderect(player_rect):
+                slimeSound.play()
+                airtime = True
+                player_y_momentum = -23
+
+
+        #Sprite Animation Player
+        if walkCount + 1 >= 25:
+            walkCount = 0
+        if runCount + 1 >= 25:
+            runCount = 0
+        if standCount + 1 >= 25:
+            standCount = 0
+        if punchCount_r + 1 >= 48:
+            punchCount_r = 48
+        if punchCount_2_r + 1 >= 16:
+            punchCount_2_r = 16
+        if punchCount_l + 1 >= 48:
+            punchCount_l = 48
+        if punchCount_2_l + 1 >= 16:
+            punchCount_2_l = 16
+        if arrowCount_r + 1 >= 40:
+            arrowCount_r = 34
+        if arrowCount_2_r + 1 >= 50:
+            arrowCount_2_r = 50
+        if arrowCount_l + 1 >= 40:
+            arrowCount_l = 34
+        if arrowCount_2_l + 1 >= 52:
+            arrowCount_2_l = 52
+
+
+        if left_walk:
+            window.blit(walkLeft[walkCount//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
+            walkCount += 1
+        elif right_walk:
+            window.blit(walkRight[walkCount//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
+            walkCount += 1
+        elif left_run:
+            window.blit(runLeft[runCount//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
+            runCount += 1
+        elif right_run:
+            window.blit(runRight[runCount//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
+            runCount += 1
+        elif right_punch:
+            window.blit(LoadPunchRight[punchCount_r//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
+            punchCount_r += 1
+        elif left_punch:
+            window.blit(LoadPunchLeft[punchCount_l//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
+            punchCount_l += 1
+        elif right_punch_2:
+            window.blit(punchRight[punchCount_2_r//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
+            punchCount_2_r += 1
+        elif left_punch_2:
+            window.blit(punchLeft[punchCount_2_l//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
+            punchCount_2_l += 1
+        elif right_arrow_2:
+            window.blit(arrowRight[arrowCount_2_r//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
+            arrowCount_2_r += 1
+        elif left_arrow_2:
+            window.blit(arrowLeft[arrowCount_2_l//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
+            arrowCount_2_l += 1
+        elif right_arrow:
+            window.blit(arrowRight[arrowCount_r//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
+            arrowCount_r += 1
+        elif left_arrow:
+            window.blit(arrowLeft[arrowCount_l//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
+            arrowCount_l += 1
+        elif Idle_stand:
+            window.blit(Idle[standCount//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
+            standCount += 1
+
+        #General Pygame
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+            if event.type == pygame.VIDEORESIZE:
+                window = pygame.display.set_mode((width_window, height_window))
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    pausemenu = True
+                    settings()
+
+
+        #Pygame Keys/buttons
+        keys = pygame.key.get_pressed()
+        mouse_buttons = pygame.mouse.get_pressed()
+
+        if keys[pygame.K_SPACE]:
+            airtime = True
+            if air_timer < 6:
+                player_y_momentum = -7
+
+        if keys[pygame.K_e] and showTut1:
+            for i in range(0, 1000):
+                if i > 20 and i < 30:
+                    click.play()
+                    showTut1Image = True
+        if keys[pygame.K_e] and showTut2:
+            for i in range(0, 1000):
+                if i > 20 and i < 30:
+                    click.play()
+                    showTut2Image = True
+
+        if keys[pygame.K_e] and showTut3:
+            for i in range(0, 1000):
+                if i > 20 and i < 30:
+                    click.play()
+                    showTut3Image = True
+
+        if keys[pygame.K_e] and showTut4:
+            for i in range(0, 1000):
+                if i > 20 and i < 30:
+                    click.play()
+                    showTut4Image = True
+
+        if keys[pygame.K_e] and showDoor1:
+            Door1_teleport = True
+        else:
+            Door1_teleport = False
+
+        if keys[pygame.K_e] and showDoor2:
+            Door2_teleport = True
+        else:
+            Door2_teleport = False
+
+        if keys[pygame.K_e] and showDoor3:
+            Door3_teleport = True
+        else:
+            Door3_teleport = False
+
+        if keys[pygame.K_f] and arrow_count > 0 and (left_arrow == True or right_arrow == True) and fireable:
+            if left_arrow == True:
+                left_arrow_2 = True
+                right_arrow_2 = False
+            elif right_arrow == True:
+                right_arrow_2 = True
+                left_arrow_2 = False
+            if len(arrows) < 1:
+                bow.play()
+                arrows.append(projectile((player_rect.x - scroll[0]) + bullet_from, (player_rect.y - scroll[1]) + 35, facing))
+                arrow_count -= 1
+                fireCount = -50000
+
+        if mouse_buttons[0] and moving_right == True:
+            right_punch = True
+            left_run = left_walk = right_walk = right_run = left_punch = right_arrow = left_arrow = sneak = False
+
+        elif mouse_buttons[0] and moving_left == True:
+            left_punch = True
+            left_run = left_walk = right_walk = right_run = right_punch = right_arrow = left_arrow = sneak = False
+
+        elif mouse_buttons[2] and moving_right == True and arrow_count > 0:
+            right_arrow = True
+            bowload.play(0)
+            left_run = left_walk = right_walk = right_run = left_arrow = sneak = False
+
+        elif mouse_buttons[2] and moving_left == True and arrow_count > 0:
+            left_arrow = True
+            bowload.play(0)
+            left_run = left_walk = right_walk = right_run = right_arrow = sneak = False
+
+        elif keys[pygame.K_s]:
+            sneak = True
+            left_run = right_run = left_walk = right_punch = moving_left = moving_right = showTut1Image = showTut2Image = showTut3Image = showTut4Image = False
+
+        elif keys[pygame.K_a] and keys[pygame.K_LSHIFT]:
+            left_run = moving_left = True
+            right_run = left_walk = right_walk = right_punch = moving_right = sneak = False
+
+        elif keys[pygame.K_a]:
+            left_walk = moving_left = True
+            right_walk = left_run = right_run = right_punch = moving_right = sneak = False
+
+        elif keys[pygame.K_LSHIFT] and keys[pygame.K_d]:
+            right_run = moving_right = True
+            left_run = left_walk = right_walk = right_punch = moving_left = sneak = False
+
+        elif keys[pygame.K_d]:
+            right_walk = moving_right = True
+            left_run = right_run = left_walk = right_punch = moving_left = sneak = False
+
+        else:
+            Idle_stand = True
+            right_walk = left_walk = right_run = left_run = right_punch = left_punch = sneak = follow_player = False
+            walkCount = runCount = 0
+
+
+        #Misc/GUI
+        window.blit(txt_background, (4, 4))
+        window.blit(txt_background, (670, 4))
+        window.blit(txt_background2, (511, 430))
+
+        #Player Health
+        window.blit(HeartB, (180, 440))
+        window.blit(HeartB, (220, 440))
+        window.blit(HeartB, (260, 440))
+
+        if player_health >= 3:
+            window.blit(HeartR, (260, 440))
+        if player_health >= 2:
+            window.blit(HeartR, (220, 440))
+        if player_health >= 1:
+            window.blit(HeartR, (180, 440))
+
+        #Signs
+        if showTut1:
+            window.blit(E_button, (500 - scroll[0], 405 - scroll[1]))
+        if showTut2:
+            window.blit(E_button, (180 - scroll[0], 405 - scroll[1]))
+        if showTut3:
+            window.blit(E_button, (220 - scroll[0], 645 - scroll[1]))
+        if showTut4:
+            window.blit(E_button, (1165 - scroll[0], 565 - scroll[1]))
+
+        if showTut1 and showTut1Image:
+            window.blit(tutImage1, (220 - scroll[0], 230 - scroll[1]))
+        elif showTut2 and showTut2Image:
+            window.blit(tutImage2, (220 - scroll[0], 230 - scroll[1]))
+        elif showTut3 and showTut3Image:
+            window.blit(tutImage3, (220 - scroll[0], 430 - scroll[1]))
+        elif showTut4 and showTut4Image:
+            window.blit(tutImage4, (1000 - scroll[0], 290 - scroll[1]))
+        else:
+            showTut3Image = False
+            showTut2Image = False
+            showTut1Image = False
+            showTut4Image = False
+
+        #Doors
+        if showDoor1:
+            window.blit(E_button, (2700 - scroll[0], 910 - scroll[1]))
+
+        if showDoor2:
+            window.blit(E_button, (1850 - scroll[0], 110 - scroll[1]))
+
+        if showDoor3:
+            window.blit(E_button, (720 - scroll[0], 830 - scroll[1]))
+
+        if Door1_teleport == True:
+            player_rect.x = 2280
+            player_rect.y = 640
+
+        if Door2_teleport == True:
+            player_rect.x = 240
+            player_rect.y = 800
+
+        if Door3_teleport == True:
+            player_rect.x = 1840
+            player_rect.y = 110
+
+        if right_arrow or left_arrow:
+            x = 1
+            window.blit(Itembar[x], (320, 420))
+        else:
+            x = 0
+            window.blit(Itembar[x], (320, 420))
+
+        if button_press_time_r < 20:
+            Load_txt = font.render("LoadPunch: " + str(button_press_time_l or button_press_time_r), 1, (255,255,255))
+        elif button_press_time_r > 20 and button_press_time_r < 35:
+            Load_txt = font.render("LoadPunch: " + str(button_press_time_l or button_press_time_r), 1, (255, 0, 0))
+        elif button_press_time_r > 35:
+            Load_txt = font.render("LoadPunch: " + str(button_press_time_l or button_press_time_r), 1, (125, 0, 0))
+        if button_press_time_l < 20:
+            Load_txt_2 = font.render("LoadPunch: " + str(button_press_time_l or button_press_time_r), 1, (255,255,255))
+        elif button_press_time_l > 20 and button_press_time_l < 35:
+            Load_txt_2 = font.render("LoadPunch: " + str(button_press_time_l or button_press_time_r), 1, (255, 0, 0))
+        elif button_press_time_l > 35:
+            Load_txt_2 = font.render("LoadPunch: " + str(button_press_time_l or button_press_time_r), 1, (125, 0, 0))
+
+        Score_txt = font.render("Score: " + str(Score), 1, (255, 255, 255))
+        Arrow_txt = font_arrow.render(str(arrow_count), 1, (255, 255, 255))
+        Time_txt = font.render("Time: " + str(current_time), 1, (255,255,255))
+        window.blit(Arrow_txt, (481, 456))
+        window.blit(Score_txt, (680, 10))
+        window.blit(Time_txt, (10, 10))
+        if moving_right:
+            window.blit(Load_txt, (520, 440))
+            moving_left = False
+        if moving_left:
+            window.blit(Load_txt_2, (520, 440))
+            moving_right = False
+        pygame.display.update()
+
+def player_death():
+    global Death_screen
+    global Mainmenu
+    global run
+    global player_health
+    global player_rect
+    global window
+    global deathcounter
+    global current_time
+    click_button2 = False
+    while Death_screen:
+        current_time = int(time.time() - t_mainmenu)
+        window.blit(Death_screen_image, (0, 0))
+        mx, my = pygame.mouse.get_pos()
+        Respawn_button = pygame.Rect(205, 260, 398, 38)
+        Quit_button = pygame.Rect(205, 330, 398, 38)
+
+        window.blit(button_not_pressed_respawn, (205, 260))
+        window.blit(button_not_pressed_quit, (205, 320))
+
+        if Respawn_button.collidepoint((mx, my)):
+            window.blit(button_pressed_respawn, (205, 260))
+            if click_button2:
+                pygame.mixer.music.fadeout(1000)
+                pygame.mixer.music.queue("Tex/SFX/BellHill.mp3")
+                Death_screen = False
+                click.play()
+                player_health = 3
+                player_rect.x = 740
+                player_rect.y = 340
+                deathcounter += 1
+                run = True
+                gameLoop()
+
+        elif Quit_button.collidepoint((mx, my)):
+            window.blit(button_pressed_quit, (205, 320))
+            if click_button2:
+                click.play()
+                pygame.quit()
+                quit()
+
+        click_button2 = False
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+            if event.type == pygame.VIDEORESIZE:
+                window = pygame.display.set_mode((width_window, height_window))
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click_button2 = True
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_TAB:
+                    Death_screen = False
+                    Mainmenu = True
+                    run = False
+        Score_txt = font.render("Score: " + str(Score), 1, (255, 255, 255))
+        Time_txt = font.render("Time: " + str(current_time), 1, (255,255,255))
+        window.blit(txt_background, (4, 4))
+        window.blit(txt_background, (670, 4))
+        window.blit(Score_txt, (680, 10))
+        window.blit(Time_txt, (10, 10))
+
+        pygame.display.update()
+        clock.tick(50)
+
+
+
 while Mainmenu:
     if mainmenuCount + 1 >= 32:
         mainmenuCount = 0
-
+    t_mainmenu = time.time()
     window.blit(background[mainmenuCount//8],(0, 0))
     mainmenuCount += 1
 
@@ -577,6 +1536,7 @@ while Mainmenu:
 
     window.blit(button_not_pressed_play, (205, 240))
     window.blit(button_not_pressed_settings, (205, 290))
+
     if music_on:
         window.blit(volume_on, (10, 10))
     if music_on == False:
@@ -584,19 +1544,26 @@ while Mainmenu:
     if Play_button.collidepoint((mx, my)):
         window.blit(button_pressed_play, (205, 240))
         if click_button:
-            run = True
+            pygame.mixer.music.fadeout(1000)
+            pygame.mixer.music.queue("Tex/SFX/BellHill.mp3")
             Mainmenu = False
             click.play()
-            pygame.mixer.music.load("Tex/SFX/BellHill.mp3")
-            pygame.mixer.music.play(-1)
+            player_health = 3
+            player_rect.x = 740
+            player_rect.y = 340
+            deathcounter += 1
+            run = True
+            gameLoop()
 
-    if Settings_button.collidepoint((mx, my)):
+
+    elif Settings_button.collidepoint((mx, my)):
         window.blit(button_pressed_settings, (205, 290))
         if click_button:
             click.play()
-            settings()
             pausemenu = True
-    if Volume_button.collidepoint((mx, my)):
+            settings()
+
+    elif Volume_button.collidepoint((mx, my)):
         if click_button:
             click.play()
             if music_on == True:
@@ -606,6 +1573,7 @@ while Mainmenu:
             elif music_on == False:
                 music_on = True
                 pygame.mixer.music.play(-1)
+
     click_button = False
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -620,730 +1588,5 @@ while Mainmenu:
                 click_button = True
     pygame.display.update()
     clock.tick(60)
-
-def player_death():
-    global Death_screen
-    global Mainmenu
-    while Death_screen:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                quit()
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_r:
-                    Mainmenu = True
-
-        window.blit(pause, (0,0))
-        pygame.display.update()
-        clock.tick(50)
-
-
-t_0 = time.time()
-
-
-#Draw
-player_rect = pygame.Rect(740, 340, width_player, height_player)
-Zombie_1 = Zombie(360, 638, 45, 85, 2, 360, 880)
-Zombie_2 = Zombie(1557, 600, 45, 85, 7, 1557, 1650)
-Zombie_3 = Zombie(2480, 598, 45, 85, 2, 2480, 2805)
-Zombie_4 = Zombie(3480, 278, 45, 85, 2, 3480, 3805)
-Zombie_5 = Zombie(4145, 478, 45, 85, 1, 4145, 4150)
-Zombie_6 = Zombie(4440, 478, 45, 85, 3, 4440, 4765)
-
-while run:
-    #Generelt
-    print(Death_screen)
-    clock.tick(50) #Bilder per sekund
-    window.blit(bg, (0,0))
-    print(time.time())
-    current_time = int(time.time() - t_0)
-
-    #Camera
-    if follow_player:
-        true_scroll[0] += (player_rect.x - true_scroll[0] - (width_window))
-        true_scroll[1] += (player_rect.y - true_scroll[1] - (height_window))
-    else:
-        true_scroll[0] += (player_rect.x - true_scroll[0] - (width_window) / 2) / 20
-        true_scroll[1] += (player_rect.y - true_scroll[1] - (height_window / 2)) / 20
-        scroll = true_scroll.copy()
-        scroll[0] = int(scroll[0])
-        scroll[1] = int(scroll[1])
-
-    if sneak:
-        true_scroll[1] = player_rect.y + 50
-
-    if player_rect.x < 565:
-        true_scroll[0] = 10
-    elif player_rect.x > 7390:
-        true_scroll[0] = 7000
-
-    if screenshake > 0:
-        screenshake -= 1
-    if screenshake:
-        true_scroll[0] += random.randint(0, 2) - 1
-        true_scroll[1] += random.randint(0, 2) - 1
-
-    #GameMap
-    tile_rects = []
-    tile_rects_diamond = []
-    drawGameMap()
-
-    #Draw
-    Zombie_1.draw(window)
-    if Zombie_1.visible == False:
-        for i in range(1):
-            z_1 += 1
-            if z_1 == 1:
-                diamonds.append(pygame.Rect(Zombie_1.x + 35, Zombie_1.y + 50, 16, 16))
-                ARROWS.append(pygame.Rect(Zombie_1.x - 35, Zombie_1.y + 50, 16, 16))
-                ARROWS.append(pygame.Rect(Zombie_1.x, Zombie_1.y + 50, 16, 16))
-            else:
-                pass
-    Zombie_2.draw(window)
-    if Zombie_2.visible == False:
-        for i in range(1):
-            z_2 += 1
-            if z_2 == 1:
-                diamonds.append(pygame.Rect(Zombie_2.x + 35, Zombie_2.y + 50, 16, 16))
-                ARROWS.append(pygame.Rect(Zombie_2.x - 35, Zombie_2.y + 50, 16, 16))
-                ARROWS.append(pygame.Rect(Zombie_2.x, Zombie_2.y + 50, 16, 16))
-            else:
-                pass
-    Zombie_3.draw(window)
-    if Zombie_3.visible == False:
-        for i in range(1):
-            z_3 += 1
-            if z_3 == 1:
-                diamonds.append(pygame.Rect(Zombie_3.x + 35, Zombie_3.y + 50, 16, 16))
-                ARROWS.append(pygame.Rect(Zombie_3.x - 35, Zombie_3.y + 50, 16, 16))
-                ARROWS.append(pygame.Rect(Zombie_3.x, Zombie_3.y + 50, 16, 16))
-            else:
-                pass
-    Zombie_4.draw(window)
-    if Zombie_4.visible == False:
-        for i in range(1):
-            z_4 += 1
-            if z_4 == 1:
-                diamonds.append(pygame.Rect(Zombie_4.x + 35, Zombie_4.y + 50, 16, 16))
-                ARROWS.append(pygame.Rect(Zombie_4.x - 35, Zombie_4.y + 50, 16, 16))
-                ARROWS.append(pygame.Rect(Zombie_4.x, Zombie_4.y + 50, 16, 16))
-            else:
-                pass
-    Zombie_5.draw(window)
-    if Zombie_5.visible == False:
-        for i in range(1):
-            z_5 += 1
-            if z_5 == 1:
-                diamonds.append(pygame.Rect(Zombie_5.x + 35, Zombie_5.y + 50, 16, 16))
-                ARROWS.append(pygame.Rect(Zombie_5.x - 35, Zombie_5.y + 50, 16, 16))
-                ARROWS.append(pygame.Rect(Zombie_5.x, Zombie_5.y + 50, 16, 16))
-            else:
-                pass
-    Zombie_6.draw(window)
-    if Zombie_6.visible == False:
-        for i in range(1):
-            z_6 += 1
-            if z_6 == 1:
-                diamonds.append(pygame.Rect(Zombie_6.x + 35, Zombie_6.y + 50, 16, 16))
-                ARROWS.append(pygame.Rect(Zombie_6.x - 35, Zombie_6.y + 50, 16, 16))
-                ARROWS.append(pygame.Rect(Zombie_6.x, Zombie_6.y + 50, 16, 16))
-            else:
-                pass
-
-    player_hitbox = pygame.Rect((player_rect.x - scroll[0]) - 4, player_rect.y - scroll[1], 45, 85)
-    #print(player_rect.x, player_rect.y)
-    #pygame.draw.rect(window, (255, 0, 0), player_hitbox, 2)
-
-    #Doors
-    for D in doors:
-        window.blit(door_top, (D[0] - scroll[0], (D[1] - 40) - scroll[1]))
-        window.blit(door_bottom, (D[0] - scroll[0], D[1] - scroll[1]))
-
-    #Diamonds - Score
-    for d in diamonds:
-        window.blit(diamond, (d[0] - scroll[0], d[1] - scroll[1]))
-
-    #Sign - Tutorial
-    for s in signs:
-        window.blit(sign, (s[0] - scroll[0], s[1] - scroll[1]))
-
-    #Arrows - Pickupable
-    for a in ARROWS:
-        window.blit(arrow_pickup_image, (a[0] - scroll[0], a[1] - scroll[1]))
-
-    #Slimes
-    for S in slimes:
-        window.blit(slime, (S[0] - scroll[0], S[1] - scroll[1]))
-
-    #Dispensers
-    for I in dispensers:
-        window.blit(dispenser, (I[0] - scroll[0], I[1] - scroll[1]))
-
-    #Player Movement
-    player_movement = [0, 0]
-    if right_walk:
-        player_movement[0] += velocity_walk
-    if left_walk:
-        player_movement[0] -= velocity_walk
-    if right_run:
-        player_movement[0] += velocity_run
-    if left_run:
-        player_movement[0] -= velocity_run
-
-    #Player Attacks
-    #Punching
-    if right_punch == True:
-        if button_press_time_r < 99:
-            button_press_time_r += 1
-        screenshake = 5
-        if button_press_time_r > 35:
-            left_run = left_walk = right_walk = right_run = False
-            impact_full_r = True
-            punchCount_2_r = 0
-
-        elif button_press_time_r > 20:
-            left_run = left_walk = right_walk = right_run = False
-            impact_mid_r = True
-            punchCount_2_r = 0
-
-    elif right_punch == False:
-        button_press_time_r = 0
-        punchCount_r = 0
-
-    if impact_mid_r and right_punch == False:
-        HitZombie(Zombie_1, 0.5)
-        HitZombie(Zombie_3, 0.5)
-        HitZombie(Zombie_4, 0.5)
-        HitZombie(Zombie_5, 0.5)
-        HitZombie(Zombie_6, 0.5)
-        right_punch_2 = True
-        player_movement[0] += player_x_momentum
-        player_x_momentum += 2
-        left_run = left_walk = right_walk = right_run = False
-        if player_x_momentum > 20:
-            player_x_momentum = 0
-            impact_mid_r = False
-
-    if impact_full_r and right_punch == False:
-        HitZombie(Zombie_1, 1)
-        HitZombie(Zombie_3, 1)
-        HitZombie(Zombie_4, 1)
-        HitZombie(Zombie_5, 1)
-        HitZombie(Zombie_6, 1)
-        right_punch_2 = True
-        player_movement[0] += player_x_momentum
-        player_x_momentum += 10
-        left_run = left_walk = right_walk = right_run = False
-        if player_x_momentum > 40:
-            player_x_momentum = 0
-            impact_full_r = False
-
-    if left_punch == True:
-        if button_press_time_l < 99:
-            button_press_time_l += 1
-        screenshake = 5
-        if button_press_time_l > 35:
-            left_run = left_walk = right_walk = right_run = False
-            impact_full_l = True
-            punchCount_2_l = 0
-
-        elif button_press_time_l > 20:
-            left_run = left_walk = right_walk = right_run = False
-            impact_mid_l = True
-            punchCount_2_l = 0
-
-    elif left_punch == False:
-        button_press_time_l = 0
-        punchCount_l = 0
-
-    if impact_mid_l and left_punch == False:
-        HitZombie(Zombie_1, 0.5)
-        HitZombie(Zombie_3, 0.5)
-        HitZombie(Zombie_4, 0.5)
-        HitZombie(Zombie_5, 0.5)
-        HitZombie(Zombie_6, 0.5)
-        left_punch_2 = True
-        player_movement[0] -= player_x_momentum
-        player_x_momentum += 2
-        left_run = left_walk = right_walk = right_run = False
-        if player_x_momentum > 20:
-            player_x_momentum = 0
-            impact_mid_l = False
-
-    if impact_full_l and left_punch == False:
-        HitZombie(Zombie_1, 1)
-        HitZombie(Zombie_3, 1)
-        HitZombie(Zombie_4, 1)
-        HitZombie(Zombie_5, 1)
-        HitZombie(Zombie_6, 1)
-        left_punch_2 = True
-        player_movement[0] -= player_x_momentum
-        player_x_momentum += 10
-        left_run = left_walk = right_walk = right_run = False
-        if player_x_momentum > 40:
-            player_x_momentum = 0
-            impact_full_l = False
-
-    if left_run == True or left_walk == True or right_walk == True or right_run == True:
-        right_punch_2 = left_punch_2 = False
-
-    #Projectiles - Arrows, Bow attack
-    for arrow in arrows:
-        if arrow.x < Zombie_2.hitbox[0] + 40 and arrow.x > Zombie_2.hitbox[0] and Zombie_2.visible:
-            if arrow.y > Zombie_2.hitbox[1] and arrow.y < Zombie_2.hitbox[1] + 80:
-                HitZombieArrow(Zombie_2, 100)
-                arrows.pop(arrows.index(arrow))
-        elif arrow.x < Zombie_3.hitbox[0] + 40 and arrow.x > Zombie_3.hitbox[0] and Zombie_3.visible:
-            if arrow.y > Zombie_3.hitbox[1] and arrow.y < Zombie_3.hitbox[1] + 80:
-                HitZombieArrow(Zombie_3, 2)
-                arrows.pop(arrows.index(arrow))
-        elif arrow.x < Zombie_5.hitbox[0] + 40 and arrow.x > Zombie_5.hitbox[0] and Zombie_5.visible:
-            if arrow.y > Zombie_5.hitbox[1] and arrow.y < Zombie_5.hitbox[1] + 80:
-                HitZombieArrow(Zombie_5, 4)
-                arrows.pop(arrows.index(arrow))
-        elif arrow.x < Zombie_6.hitbox[0] + 40 and arrow.x > Zombie_6.hitbox[0] and Zombie_6.visible:
-            if arrow.y > Zombie_6.hitbox[1] and arrow.y < Zombie_6.hitbox[1] + 80:
-                HitZombieArrow(Zombie_6, 4)
-                arrows.pop(arrows.index(arrow))
-        if arrow.x < player_hitbox.x + width_window / 2 and arrow.x > player_hitbox.x - width_window / 2:
-            arrow.x += arrow.vel
-        else:
-            arrows.pop(arrows.index(arrow))
-
-    for arrow in arrows:
-        arrow.draw(window)
-
-    if left_arrow or right_arrow:
-        fireCount += 1
-        if fireCount >= 30:
-            fireable = True
-        else:
-            fireable = False
-    else:
-        fireCount = 0
-
-    if moving_left:
-        facing = -1
-        bullet_from = 50
-    else:
-        facing = 1
-        bullet_from = 20
-
-    if left_run == True or left_walk == True or right_walk == True or right_run == True:
-        right_arrow = left_arrow = right_arrow_2 = left_arrow_2 = False
-        arrowCount_r = 0
-        arrowCount_l = 0
-        arrowCount_2_r = 40
-        arrowCount_2_l = 40
-        fireCount = 0
-
-    #Dispenser - shooting
-    for dispenser_arrow in dispenser_arrows:
-        if dispenser_arrow.x < player_rect.x + 40 and dispenser_arrow.x > player_rect.x:
-            if dispenser_arrow.y > player_rect.y and dispenser_arrow.y < player_rect.y + 80:
-                dispenser_arrows.pop(dispenser_arrows.index(dispenser_arrow))
-                player_health -= 1
-                hitsound.play()
-        if dispenser_arrow.x < 3010 and player_rect.x > 2400 and player_rect.x < 3010 and player_rect.y < 340 and player_rect.y > 200:
-            dispenser_arrow.x += dispenser_arrow.vel
-        elif dispenser_arrow.x > 3120 and player_rect.x > 3100 and player_rect.x < 3640 and player_rect.y > -200 and player_rect.y < 100:
-            dispenser_arrow.x += dispenser_arrow.vel
-        else:
-            dispenser_arrows.pop(dispenser_arrows.index(dispenser_arrow))
-    for dispenser_arrow in dispenser_arrows:
-        dispenser_arrow.draw(window)
-
-    for dispenserCount in range(0, 10000):
-        if dispenserCount > 5000:
-            if len(dispenser_arrows) < 1:
-                if player_rect.x > 2400 and player_rect.x < 3010 and player_rect.y < 340 and player_rect.y > 200:
-                    dispenser_arrows.append(dispenser_projectile(2505, 375, 1))
-                    bow.play()
-                    dispenserCount = 0
-                elif player_rect.x > 3100 and player_rect.x < 3640 and player_rect.y > -200 and player_rect.y < 100:
-                    dispenser_arrows.append(dispenser_projectile(3600, 19, -1))
-                    bow.play()
-                    dispenserCount = 0
-
-
-    #Gravity - Jumping
-    player_movement[1] += player_y_momentum
-    if airtime:
-        player_y_momentum += 0.9
-
-    if player_y_momentum > 3:
-        player_y_momentum += 0.1
-
-    #Collisions Player - World
-    player_rect, player_collisions = move(player_rect, player_movement, tile_rects)
-
-    if player_collisions["bottom"] == True:
-        player_y_momentum = 0
-        air_timer = 0
-    elif player_collisions["top"] == True:
-        player_y_momentum += 2
-        air_timer += 1
-    else:
-        air_timer += 1
-
-    #Diamonds Collision - Player
-    for d in diamonds:
-        if d.colliderect(player_rect):
-            diamonds.remove(d)
-            Score += 1
-            diamondpickup.play()
-            if player_health < 3:
-                player_health += 1
-            elif player_health >= 3:
-                pass
-
-    #ARROW - Player
-    for a in ARROWS:
-        if a.colliderect(player_rect):
-            ARROWS.remove(a)
-            arrow_count += 1
-
-    #Zombie Collision - Player
-    if player_hitbox.colliderect(Zombie_1.hitbox) and player_x_momentum < 10 and Zombie_1.visible and not Zombie_1.tookDamage:
-        player_health -= 0.02
-        hurt.play(0)
-    if player_hitbox.colliderect(Zombie_2.hitbox) and player_x_momentum < 10 and Zombie_2.visible and not Zombie_2.tookDamage:
-        player_health -= 0.1
-        hurt.play(0)
-    if player_hitbox.colliderect(Zombie_3.hitbox) and player_x_momentum < 10 and Zombie_3.visible and not Zombie_3.tookDamage:
-        player_health -= 0.02
-        hurt.play(0)
-    if player_hitbox.colliderect(Zombie_4.hitbox) and player_x_momentum < 10 and Zombie_4.visible and not Zombie_4.tookDamage:
-        player_health -= 0.02
-        hurt.play(0)
-    if player_hitbox.colliderect(Zombie_5.hitbox) and player_x_momentum < 10 and Zombie_5.visible and not Zombie_5.tookDamage:
-        player_health -= 0.02
-        hurt.play(0)
-    if player_hitbox.colliderect(Zombie_6.hitbox) and player_x_momentum < 10 and Zombie_6.visible and not Zombie_6.tookDamage:
-        player_health -= 0.02
-        hurt.play(0)
-
-    if player_health <= 1 or player_rect.y > 3000:
-        hurt.play()
-        Death_screen = True
-        pygame.mixer.music.fadeout(1000)
-        pygame.mixer.music.queue("Tex/SFX/Underground.mp3")
-        player_death()
-
-
-    #Signs Collision - Player
-    for s in signs:
-        if signs[0].colliderect(player_rect):
-            showTut1 = True
-        elif signs[1].colliderect(player_rect):
-            showTut2 = True
-        elif signs[2].colliderect(player_rect):
-            showTut3 = True
-        elif signs[3].colliderect(player_rect):
-            showTut4 = True
-        else:
-            showTut1 = False
-            showTut2 = False
-            showTut3 = False
-            showTut4 = False
-
-    #Doors Collision
-    for D in doors:
-        if doors[0].colliderect(player_rect):
-            showDoor1 = True
-        elif doors[1].colliderect(player_rect):
-            showDoor2 = True
-        elif doors[2].colliderect(player_rect):
-            showDoor3 = True
-        else:
-            showDoor1 = False
-            showDoor2 = False
-            showDoor3 = False
-
-    #Slime Collision
-    for S in slimes:
-        if S.colliderect(player_rect):
-            slimeSound.play()
-            airtime = True
-            player_y_momentum = -23
-
-
-    #Sprite Animation Player
-    if walkCount + 1 >= 25:
-        walkCount = 0
-    if runCount + 1 >= 25:
-        runCount = 0
-    if standCount + 1 >= 25:
-        standCount = 0
-    if punchCount_r + 1 >= 48:
-        punchCount_r = 48
-    if punchCount_2_r + 1 >= 16:
-        punchCount_2_r = 16
-    if punchCount_l + 1 >= 48:
-        punchCount_l = 48
-    if punchCount_2_l + 1 >= 16:
-        punchCount_2_l = 16
-    if arrowCount_r + 1 >= 40:
-        arrowCount_r = 34
-    if arrowCount_2_r + 1 >= 50:
-        arrowCount_2_r = 50
-    if arrowCount_l + 1 >= 40:
-        arrowCount_l = 34
-    if arrowCount_2_l + 1 >= 52:
-        arrowCount_2_l = 52
-
-
-    if left_walk:
-        window.blit(walkLeft[walkCount//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
-        walkCount += 1
-    elif right_walk:
-        window.blit(walkRight[walkCount//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
-        walkCount += 1
-    elif left_run:
-        window.blit(runLeft[runCount//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
-        runCount += 1
-    elif right_run:
-        window.blit(runRight[runCount//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
-        runCount += 1
-    elif right_punch:
-        window.blit(LoadPunchRight[punchCount_r//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
-        punchCount_r += 1
-    elif left_punch:
-        window.blit(LoadPunchLeft[punchCount_l//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
-        punchCount_l += 1
-    elif right_punch_2:
-        window.blit(punchRight[punchCount_2_r//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
-        punchCount_2_r += 1
-    elif left_punch_2:
-        window.blit(punchLeft[punchCount_2_l//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
-        punchCount_2_l += 1
-    elif right_arrow_2:
-        window.blit(arrowRight[arrowCount_2_r//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
-        arrowCount_2_r += 1
-    elif left_arrow_2:
-        window.blit(arrowLeft[arrowCount_2_l//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
-        arrowCount_2_l += 1
-    elif right_arrow:
-        window.blit(arrowRight[arrowCount_r//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
-        arrowCount_r += 1
-    elif left_arrow:
-        window.blit(arrowLeft[arrowCount_l//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
-        arrowCount_l += 1
-    elif Idle_stand:
-        window.blit(Idle[standCount//1], (player_rect.x - scroll[0], player_rect.y - scroll[1]))
-        standCount += 1
-
-    #General Pygame
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            run = False
-        if event.type == pygame.VIDEORESIZE:
-            window = pygame.display.set_mode((width_window, height_window))
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_ESCAPE:
-                pausemenu = True
-                settings()
-
-
-    #Pygame Keys/buttons
-    keys = pygame.key.get_pressed()
-    mouse_buttons = pygame.mouse.get_pressed()
-
-    if keys[pygame.K_SPACE]:
-        airtime = True
-        if air_timer < 6:
-            player_y_momentum = -7
-
-    if keys[pygame.K_e] and showTut1:
-        for i in range(0, 1000):
-            if i > 20 and i < 30:
-                click.play()
-                showTut1Image = True
-    if keys[pygame.K_e] and showTut2:
-        for i in range(0, 1000):
-            if i > 20 and i < 30:
-                click.play()
-                showTut2Image = True
-
-    if keys[pygame.K_e] and showTut3:
-        for i in range(0, 1000):
-            if i > 20 and i < 30:
-                click.play()
-                showTut3Image = True
-
-    if keys[pygame.K_e] and showTut4:
-        for i in range(0, 1000):
-            if i > 20 and i < 30:
-                click.play()
-                showTut4Image = True
-
-    if keys[pygame.K_e] and showDoor1:
-        Door1_teleport = True
-    else:
-        Door1_teleport = False
-
-    if keys[pygame.K_e] and showDoor2:
-        Door2_teleport = True
-    else:
-        Door2_teleport = False
-
-    if keys[pygame.K_e] and showDoor3:
-        Door3_teleport = True
-    else:
-        Door3_teleport = False
-
-    if keys[pygame.K_f] and arrow_count > 0 and (left_arrow == True or right_arrow == True) and fireable:
-        if left_arrow == True:
-            left_arrow_2 = True
-            right_arrow_2 = False
-        elif right_arrow == True:
-            right_arrow_2 = True
-            left_arrow_2 = False
-        if len(arrows) < 1:
-            bow.play()
-            arrows.append(projectile((player_rect.x - scroll[0]) + bullet_from, (player_rect.y - scroll[1]) + 35, facing))
-            arrow_count -= 1
-            fireCount = -50000
-
-    if mouse_buttons[0] and moving_right == True:
-        right_punch = True
-        left_run = left_walk = right_walk = right_run = left_punch = right_arrow = left_arrow = sneak = False
-
-    elif mouse_buttons[0] and moving_left == True:
-        left_punch = True
-        left_run = left_walk = right_walk = right_run = right_punch = right_arrow = left_arrow = sneak = False
-
-    elif mouse_buttons[2] and moving_right == True and arrow_count > 0:
-        right_arrow = True
-        bowload.play(0)
-        left_run = left_walk = right_walk = right_run = left_arrow = sneak = False
-
-    elif mouse_buttons[2] and moving_left == True and arrow_count > 0:
-        left_arrow = True
-        bowload.play(0)
-        left_run = left_walk = right_walk = right_run = right_arrow = sneak = False
-
-    elif keys[pygame.K_s]:
-        sneak = True
-        left_run = right_run = left_walk = right_punch = moving_left = moving_right = showTut1Image = showTut2Image = showTut3Image = showTut4Image = False
-
-    elif keys[pygame.K_a] and keys[pygame.K_LSHIFT]:
-        left_run = moving_left = True
-        right_run = left_walk = right_walk = right_punch = moving_right = sneak = False
-
-    elif keys[pygame.K_a]:
-        left_walk = moving_left = True
-        right_walk = left_run = right_run = right_punch = moving_right = sneak = False
-
-    elif keys[pygame.K_LSHIFT] and keys[pygame.K_d]:
-        right_run = moving_right = True
-        left_run = left_walk = right_walk = right_punch = moving_left = sneak = False
-
-    elif keys[pygame.K_d]:
-        right_walk = moving_right = True
-        left_run = right_run = left_walk = right_punch = moving_left = sneak = False
-
-    else:
-        Idle_stand = True
-        right_walk = left_walk = right_run = left_run = right_punch = left_punch = sneak = follow_player = False
-        walkCount = runCount = 0
-
-
-    #Misc/GUI
-    window.blit(txt_background, (4, 4))
-    window.blit(txt_background, (670, 4))
-    window.blit(txt_background2, (511, 430))
-
-    #Player Health
-    window.blit(HeartB, (180, 440))
-    window.blit(HeartB, (220, 440))
-    window.blit(HeartB, (260, 440))
-
-    if player_health >= 3:
-        window.blit(HeartR, (260, 440))
-    if player_health >= 2:
-        window.blit(HeartR, (220, 440))
-    if player_health >= 1:
-        window.blit(HeartR, (180, 440))
-
-    #Signs
-    if showTut1:
-        window.blit(E_button, (500 - scroll[0], 405 - scroll[1]))
-    if showTut2:
-        window.blit(E_button, (180 - scroll[0], 405 - scroll[1]))
-    if showTut3:
-        window.blit(E_button, (220 - scroll[0], 645 - scroll[1]))
-    if showTut4:
-        window.blit(E_button, (1165 - scroll[0], 565 - scroll[1]))
-
-    if showTut1 and showTut1Image:
-        window.blit(tutImage1, (220 - scroll[0], 230 - scroll[1]))
-    elif showTut2 and showTut2Image:
-        window.blit(tutImage2, (220 - scroll[0], 230 - scroll[1]))
-    elif showTut3 and showTut3Image:
-        window.blit(tutImage3, (220 - scroll[0], 430 - scroll[1]))
-    elif showTut4 and showTut4Image:
-        window.blit(tutImage4, (1000 - scroll[0], 290 - scroll[1]))
-    else:
-        showTut3Image = False
-        showTut2Image = False
-        showTut1Image = False
-        showTut4Image = False
-
-    #Doors
-    if showDoor1:
-        window.blit(E_button, (2700 - scroll[0], 910 - scroll[1]))
-
-    if showDoor2:
-        window.blit(E_button, (1850 - scroll[0], 110 - scroll[1]))
-
-    if showDoor3:
-        window.blit(E_button, (720 - scroll[0], 830 - scroll[1]))
-
-    if Door1_teleport == True:
-        player_rect.x = 2280
-        player_rect.y = 640
-
-    if Door2_teleport == True:
-        player_rect.x = 240
-        player_rect.y = 800
-
-    if Door3_teleport == True:
-        player_rect.x = 1840
-        player_rect.y = 110
-
-    if right_arrow or left_arrow:
-        x = 1
-        window.blit(Itembar[x], (320, 420))
-    else:
-        x = 0
-        window.blit(Itembar[x], (320, 420))
-
-    if button_press_time_r < 20:
-        Load_txt = font.render("LoadPunch: " + str(button_press_time_l or button_press_time_r), 1, (255,255,255))
-    elif button_press_time_r > 20 and button_press_time_r < 35:
-        Load_txt = font.render("LoadPunch: " + str(button_press_time_l or button_press_time_r), 1, (255, 0, 0))
-    elif button_press_time_r > 35:
-        Load_txt = font.render("LoadPunch: " + str(button_press_time_l or button_press_time_r), 1, (125, 0, 0))
-    if button_press_time_l < 20:
-        Load_txt_2 = font.render("LoadPunch: " + str(button_press_time_l or button_press_time_r), 1, (255,255,255))
-    elif button_press_time_l > 20 and button_press_time_l < 35:
-        Load_txt_2 = font.render("LoadPunch: " + str(button_press_time_l or button_press_time_r), 1, (255, 0, 0))
-    elif button_press_time_l > 35:
-        Load_txt_2 = font.render("LoadPunch: " + str(button_press_time_l or button_press_time_r), 1, (125, 0, 0))
-
-    Score_txt = font.render("Score: " + str(Score), 1, (255, 255, 255))
-    Arrow_txt = font_arrow.render(str(arrow_count), 1, (255, 255, 255))
-    Time_txt = font.render("Time: " + str(current_time), 1, (255,255,255))
-    window.blit(Arrow_txt, (481, 456))
-    window.blit(Score_txt, (680, 10))
-    window.blit(Time_txt, (10, 10))
-    if moving_right:
-        window.blit(Load_txt, (520, 440))
-        moving_left = False
-    if moving_left:
-        window.blit(Load_txt_2, (520, 440))
-        moving_right = False
-    pygame.display.update()
 
 pygame.quit()
