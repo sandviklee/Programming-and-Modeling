@@ -396,8 +396,6 @@ def move(rect, movement, tiles):
             collision_types["top"] = True
     return rect, collision_types
 
-player_health = 3
-
 #Moving
 left_walk = False
 right_walk = False
@@ -429,6 +427,9 @@ Arrows = 0
 airtime = True
 follow_player = False
 air_timer = 0
+
+#Health
+player_health = 3
 
 #Score
 diamonds = [
@@ -611,7 +612,7 @@ deathcounter = -1
 music_on = True
 click_button = False
 
-Hoes = len(diamonds)/2
+Hoes = len(diamonds)/2 + 3
 
 #Draw
 player_rect = pygame.Rect(740, 340, width_player, height_player)
@@ -697,14 +698,14 @@ def player_finish():
 
         Score_txt = font.render("Score: " + str(Score), 1, (255, 255, 255))
         Time_txt = font.render("Time: " + str(current_time), 1, (255,255,255))
-        Hoe_txt = font.render("You made: " + str(HoeCount + 3) + " diamond hoe(s) out of " + str(Hoes), 1, (255,255,255))
+        Hoe_txt = font.render("You made: " + str(HoeCount) + " diamond hoe(s) out of " + str(Hoes), 1, (255,255,255))
         Death_txt = font.render("You died: " + str(deathcounter) + " time(s)", 1, (255,0,0))
 
-        window.blit(Death_txt, (290, 450))
+        window.blit(Death_txt, (300, 450))
         window.blit(txt_background, (4, 4))
         window.blit(txt_background, (673, 4))
         window.blit(Score_txt, (680, 10))
-        window.blit(Hoe_txt, (170, 330))
+        window.blit(Hoe_txt, (155, 330))
         window.blit(Time_txt, (10, 10))
 
         pygame.display.update()
@@ -843,7 +844,6 @@ def gameLoop():
 
     while run:
         #Generelt
-        print(player_rect.x, player_rect.y)
         clock.tick(50) #Bilder per sekund
         window.blit(bg, (0,0))
         current_time = int(time.time() - t_mainmenu)
