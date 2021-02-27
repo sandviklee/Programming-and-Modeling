@@ -34,6 +34,10 @@ volume_off = pygame.transform.scale(pygame.image.load("Tex/MainMenu/volumecontro
 pause = pygame.image.load("Tex/MainMenu/pause.png")
 Death_screen_image = pygame.image.load("Tex/MainMenu/Deathscreen.png")
 
+#Finish
+finish_floss = [pygame.image.load("Tex/Animations/Endscreen/Floss0000.png"), pygame.image.load("Tex/Animations/Endscreen/Floss0001.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0002.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0003.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0004.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0005.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0006.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0007.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0008.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0009.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0010.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0011.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0012.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0013.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0014.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0015.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0016.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0017.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0018.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0019.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0020.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0021.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0022.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0023.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0024.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0025.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0026.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0027.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0028.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0029.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0030.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0031.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0032.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0033.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0034.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0035.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0036.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0037.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0038.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0039.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0040.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0041.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0042.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0043.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0044.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0045.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0046.png"),pygame.image.load("Tex/Animations/Endscreen/Floss0047.png")]
+finish_image = pygame.image.load("Tex/MainMenu/Finish.png")
+
 #Sprites world
 bg = pygame.image.load("Tex/Backgrounds/bg3.png")
 grass = pygame.image.load("Tex/Blocks/grass.png")
@@ -129,6 +133,7 @@ class dispenser_projectile():
             window.blit(arrow_image2, (self.x - scroll[0], self.y - scroll[1]))
         else:
             window.blit(arrow_image1, (self.x - scroll[0], self.y - scroll[1]))
+
 #Enemy
 class Zombie(object):
     Zombie_Right = [pygame.image.load("Tex/Animations/Zombie/ZR000.png"),pygame.image.load("Tex/Animations/Zombie/ZR001.png"),pygame.image.load("Tex/Animations/Zombie/ZR002.png"),pygame.image.load("Tex/Animations/Zombie/ZR003.png"),pygame.image.load("Tex/Animations/Zombie/ZR004.png"),pygame.image.load("Tex/Animations/Zombie/ZR005.png"),pygame.image.load("Tex/Animations/Zombie/ZR006.png"),pygame.image.load("Tex/Animations/Zombie/ZR007.png"),pygame.image.load("Tex/Animations/Zombie/ZR008.png"),pygame.image.load("Tex/Animations/Zombie/ZR009.png"),pygame.image.load("Tex/Animations/Zombie/ZR010.png"),pygame.image.load("Tex/Animations/Zombie/ZR011.png"),pygame.image.load("Tex/Animations/Zombie/ZR012.png"),pygame.image.load("Tex/Animations/Zombie/ZR013.png"),pygame.image.load("Tex/Animations/Zombie/ZR014.png"),pygame.image.load("Tex/Animations/Zombie/ZR015.png"),pygame.image.load("Tex/Animations/Zombie/ZR016.png"),pygame.image.load("Tex/Animations/Zombie/ZR017.png"),pygame.image.load("Tex/Animations/Zombie/ZR018.png"),pygame.image.load("Tex/Animations/Zombie/ZR019.png"),pygame.image.load("Tex/Animations/Zombie/ZR020.png"),pygame.image.load("Tex/Animations/Zombie/ZR021.png"),pygame.image.load("Tex/Animations/Zombie/ZR022.png"),pygame.image.load("Tex/Animations/Zombie/ZR023.png"),pygame.image.load("Tex/Animations/Zombie/ZR024.png"),pygame.image.load("Tex/Animations/Zombie/ZR025.png"),pygame.image.load("Tex/Animations/Zombie/ZR026.png"),pygame.image.load("Tex/Animations/Zombie/ZR027.png"),pygame.image.load("Tex/Animations/Zombie/ZR028.png"),pygame.image.load("Tex/Animations/Zombie/ZR029.png"),pygame.image.load("Tex/Animations/Zombie/ZR030.png"),pygame.image.load("Tex/Animations/Zombie/ZR031.png"),pygame.image.load("Tex/Animations/Zombie/ZR032.png"),pygame.image.load("Tex/Animations/Zombie/ZR033.png"),pygame.image.load("Tex/Animations/Zombie/ZR034.png"),pygame.image.load("Tex/Animations/Zombie/ZR035.png"),pygame.image.load("Tex/Animations/Zombie/ZR036.png"),pygame.image.load("Tex/Animations/Zombie/ZR037.png"),pygame.image.load("Tex/Animations/Zombie/ZR038.png"),pygame.image.load("Tex/Animations/Zombie/ZR039.png"),pygame.image.load("Tex/Animations/Zombie/ZR040.png"),pygame.image.load("Tex/Animations/Zombie/ZR041.png"),pygame.image.load("Tex/Animations/Zombie/ZR042.png"),pygame.image.load("Tex/Animations/Zombie/ZR043.png"),pygame.image.load("Tex/Animations/Zombie/ZR044.png")]
@@ -521,8 +526,6 @@ diamonds = [
 
 ]
 diamondCount = 0
-remove_diamond = False
-diamondFloat = True
 z_1 = 0
 z_2 = 0
 z_3 = 0
@@ -555,6 +558,8 @@ doors = [
     pygame.Rect(2650, 920, 40, 40),
     pygame.Rect(1800, 120, 40, 40),
     pygame.Rect(760, 840, 40, 40),
+    pygame.Rect(7520, 560, 40, 40),
+
 ]
 showDoor1 = False
 Door1_teleport = False
@@ -562,6 +567,7 @@ showDoor2 = False
 Door2_teleport = False
 showDoor3 = False
 Door3_teleport = False
+showDoor4 = False
 
 #Slime
 slimes = [
@@ -580,20 +586,21 @@ slimes = [
     pygame.Rect(6280, 1000, 40, 40),
     pygame.Rect(6600, 680, 40, 40),
 ]
+
 #Dispenser
 dispensers = [
     pygame.Rect(2480, 360, 40, 40),
     pygame.Rect(3640, 0, 40, 40)
 ]
-
 dispenser_arrows = []
 dispenserCount = 0
 
 #Screen
-run = False
 Mainmenu = True
+run = False
 Death_screen = False
 pausemenu = False
+finish = False
 screenshake = 0
 mainmenuCount = 0
 
@@ -603,6 +610,17 @@ deathcounter = -1
 
 music_on = True
 click_button = False
+
+Hoes = len(diamonds)/2
+
+#Draw
+player_rect = pygame.Rect(740, 340, width_player, height_player)
+Zombie_1 = Zombie(360, 638, 45, 85, 2, 360, 880)
+Zombie_2 = Zombie(1557, 600, 45, 85, 7, 1557, 1650)
+Zombie_3 = Zombie(2480, 598, 45, 85, 2, 2480, 2805)
+Zombie_4 = Zombie(3480, 278, 45, 85, 2, 3480, 3805)
+Zombie_5 = Zombie(4145, 478, 45, 85, 1, 4145, 4150)
+Zombie_6 = Zombie(4440, 478, 45, 85, 3, 4440, 4765)
 
 def settings():
     global pausemenu
@@ -619,15 +637,78 @@ def settings():
         pygame.display.update()
         clock.tick(50)
 
+def player_finish():
+    global finish
+    global Mainmenu
+    global run
+    global player_health
+    global player_rect
+    global window
+    global deathcounter
+    global current_time
+    global Score
+    global diamonds
+    global Hoes
+    click_button3 = False
+    finishCount = 0
+    HoeCount = 0
 
-#Draw
-player_rect = pygame.Rect(740, 340, width_player, height_player)
-Zombie_1 = Zombie(360, 638, 45, 85, 2, 360, 880)
-Zombie_2 = Zombie(1557, 600, 45, 85, 7, 1557, 1650)
-Zombie_3 = Zombie(2480, 598, 45, 85, 2, 2480, 2805)
-Zombie_4 = Zombie(3480, 278, 45, 85, 2, 3480, 3805)
-Zombie_5 = Zombie(4145, 478, 45, 85, 1, 4145, 4150)
-Zombie_6 = Zombie(4440, 478, 45, 85, 3, 4440, 4765)
+
+
+    while finish:
+        for i in range(0, 100):
+            if i < 100:
+                pygame.mixer.music.queue("Tex/SFX/worldclear.mp3")
+
+        if finishCount + 1 >= 48:
+            finishCount = 0
+
+        if Score > 0:
+            diamondpickup.play()
+            Score -= 1
+            HoeCount += 0.5
+
+        finishCount += 1
+
+        window.blit(finish_image, (0, 0))
+        mx, my = pygame.mouse.get_pos()
+        Quit_button = pygame.Rect(205, 380, 398, 38)
+
+        window.blit(button_not_pressed_quit, (205, 380))
+        window.blit(finish_floss[finishCount // 1], (0, 0))
+
+        if Quit_button.collidepoint((mx, my)):
+            window.blit(button_pressed_quit, (205, 380))
+            if click_button3:
+                click.play()
+                pygame.quit()
+                quit()
+
+        click_button3 = False
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+            if event.type == pygame.VIDEORESIZE:
+                window = pygame.display.set_mode((width_window, height_window))
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click_button3 = True
+
+        Score_txt = font.render("Score: " + str(Score), 1, (255, 255, 255))
+        Time_txt = font.render("Time: " + str(current_time), 1, (255,255,255))
+        Hoe_txt = font.render("You made: " + str(HoeCount + 3) + " diamond hoe(s) out of " + str(Hoes), 1, (255,255,255))
+        Death_txt = font.render("You died: " + str(deathcounter) + " time(s)", 1, (255,0,0))
+
+        window.blit(Death_txt, (290, 450))
+        window.blit(txt_background, (4, 4))
+        window.blit(txt_background, (673, 4))
+        window.blit(Score_txt, (680, 10))
+        window.blit(Hoe_txt, (170, 330))
+        window.blit(Time_txt, (10, 10))
+
+        pygame.display.update()
+        clock.tick(50)
 
 def gameLoop():
     global window
@@ -641,6 +722,7 @@ def gameLoop():
     global Death_screen
     global pausemenu
     global t_dead
+    global finish
 
     # Player:
     global player_rect
@@ -750,6 +832,7 @@ def gameLoop():
     global Door2_teleport
     global showDoor3
     global Door3_teleport
+    global showDoor4
 
     global slimes
 
@@ -1163,10 +1246,13 @@ def gameLoop():
                 showDoor2 = True
             elif doors[2].colliderect(player_rect):
                 showDoor3 = True
+            elif doors[3].colliderect(player_rect):
+                showDoor4 = True
             else:
                 showDoor1 = False
                 showDoor2 = False
                 showDoor3 = False
+                showDoor4 = False
 
         #Slime Collision
         for S in slimes:
@@ -1299,6 +1385,10 @@ def gameLoop():
             Door3_teleport = True
         else:
             Door3_teleport = False
+        if keys[pygame.K_e] and showDoor4:
+            finish = True
+            pygame.mixer.music.fadeout(10)
+            player_finish()
 
         if keys[pygame.K_f] and arrow_count > 0 and (left_arrow == True or right_arrow == True) and fireable:
             if left_arrow == True:
@@ -1359,7 +1449,7 @@ def gameLoop():
 
         #Misc/GUI
         window.blit(txt_background, (4, 4))
-        window.blit(txt_background, (670, 4))
+        window.blit(txt_background, (673, 4))
         window.blit(txt_background2, (511, 430))
 
         #Player Health
@@ -1407,6 +1497,9 @@ def gameLoop():
 
         if showDoor3:
             window.blit(E_button, (720 - scroll[0], 830 - scroll[1]))
+
+        if showDoor4:
+            window.blit(E_button, (7500 - scroll[0], 540 - scroll[1]))
 
         if Door1_teleport == True:
             player_rect.x = 2280
@@ -1513,14 +1606,12 @@ def player_death():
         Score_txt = font.render("Score: " + str(Score), 1, (255, 255, 255))
         Time_txt = font.render("Time: " + str(current_time), 1, (255,255,255))
         window.blit(txt_background, (4, 4))
-        window.blit(txt_background, (670, 4))
+        window.blit(txt_background, (673, 4))
         window.blit(Score_txt, (680, 10))
         window.blit(Time_txt, (10, 10))
 
         pygame.display.update()
         clock.tick(50)
-
-
 
 while Mainmenu:
     if mainmenuCount + 1 >= 32:
