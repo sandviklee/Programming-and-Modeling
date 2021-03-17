@@ -1052,9 +1052,9 @@ def gameLoop():
             HitZombie(Zombie_5, 0.5)
             HitZombie(Zombie_6, 0.5)
             left_punch_2 = True
+            left_run = left_walk = right_walk = right_run = False
             player_movement[0] -= player_x_momentum
             player_x_momentum += 2
-            left_run = left_walk = right_walk = right_run = False
             if player_x_momentum > 20:
                 player_x_momentum = 0
                 impact_mid_l = False
@@ -1066,9 +1066,9 @@ def gameLoop():
             HitZombie(Zombie_5, 1)
             HitZombie(Zombie_6, 1)
             left_punch_2 = True
+            left_run = left_walk = right_walk = right_run = False
             player_movement[0] -= player_x_momentum
             player_x_momentum += 10
-            left_run = left_walk = right_walk = right_run = False
             if player_x_momentum > 40:
                 player_x_momentum = 0
                 impact_full_l = False
