@@ -1,0 +1,5 @@
+file 'file:C:/Users/Simon Sandvik Lee/Documents/GitHub/Programmering-og-modellering/Manim/media/videos/tmpy8l8wiub/720p30/partial_movie_files/PointMovingOnShapes/00000.mp4'
+file 'file:C:/Users/Simon Sandvik Lee/Documents/GitHub/Programmering-og-modellering/Manim/media/videos/tmpy8l8wiub/720p30/partial_movie_files/PointMovingOnShapes/00001.mp4'
+file 'file:C:/Users/Simon Sandvik Lee/Documents/GitHub/Programmering-og-modellering/Manim/media/videos/tmpy8l8wiub/720p30/partial_movie_files/PointMovingOnShapes/00002.mp4'
+file 'file:C:/Users/Simon Sandvik Lee/Documents/GitHub/Programmering-og-modellering/Manim/media/videos/tmpy8l8wiub/720p30/partial_movie_files/PointMovingOnShapes/00003.mp4'
+file 'file:C:/Users/Simon Sandvik Lee/Documents/GitHub/Programmering-og-modellering/Manim/media/videos/tmpy8l8wiub/720p30/partial_movie_files/PointMovingOnShapes/00004.mp4'
